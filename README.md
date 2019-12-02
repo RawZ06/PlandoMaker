@@ -14,11 +14,11 @@ You will find more about the randomizer following this [link](https://ootrandomi
 As I said, there is a Randomizer that, well, randomizes item locations. The Plandomizer is a functionality added by the devs of the Randomizer which permits setting a specific location for specific items. You can, for example, set the location of the Kokiri Sword in the Kokiri Sword Chest. Or on Twinrova's Heart Container drop. Or in the Great Fairy's Fountain that is on the top of DMT. Or anywhere.
 
 Quoted from [this link](https://ootrandomizer.com/plandoMaker) (all credits to ootrandomizer.com):
-# What is the OoTR Plandomizer?
+What is the OoTR Plandomizer?
 - Plando allows you to have total control over item placement.
 - You can place a specific item on any location and locations not specified will be filled following the normal algorithm.
 - You can also specify the settings that the algorithm follows after taking your item placement into consideration, what items Link starts with, what items are in the item pool, which dungeons are vanilla or MQ, which trials are active, and where entrances lead to.
-# How to Plando:
+How to Plando:
 - Use the Plandomizer below to create an OoT Randomizer plandomizer file with your preferred settings, locations, hints shenanigans
 - Most aspects of an OoTR Seed are completely customizable here. Everything not defined will still be randomized by the randomizer.
 - Please note that the plandomizer is not verifying most of your settings, so it is still possible that the randomizer will reject your file if the settings do not fit with logic.
