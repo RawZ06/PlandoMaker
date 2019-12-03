@@ -4,13 +4,13 @@
 		<br>
 		<h3>Todo list*</h3>
 		<ul>
-
+			<li>Customization gossip hints</li>
 		</ul>
 		<br>
 		<br>
 		<h3>VERSION 2.1.2<span class="badge badge-danger">New</span></h3>
 		<ul>
-			<li>Customization gossip hints</li>
+			<li>New design for all select</li>
 			<li>Customization hash seed</li>
 		</ul>
 		<h3>VERSION 2.1.1</h3>
