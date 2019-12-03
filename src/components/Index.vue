@@ -40,16 +40,16 @@
                         Hash<span class="badge badge-danger">New</span>
                     </div>
                 </div>
-                <div>
-                    <div class="list-group-item list-group-item-action active" v-if="group_area.group_area_id == 0 && current_area == -2"
-                         v-on:click="changeArea(-2)">
-                        Gossip<span class="badge badge-danger">New</span>
-                    </div>
-                    <div class="list-group-item list-group-item-action" v-else-if="group_area.group_area_id == 0"
-                         v-on:click="changeArea(-2)">
-                        Gossip<span class="badge badge-danger">New</span>
-                    </div>
-                </div>
+<!--                <div>-->
+<!--                    <div class="list-group-item list-group-item-action active" v-if="group_area.group_area_id == 0 && current_area == -2"-->
+<!--                         v-on:click="changeArea(-2)">-->
+<!--                        Gossip<span class="badge badge-danger">New</span>-->
+<!--                    </div>-->
+<!--                    <div class="list-group-item list-group-item-action" v-else-if="group_area.group_area_id == 0"-->
+<!--                         v-on:click="changeArea(-2)">-->
+<!--                        Gossip<span class="badge badge-danger">New</span>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
             <div class="container">
                 <div
