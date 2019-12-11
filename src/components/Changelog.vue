@@ -7,12 +7,14 @@
 			<li>Customization gossip hints</li>
 		</ul>
 		<br>
-		<br>
-		<h3>VERSION 2.1.3<span class="badge badge-danger">New</span></h3>
+		<h3>VERSION 2.2.0<span class="badge badge-danger">New</span></h3>
 		<ul>
-			<li>Add About page :
-				<router-link class="link" to="/about">Click here</router-link>
-			</li>
+			<li>Reworking css for responsiveness</li>
+			<li>This website can be used on mobile/tablet, it's responsive</li>
+		</ul>
+		<h3>VERSION 2.1.3</h3>
+		<ul>
+			<li>Add About page</li>
 			<li>Fix bottom buttons position</li>
 		</ul>
 		<h3>VERSION 2.1.2</h3>
