@@ -33,11 +33,11 @@
                 <div>
                     <div class="list-group-item list-group-item-action active" v-if="group_area.group_area_id == 0 && current_area == -1"
                          v-on:click="changeArea(-1)">
-                        Hash<span class="badge badge-danger">New</span>
+                        Hash
                     </div>
                     <div class="list-group-item list-group-item-action" v-else-if="group_area.group_area_id == 0"
                          v-on:click="changeArea(-1)">
-                        Hash<span class="badge badge-danger">New</span>
+                        Hash
                     </div>
                 </div>
 <!--                <div>-->
@@ -177,7 +177,7 @@
                 </div>
             </div>
         </div>
-        <div class="bottom">
+        <div class="bottom" id="footer">
             <div class="d-inline-block">
                 <input accept="application/JSON" id="upload" type="file" v-on:change="take_json_uploaded">
                 <button class="btn btn-primary d-inline-block" v-on:click="upload()">Upload</button>
@@ -197,6 +197,41 @@
     import $ from 'jquery'
     import gossip_list from '../stores/gossip_list'
     import gossip_hint from '../stores/gossip_hint'
+
+    // The debounce function receives our function as a parameter
+    const debounce = (fn) => {
+        // This holds the requestAnimationFrame reference, so we can cancel it if we wish
+        let frame;
+
+        // The debounce function returns a new function that can receive a variable number of arguments
+        return (...params) => {
+
+            // If the frame variable has been defined, clear it now, and queue for next frame
+            if (frame) {
+                cancelAnimationFrame(frame);
+            }
+
+            // Queue our function call for the next frame
+            frame = requestAnimationFrame(() => {
+                // Call our function and pass any params we received
+                fn(...params);
+            });
+
+        }
+    };
+
+    // Reads out the scroll position and stores it in the data attribute
+    // so we can use it in our stylesheets
+    const storeScroll = () => {
+        if(window.scrollY > 0){
+            document.getElementById('footer').style.bottom='-4%';
+        }else{
+            document.getElementById('footer').style.bottom='5%';
+        }
+    }
+
+    // Listen for new scroll events, here we debounce our `storeScroll` function
+    document.addEventListener('scroll', debounce(storeScroll), { passive: true });
 
     export default {
         name: "Index",

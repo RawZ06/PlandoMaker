@@ -1,11 +1,12 @@
 <template>
     <header>
         <div class="title">Plandomizer</div>
-		<small>v.2.1.2 Release</small>
+		<small>v.2.1.3 Release</small>
         <small> - By RawZ</small>
         <div class="links">
             <router-link class="link" to="/">Home</router-link>
-			 <router-link class="link" to="/changelog">Changelog</router-link>
+            <router-link class="link" to="/about">About</router-link><span class="badge badge-danger">New</span>
+			<router-link class="link" to="/changelog">Changelog</router-link>
         </div>
     </header>
 </template>
