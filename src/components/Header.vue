@@ -43,7 +43,6 @@ export default {
         box-shadow: 2px 2px 2px rgb(228, 228, 228);
 		display: flex !important;
 		flex-direction: column;
-		/*justify-content: space-between;*/
     }
 
 	.links {
