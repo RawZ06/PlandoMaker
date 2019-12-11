@@ -33,11 +33,11 @@
                 <div>
                     <div class="list-group-item list-group-item-action active" v-if="group_area.group_area_id == 0 && current_area == -1"
                          v-on:click="changeArea(-1)">
-                        Hash<span class="badge badge-danger">New</span>
+                        Hash
                     </div>
                     <div class="list-group-item list-group-item-action" v-else-if="group_area.group_area_id == 0"
                          v-on:click="changeArea(-1)">
-                        Hash<span class="badge badge-danger">New</span>
+                        Hash
                     </div>
                 </div>
 <!--                <div>-->
@@ -205,9 +205,9 @@
 
         // The debounce function returns a new function that can receive a variable number of arguments
         return (...params) => {
-            
+
             // If the frame variable has been defined, clear it now, and queue for next frame
-            if (frame) { 
+            if (frame) {
                 cancelAnimationFrame(frame);
             }
 
@@ -217,7 +217,7 @@
                 fn(...params);
             });
 
-        } 
+        }
     };
 
     // Reads out the scroll position and stores it in the data attribute
