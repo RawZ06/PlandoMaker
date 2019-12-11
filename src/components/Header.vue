@@ -5,7 +5,8 @@
         <small> - By RawZ</small>
         <div class="links">
             <router-link class="link" to="/">Home</router-link>
-			 <router-link class="link" to="/changelog">Changelog</router-link>
+            <router-link class="link" to="/about">About</router-link>
+			<router-link class="link" to="/changelog">Changelog</router-link>
         </div>
     </header>
 </template>
