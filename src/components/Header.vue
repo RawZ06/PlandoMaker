@@ -26,7 +26,7 @@
 				links.classList.remove('hide');
 			}
 		}, false);
-	}
+	};
 
 export default {
     name: 'Header'
