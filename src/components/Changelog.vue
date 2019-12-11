@@ -7,6 +7,10 @@
 			<li>Customization gossip hints</li>
 		</ul>
 		<br>
+		<h3>VERSION 2.2.1<span class="badge badge-danger">New</span></h3>
+		<ul>
+			<li>Fix menu position, it was not same result as local</li>
+		</ul>
 		<h3>VERSION 2.2.0<span class="badge badge-danger">New</span></h3>
 		<ul>
 			<li>Reworking css for responsiveness</li>

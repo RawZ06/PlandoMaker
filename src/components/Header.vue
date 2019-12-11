@@ -2,7 +2,7 @@
     <header>
 		<div class="title-version">
 			<div class="title">Plandomizer</div>
-			<small>v.2.2.0 Release - By RawZ</small>
+			<small>v.2.2.1 Release - By RawZ</small>
 			<div title="Menu" class="c-icon c-icon-burger"><span> </span></div>
 		</div>
         <div class="links hide">
@@ -41,9 +41,8 @@ export default {
 		text-align: center;
         background: rgb(218, 218, 218);
         box-shadow: 2px 2px 2px rgb(228, 228, 228);
-		display: flex;
+		display: flex !important;
 		flex-direction: column;
-		/*justify-content: space-between;*/
     }
 
 	.links {
