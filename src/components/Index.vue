@@ -7,7 +7,7 @@
 					<div class="group"
 						 v-bind:key="group.group_area_id"
 						 v-for="group in map.groups_area">
-						<div class="list-group-item list-group-item-action active" v-if="group.name == group_area.name"
+						<div class="list-group-item list-group-item-action active" v-if="group.name === group_area.name"
 							 v-on:click="changeGroup(group)">
 							{{group.name}}
 						</div>
@@ -25,7 +25,7 @@
 						v-for="area in group_area.areas"
 					>
 						<div class="list-group-item list-group-item-action active"
-							 v-if="current_area != null && area.name == current_area.name"
+							 v-if="current_area != null && area.name === current_area.name"
 							 v-on:click="changeArea(area)">
 							{{area.name}}
 						</div>
@@ -35,11 +35,11 @@
 					</div>
 					<div>
 						<div class="list-group-item list-group-item-action active"
-							 v-if="group_area.group_area_id == 0 && current_area == -1"
+							 v-if="group_area.group_area_id === 0 && current_area === -1"
 							 v-on:click="changeArea(-1)">
 							Hash
 						</div>
-						<div class="list-group-item list-group-item-action" v-else-if="group_area.group_area_id == 0"
+						<div class="list-group-item list-group-item-action" v-else-if="group_area.group_area_id === 0"
 							 v-on:click="changeArea(-1)">
 							Hash
 						</div>
@@ -63,9 +63,9 @@
 						<div class="row border">
 							<div class="location-left"><label :for="location.name">{{location.name}}</label></div>
 							<div class="location-right">
-								<md-field style="width:auto; margin: 0;" v-if="current_area.area_id == 0">
+								<md-field style="width:auto; margin: 0;" v-if="current_area.area_id === 0">
 									<md-select v-model="plando[location.name]">
-										<md-option default value=""></md-option>
+										<md-option default value=""/>
 										<md-option
 											v-bind:key="item.item_id"
 											v-bind:value="item.name"
@@ -74,9 +74,9 @@
 										</md-option>
 									</md-select>
 								</md-field>
-								<md-field style="width:auto; margin: 0;" v-else-if="current_area.area_id == 1">
+								<md-field style="width:auto; margin: 0;" v-else-if="current_area.area_id === 1">
 									<md-select v-model="plando[location.name]">
-										<md-option default value=""></md-option>
+										<md-option default value=""/>
 										<md-option
 											v-bind:key="item.item_id"
 											v-bind:value="item.name"
@@ -88,7 +88,7 @@
 								<md-field style="width:auto; margin: 0;" v-else>
 									<md-select class="selectpicker" data-live-search="true" data-show-subtext="true"
 											   v-model="plando[location.name]">
-										<md-option default value=""></md-option>
+										<md-option default value=""/>
 										<md-optgroup
 											v-bind:key="group_items.group_item_id"
 											v-bind:label="group_items.name"
@@ -104,10 +104,9 @@
 									</md-select>
 								</md-field>
 							</div>
-							<!-- <div class="col"><input v-model="plando[location.name]" class="form-control" :id="location.name" type="text"></div> -->
 						</div>
 					</div>
-					<div v-if="current_area == -1">
+					<div v-if="current_area === -1">
 						<div class="hash_list">
 							<div style="margin: 1%" v-for="i in 5">
 								<img :src="hash_list[hash_code[i-1]]" alt="" class="d-block m-auto"
@@ -116,7 +115,7 @@
 									 v-else>
 								<md-field style="width:auto; margin: 0;">
 									<md-select :id="'hash_' + i" class="selectpicker" v-model="hash_code[i-1]">
-										<md-option default value=""></md-option>
+										<md-option default value=""/>
 										<md-option
 											v-bind:key="hash"
 											v-bind:value="hash"
@@ -128,58 +127,11 @@
 							</div>
 						</div>
 					</div>
-					<div v-else-if="current_area == -2">
-						<div class="m-2">
-							<label>Choose the gossip stone</label>
-							<md-field style="width:auto; margin: 0;">
-								<md-select class="selectpicker" v-model="current_gossip">
-									<md-option
-										v-bind:key="gossip"
-										v-bind:value="gossip"
-										v-for="gossip in gossip_list"
-									>{{gossip}}
-									</md-option>
-								</md-select>
-							</md-field>
-						</div>
-						<div class="m-2">
-							<label>Choose the category</label>
-							<md-field style="width:auto; margin: 0;">
-								<md-select class="selectpicker" v-model="hints[current_gossip]['category']">
-									<md-option value="WOTH">Way of the Hero</md-option>
-									<md-option value="Foolish">Foolish/Barren of Treasure</md-option>
-									<md-option value="Always">Always Hint</md-option>
-									<md-option value="Sometime">Sometime hint</md-option>
-									<md-option value="Other">Custom</md-option>
-								</md-select>
-							</md-field>
-						</div>
-						<div
-							v-if="hints[current_gossip]['category'] === 'WOTH' || hints[current_gossip]['category'] === 'Foolish'">
-							<label>Choose the Area</label>
-							<md-field style="width:auto; margin: 0;">
-								<md-select class="selectpicker" v-model="hints[current_gossip]['area']">
-									<md-option
-										v-bind:key="area"
-										v-bind:value="area"
-										v-for="area in area_list"
-									>{{area}}
-									</md-option>
-								</md-select>
-							</md-field>
-						</div>
-						<div v-if="hints[current_gossip]['category'] === 'Always'">
-							<label>Choose the always hint</label>
-							<md-field style="width:auto; margin: 0;">
-								<md-select class="selectpicker" v-model="hints[current_gossip]['hint']">
-									<md-option value="30skull">30 Gold Skulltulas</md-option>
-									<md-option value="40skull">40 Gold Skulltulas</md-option>
-									<md-option value="50skull">50 Gold Skulltulas</md-option>
-									<md-option value="BGS">Biggoron</md-option>
-									<md-option value="Skull Mask">Skull Mask</md-option>
-									<md-option value="frogs">Frogs</md-option>
-									<md-option value="OoT">OoT</md-option>
-								</md-select>
+					<div v-else-if="current_area === -2">
+						<div>
+							<md-field>
+								<label>Textarea with Autogrow</label>
+								<md-textarea v-model="autogrow" md-autogrow/>
 							</md-field>
 						</div>
 					</div>
@@ -204,8 +156,9 @@
 	import hash_list from '../stores/hash_list'
 	import 'bootstrap-select'
 	import $ from 'jquery'
-	import gossip_list from '../stores/gossip_list'
-	import gossip_hint from '../stores/gossip_hint'
+
+	import gossip_list from "../stores/gossip_list";
+	import gossip_hint from "../stores/gossip_hint";
 
 	export default {
 		name: "Index",
@@ -223,8 +176,7 @@
 				hash_list: hash_list,
 				hash_code: ["none", "none", "none", "none", "none"],
 				gossip_list: gossip_list,
-				current_gossip: gossip_list[0],
-				hints: gossip_hint
+				gossip_hint: gossip_hint
 			}
 		},
 		methods: {
@@ -295,7 +247,7 @@
 				const copy = {};
 				Object.keys(plando).forEach(key => {
 					const att = plando[key];
-					if (att.length === 0) return;
+					if (att.length === 0) {}
 					else copy[key] = att;
 				});
 				return copy;
