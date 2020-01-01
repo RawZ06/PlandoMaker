@@ -45,6 +45,16 @@ export default {
 		flex-direction: column;
     }
 
+	.links > a {
+		color: black !important;
+	}
+
+	.links > a:hover {
+		color: gray !important;
+		text-decoration: none !important;
+	}
+
+
 	.links {
 		display: flex;
 		flex-direction: column;
@@ -64,15 +74,6 @@ export default {
 		flex-direction: column;
 	}
 
-	.md-theme-default a:not(.md-button) {
-		color: black !important;
-	}
-
-	.md-theme-default a:not(.md-button):hover {
-		color: gray !important;
-		text-decoration: none !important;
-	}
-
     .title {
         font-size: 200%;
         margin-left: 2vw;
@@ -82,7 +83,6 @@ export default {
         position: relative;
         text-decoration: none;
         margin: 0.5vh 1vw;
-        color: black;
         display: inline-block;
         height: 100%;
         border-bottom: 1px solid gray;

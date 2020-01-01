@@ -4,7 +4,7 @@ const hints = {};
 
 for(const id in gossip_list)
 {
-    hints[gossip_list[id]] = {}
+    hints[gossip_list[id]] = ""
 }
 
 export default hints;

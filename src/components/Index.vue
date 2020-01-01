@@ -44,65 +44,67 @@
 							Hash
 						</div>
 					</div>
-					<!--                <div>-->
-					<!--                    <div class="list-group-item list-group-item-action active" v-if="group_area.group_area_id == 0 && current_area == -2"-->
-					<!--                         v-on:click="changeArea(-2)">-->
-					<!--                        Gossip<span class="badge badge-danger">New</span>-->
-					<!--                    </div>-->
-					<!--                    <div class="list-group-item list-group-item-action" v-else-if="group_area.group_area_id == 0"-->
-					<!--                         v-on:click="changeArea(-2)">-->
-					<!--                        Gossip<span class="badge badge-danger">New</span>-->
-					<!--                    </div>-->
-					<!--                </div>-->
+					                <div>
+					                    <div class="list-group-item list-group-item-action active" v-if="group_area.group_area_id === 0 && current_area === -2"
+					                         v-on:click="changeArea(-2)">
+					                        Gossip<span class="badge badge-danger">New</span>
+					                    </div>
+					                    <div class="list-group-item list-group-item-action" v-else-if="group_area.group_area_id === 0"
+					                         v-on:click="changeArea(-2)">
+					                        Gossip<span class="badge badge-danger">New</span>
+					                    </div>
+					                </div>
 				</div>
 				<div class="content">
-					<div
-						v-bind:key="location.location_id"
-						v-for="location in current_area.locations"
-					>
-						<div class="row border">
-							<div class="location-left"><label :for="location.name">{{location.name}}</label></div>
-							<div class="location-right">
-								<md-field style="width:auto; margin: 0;" v-if="current_area.area_id === 0">
-									<md-select v-model="plando[location.name]">
-										<md-option default value=""/>
-										<md-option
-											v-bind:key="item.item_id"
-											v-bind:value="item.name"
-											v-for="item in items.sm"
-										>{{item.name}}
-										</md-option>
-									</md-select>
-								</md-field>
-								<md-field style="width:auto; margin: 0;" v-else-if="current_area.area_id === 1">
-									<md-select v-model="plando[location.name]">
-										<md-option default value=""/>
-										<md-option
-											v-bind:key="item.item_id"
-											v-bind:value="item.name"
-											v-for="item in items.songs"
-										>{{item.name}}
-										</md-option>
-									</md-select>
-								</md-field>
-								<md-field style="width:auto; margin: 0;" v-else>
-									<md-select class="selectpicker" data-live-search="true" data-show-subtext="true"
-											   v-model="plando[location.name]">
-										<md-option default value=""/>
-										<md-optgroup
-											v-bind:key="group_items.group_item_id"
-											v-bind:label="group_items.name"
-											v-for="group_items in items.items"
-										>
+					<div v-if="current_area !== -1 && current_area !== -2 && current_area !== undefined">
+						<div
+							v-bind:key="location.location_id"
+							v-for="location in current_area.locations"
+						>
+							<div class="row border">
+								<div class="location-left"><label :for="location.name">{{location.name}}</label></div>
+								<div class="location-right">
+									<md-field style="width:auto; margin: 0;" v-if="current_area.area_id === 0">
+										<md-select v-model="plando[location.name]">
+											<md-option default value=""/>
 											<md-option
 												v-bind:key="item.item_id"
 												v-bind:value="item.name"
-												v-for="item in group_items.items"
+												v-for="item in items.sm"
 											>{{item.name}}
 											</md-option>
-										</md-optgroup>
-									</md-select>
-								</md-field>
+										</md-select>
+									</md-field>
+									<md-field style="width:auto; margin: 0;" v-else-if="current_area.area_id === 1">
+										<md-select v-model="plando[location.name]">
+											<md-option default value=""/>
+											<md-option
+												v-bind:key="item.item_id"
+												v-bind:value="item.name"
+												v-for="item in items.songs"
+											>{{item.name}}
+											</md-option>
+										</md-select>
+									</md-field>
+									<md-field style="width:auto; margin: 0;" v-else>
+										<md-select class="selectpicker" data-live-search="true" data-show-subtext="true"
+												   v-model="plando[location.name]">
+											<md-option default value=""/>
+											<md-optgroup
+												v-bind:key="group_items.group_item_id"
+												v-bind:label="group_items.name"
+												v-for="group_items in items.items"
+											>
+												<md-option
+													v-bind:key="item.item_id"
+													v-bind:value="item.name"
+													v-for="item in group_items.items"
+												>{{item.name}}
+												</md-option>
+											</md-optgroup>
+										</md-select>
+									</md-field>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -128,11 +130,27 @@
 						</div>
 					</div>
 					<div v-else-if="current_area === -2">
-						<div>
-							<md-field>
-								<label>Textarea with Autogrow</label>
-								<md-textarea v-model="autogrow" md-autogrow/>
-							</md-field>
+						<div class="alert alert-warning" role="alert">
+							<img height="20px" width="20px" src="https://image.flaticon.com/icons/svg/158/158591.svg" alt="">
+							This version of hint is not automatic ! <br>
+							There are not color management of hint (blue for woth, purple for foolish for example)<br>
+							There are not control with content of location (you can insert an element on location and say another element on hint) <br>
+							It's work in progress and will be added for next versions.
+						</div>
+						<md-list>
+							<md-list-item
+								v-for="hint in gossip_list.slice(5*(page_hint-1), 5*page_hint)"
+								v-bind:key="hint"
+							>
+								<md-field>
+									<label>{{hint}}</label>
+									<md-input v-model="gossip_hint[hint]"/>
+									<span class="md-helper-text">Write your hint for {{hint}}</span>
+								</md-field>
+							</md-list-item>
+						</md-list>
+						<div class="paginator">
+							<Paginator v-on:pageChange="changePageHint" :page="page_hint" :max-page="gossip_list.length / 5 - 1"/>
 						</div>
 					</div>
 				</div>
@@ -160,15 +178,18 @@
 	import gossip_list from "../stores/gossip_list";
 	import gossip_hint from "../stores/gossip_hint";
 
+	import Paginator from "./Paginator";
+
 	export default {
 		name: "Index",
+		components: {Paginator},
 		data() {
 			return {
 				id: this.$route.params.id,
 				name: "name",
 				map: map,
 				group_area: map.groups_area[0],
-				current_area: null,
+				current_area: -1,
 				area_list: [],
 				items: items,
 				plando: {},
@@ -176,14 +197,18 @@
 				hash_list: hash_list,
 				hash_code: ["none", "none", "none", "none", "none"],
 				gossip_list: gossip_list,
-				gossip_hint: gossip_hint
+				gossip_hint: gossip_hint,
+				page_hint: 1
 			}
 		},
 		methods: {
 			changeGroup(group) {
 				this.success = false;
 				this.group_area = group;
-				this.current_area = this.group_area.areas[0];
+				if(group.group_area_id !== 0)
+					this.current_area = this.group_area.areas[0];
+				else
+					this.current_area = -1;
 			},
 			changeArea(area) {
 				this.success = false;
@@ -217,6 +242,9 @@
 				if (json.file_hash !== undefined) this.hash_code = json.file_hash;
 				else this.hash_code = ["none", "none", "none", "none", "none"];
 				this.plando = plando;
+				Object.keys(json.gossip_stones).forEach(key => {
+					this.gossip_hint[key] = json.gossip_stones[key].text;
+				});
 			},
 			upload() {
 				$('#upload').focus().click();
@@ -224,7 +252,8 @@
 			download() {
 				const src = {
 					item_pool: this.getItemPool(),
-					locations: this.filter(this.plando)
+					locations: this.filter(this.plando),
+					gossip_stones: this.getGossipStones()
 				};
 				if (this.hash_code.indexOf("none") < 0) {
 					src.file_hash = this.hash_code
@@ -252,11 +281,24 @@
 				});
 				return copy;
 			},
+			changePageHint(index) {
+				this.page_hint = index;
+			},
+			getGossipStones() {
+				const data = {};
+				this.gossip_list.forEach(gossip => {
+					if(this.gossip_hint[gossip] !== undefined && this.gossip_hint[gossip] !== null && this.gossip_hint[gossip].length > 0)
+					data[gossip] = {
+						text: this.gossip_hint[gossip]
+					}
+				});
+				return data;
+			}
 		},
 		mounted() {
 			// console.log(this.$route.params.id);
 			this.name = "undefined";
-			this.current_area = this.group_area.areas[0];
+			this.current_area = -1;
 			this.plando = {};
 			this.area_list = [];
 			for (const i in this.map.groups_area) {
@@ -368,6 +410,10 @@
 		.hash_list {
 			flex-direction: row;
 		}
+	}
+
+	.paginator {
+		margin-top: 20px
 	}
 
 </style>
