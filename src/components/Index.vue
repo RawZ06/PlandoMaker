@@ -7,7 +7,7 @@
 					<div class="group"
 						 v-bind:key="group.group_area_id"
 						 v-for="group in map.groups_area">
-						<div class="list-group-item list-group-item-action active" v-if="group.name == group_area.name"
+						<div class="list-group-item list-group-item-action active" v-if="group.name === group_area.name"
 							 v-on:click="changeGroup(group)">
 							{{group.name}}
 						</div>
@@ -25,7 +25,7 @@
 						v-for="area in group_area.areas"
 					>
 						<div class="list-group-item list-group-item-action active"
-							 v-if="current_area != null && area.name == current_area.name"
+							 v-if="current_area != null && area.name === current_area.name"
 							 v-on:click="changeArea(area)">
 							{{area.name}}
 						</div>
@@ -35,79 +35,80 @@
 					</div>
 					<div>
 						<div class="list-group-item list-group-item-action active"
-							 v-if="group_area.group_area_id == 0 && current_area == -1"
+							 v-if="group_area.group_area_id === 0 && current_area === -1"
 							 v-on:click="changeArea(-1)">
 							Hash
 						</div>
-						<div class="list-group-item list-group-item-action" v-else-if="group_area.group_area_id == 0"
+						<div class="list-group-item list-group-item-action" v-else-if="group_area.group_area_id === 0"
 							 v-on:click="changeArea(-1)">
 							Hash
 						</div>
 					</div>
-					<!--                <div>-->
-					<!--                    <div class="list-group-item list-group-item-action active" v-if="group_area.group_area_id == 0 && current_area == -2"-->
-					<!--                         v-on:click="changeArea(-2)">-->
-					<!--                        Gossip<span class="badge badge-danger">New</span>-->
-					<!--                    </div>-->
-					<!--                    <div class="list-group-item list-group-item-action" v-else-if="group_area.group_area_id == 0"-->
-					<!--                         v-on:click="changeArea(-2)">-->
-					<!--                        Gossip<span class="badge badge-danger">New</span>-->
-					<!--                    </div>-->
-					<!--                </div>-->
+					                <div>
+					                    <div class="list-group-item list-group-item-action active" v-if="group_area.group_area_id === 0 && current_area === -2"
+					                         v-on:click="changeArea(-2)">
+					                        Gossip<span class="badge badge-danger">New</span>
+					                    </div>
+					                    <div class="list-group-item list-group-item-action" v-else-if="group_area.group_area_id === 0"
+					                         v-on:click="changeArea(-2)">
+					                        Gossip<span class="badge badge-danger">New</span>
+					                    </div>
+					                </div>
 				</div>
 				<div class="content">
-					<div
-						v-bind:key="location.location_id"
-						v-for="location in current_area.locations"
-					>
-						<div class="row border">
-							<div class="location-left"><label :for="location.name">{{location.name}}</label></div>
-							<div class="location-right">
-								<md-field style="width:auto; margin: 0;" v-if="current_area.area_id == 0">
-									<md-select v-model="plando[location.name]">
-										<md-option default value=""></md-option>
-										<md-option
-											v-bind:key="item.item_id"
-											v-bind:value="item.name"
-											v-for="item in items.sm"
-										>{{item.name}}
-										</md-option>
-									</md-select>
-								</md-field>
-								<md-field style="width:auto; margin: 0;" v-else-if="current_area.area_id == 1">
-									<md-select v-model="plando[location.name]">
-										<md-option default value=""></md-option>
-										<md-option
-											v-bind:key="item.item_id"
-											v-bind:value="item.name"
-											v-for="item in items.songs"
-										>{{item.name}}
-										</md-option>
-									</md-select>
-								</md-field>
-								<md-field style="width:auto; margin: 0;" v-else>
-									<md-select class="selectpicker" data-live-search="true" data-show-subtext="true"
-											   v-model="plando[location.name]">
-										<md-option default value=""></md-option>
-										<md-optgroup
-											v-bind:key="group_items.group_item_id"
-											v-bind:label="group_items.name"
-											v-for="group_items in items.items"
-										>
+					<div v-if="current_area !== -1 && current_area !== -2 && current_area !== undefined">
+						<div
+							v-bind:key="location.location_id"
+							v-for="location in current_area.locations"
+						>
+							<div class="row border">
+								<div class="location-left"><label :for="location.name">{{location.name}}</label></div>
+								<div class="location-right">
+									<md-field style="width:auto; margin: 0;" v-if="current_area.area_id === 0">
+										<md-select v-model="plando[location.name]">
+											<md-option default value=""/>
 											<md-option
 												v-bind:key="item.item_id"
 												v-bind:value="item.name"
-												v-for="item in group_items.items"
+												v-for="item in items.sm"
 											>{{item.name}}
 											</md-option>
-										</md-optgroup>
-									</md-select>
-								</md-field>
+										</md-select>
+									</md-field>
+									<md-field style="width:auto; margin: 0;" v-else-if="current_area.area_id === 1">
+										<md-select v-model="plando[location.name]">
+											<md-option default value=""/>
+											<md-option
+												v-bind:key="item.item_id"
+												v-bind:value="item.name"
+												v-for="item in items.songs"
+											>{{item.name}}
+											</md-option>
+										</md-select>
+									</md-field>
+									<md-field style="width:auto; margin: 0;" v-else>
+										<md-select class="selectpicker" data-live-search="true" data-show-subtext="true"
+												   v-model="plando[location.name]">
+											<md-option default value=""/>
+											<md-optgroup
+												v-bind:key="group_items.group_item_id"
+												v-bind:label="group_items.name"
+												v-for="group_items in items.items"
+											>
+												<md-option
+													v-bind:key="item.item_id"
+													v-bind:value="item.name"
+													v-for="item in group_items.items"
+												>{{item.name}}
+												</md-option>
+											</md-optgroup>
+										</md-select>
+									</md-field>
+								</div>
 							</div>
-							<!-- <div class="col"><input v-model="plando[location.name]" class="form-control" :id="location.name" type="text"></div> -->
 						</div>
 					</div>
-					<div v-if="current_area == -1">
+					<div v-if="current_area === -1">
 						<div class="hash_list">
 							<div style="margin: 1%" v-for="i in 5">
 								<img :src="hash_list[hash_code[i-1]]" alt="" class="d-block m-auto"
@@ -116,7 +117,7 @@
 									 v-else>
 								<md-field style="width:auto; margin: 0;">
 									<md-select :id="'hash_' + i" class="selectpicker" v-model="hash_code[i-1]">
-										<md-option default value=""></md-option>
+										<md-option default value=""/>
 										<md-option
 											v-bind:key="hash"
 											v-bind:value="hash"
@@ -128,59 +129,28 @@
 							</div>
 						</div>
 					</div>
-					<div v-else-if="current_area == -2">
-						<div class="m-2">
-							<label>Choose the gossip stone</label>
-							<md-field style="width:auto; margin: 0;">
-								<md-select class="selectpicker" v-model="current_gossip">
-									<md-option
-										v-bind:key="gossip"
-										v-bind:value="gossip"
-										v-for="gossip in gossip_list"
-									>{{gossip}}
-									</md-option>
-								</md-select>
-							</md-field>
+					<div v-else-if="current_area === -2">
+						<div class="alert alert-warning" role="alert">
+							<img height="20px" width="20px" src="https://image.flaticon.com/icons/svg/158/158591.svg" alt="">
+							This version of hint is not automatic ! <br>
+							There are not color management of hint (blue for woth, purple for foolish for example)<br>
+							There are not control with content of location (you can insert an element on location and say another element on hint) <br>
+							It's work in progress and will be added for next versions.
 						</div>
-						<div class="m-2">
-							<label>Choose the category</label>
-							<md-field style="width:auto; margin: 0;">
-								<md-select class="selectpicker" v-model="hints[current_gossip]['category']">
-									<md-option value="WOTH">Way of the Hero</md-option>
-									<md-option value="Foolish">Foolish/Barren of Treasure</md-option>
-									<md-option value="Always">Always Hint</md-option>
-									<md-option value="Sometime">Sometime hint</md-option>
-									<md-option value="Other">Custom</md-option>
-								</md-select>
-							</md-field>
-						</div>
-						<div
-							v-if="hints[current_gossip]['category'] === 'WOTH' || hints[current_gossip]['category'] === 'Foolish'">
-							<label>Choose the Area</label>
-							<md-field style="width:auto; margin: 0;">
-								<md-select class="selectpicker" v-model="hints[current_gossip]['area']">
-									<md-option
-										v-bind:key="area"
-										v-bind:value="area"
-										v-for="area in area_list"
-									>{{area}}
-									</md-option>
-								</md-select>
-							</md-field>
-						</div>
-						<div v-if="hints[current_gossip]['category'] === 'Always'">
-							<label>Choose the always hint</label>
-							<md-field style="width:auto; margin: 0;">
-								<md-select class="selectpicker" v-model="hints[current_gossip]['hint']">
-									<md-option value="30skull">30 Gold Skulltulas</md-option>
-									<md-option value="40skull">40 Gold Skulltulas</md-option>
-									<md-option value="50skull">50 Gold Skulltulas</md-option>
-									<md-option value="BGS">Biggoron</md-option>
-									<md-option value="Skull Mask">Skull Mask</md-option>
-									<md-option value="frogs">Frogs</md-option>
-									<md-option value="OoT">OoT</md-option>
-								</md-select>
-							</md-field>
+						<md-list>
+							<md-list-item
+								v-for="hint in gossip_list.slice(5*(page_hint-1), 5*page_hint)"
+								v-bind:key="hint"
+							>
+								<md-field>
+									<label>{{hint}}</label>
+									<md-input v-model="gossip_hint[hint]"/>
+									<span class="md-helper-text">Write your hint for {{hint}}</span>
+								</md-field>
+							</md-list-item>
+						</md-list>
+						<div class="paginator">
+							<Paginator v-on:pageChange="changePageHint" :page="page_hint" :max-page="gossip_list.length / 5 - 1"/>
 						</div>
 					</div>
 				</div>
@@ -204,18 +174,22 @@
 	import hash_list from '../stores/hash_list'
 	import 'bootstrap-select'
 	import $ from 'jquery'
-	import gossip_list from '../stores/gossip_list'
-	import gossip_hint from '../stores/gossip_hint'
+
+	import gossip_list from "../stores/gossip_list";
+	import gossip_hint from "../stores/gossip_hint";
+
+	import Paginator from "./Paginator";
 
 	export default {
 		name: "Index",
+		components: {Paginator},
 		data() {
 			return {
 				id: this.$route.params.id,
 				name: "name",
 				map: map,
 				group_area: map.groups_area[0],
-				current_area: null,
+				current_area: -1,
 				area_list: [],
 				items: items,
 				plando: {},
@@ -223,15 +197,18 @@
 				hash_list: hash_list,
 				hash_code: ["none", "none", "none", "none", "none"],
 				gossip_list: gossip_list,
-				current_gossip: gossip_list[0],
-				hints: gossip_hint
+				gossip_hint: gossip_hint,
+				page_hint: 1
 			}
 		},
 		methods: {
 			changeGroup(group) {
 				this.success = false;
 				this.group_area = group;
-				this.current_area = this.group_area.areas[0];
+				if(group.group_area_id !== 0)
+					this.current_area = this.group_area.areas[0];
+				else
+					this.current_area = -1;
 			},
 			changeArea(area) {
 				this.success = false;
@@ -265,6 +242,9 @@
 				if (json.file_hash !== undefined) this.hash_code = json.file_hash;
 				else this.hash_code = ["none", "none", "none", "none", "none"];
 				this.plando = plando;
+				Object.keys(json.gossip_stones).forEach(key => {
+					this.gossip_hint[key] = json.gossip_stones[key].text;
+				});
 			},
 			upload() {
 				$('#upload').focus().click();
@@ -272,7 +252,8 @@
 			download() {
 				const src = {
 					item_pool: this.getItemPool(),
-					locations: this.filter(this.plando)
+					locations: this.filter(this.plando),
+					gossip_stones: this.getGossipStones()
 				};
 				if (this.hash_code.indexOf("none") < 0) {
 					src.file_hash = this.hash_code
@@ -295,16 +276,29 @@
 				const copy = {};
 				Object.keys(plando).forEach(key => {
 					const att = plando[key];
-					if (att.length === 0) return;
+					if (att.length === 0) {}
 					else copy[key] = att;
 				});
 				return copy;
 			},
+			changePageHint(index) {
+				this.page_hint = index;
+			},
+			getGossipStones() {
+				const data = {};
+				this.gossip_list.forEach(gossip => {
+					if(this.gossip_hint[gossip] !== undefined && this.gossip_hint[gossip] !== null && this.gossip_hint[gossip].length > 0)
+					data[gossip] = {
+						text: this.gossip_hint[gossip]
+					}
+				});
+				return data;
+			}
 		},
 		mounted() {
 			// console.log(this.$route.params.id);
 			this.name = "undefined";
-			this.current_area = this.group_area.areas[0];
+			this.current_area = -1;
 			this.plando = {};
 			this.area_list = [];
 			for (const i in this.map.groups_area) {
@@ -416,6 +410,10 @@
 		.hash_list {
 			flex-direction: row;
 		}
+	}
+
+	.paginator {
+		margin-top: 20px
 	}
 
 </style>

@@ -37,7 +37,7 @@ const sheik_in_crater = new Location("Sheik in Crater", 18);
 const song_from_malon = new Location("Song from Malon", 19);
 const sheik_in_ice_cavern = new Location("Sheik in Ice Cavern", 20);
 
-const song_list = [song_from_saria, sheik_forest_song, song_from_ocarina_of_time, sheik_at_colossus, sheik_at_temple, impa_at_castle, sheik_in_kakariko, 
+const song_list = [song_from_saria, sheik_forest_song, song_from_ocarina_of_time, sheik_at_colossus, sheik_at_temple, impa_at_castle, sheik_in_kakariko,
     song_at_windmill, song_from_composer_grave, sheik_in_crater, song_from_malon, sheik_in_ice_cavern];
 const songs = new Area("Songs", song_list, 1);
 
@@ -62,8 +62,11 @@ const lw_grotto_deku_scrub_deku_nut_upgrade = new Location("LW Grotto Deku Scrub
 const wolfos_grotto_chest = new Location("Wolfos Grotto Chest", 104);
 
 const LW_list = [skull_kid, ocarina_memory_game, target_in_woods, lw_deku_scrub_deku_stick_upgrade, lost_woods_generic_grotto_chest, deku_theater_skull_mask,
-	 deku_theater_mask_of_truth, lw_grotto_deku_scrub_deku_nut_upgrade, wolfos_grotto_chest];
+	 deku_theater_mask_of_truth, lw_grotto_deku_scrub_deku_nut_upgrade];
 const LW = new Area("Lost Wood", LW_list, 3);
+
+const meadow_list = [wolfos_grotto_chest];
+const meadow = new Area("Sacred Forest Meadow", meadow_list, 3);
 
 const underwater_bottle = new Location("Underwater Bottle", 30);
 const lake_hylia_sun = new Location("Lake Hylia Sun", 31);
@@ -135,7 +138,7 @@ const adult_shooting_gallery = new Location("Adult Shooting Gallery", 64);
 const redead_grotto_chest = new Location("Redead Grotto Chest", 110);
 const kakariko_back_grotto_chest = new Location("Kakariko Back Grotto Chest", 111);
 
-const kak_list = [man_on_roof, anju_as_adult, anjus_chickens, loc_10_gold_skulltula_reward, loc_20_gold_skulltula_reward, loc_30_gold_skulltula_reward, 
+const kak_list = [man_on_roof, anju_as_adult, anjus_chickens, loc_10_gold_skulltula_reward, loc_20_gold_skulltula_reward, loc_30_gold_skulltula_reward,
     loc_40_gold_skulltula_reward, loc_50_gold_skulltula_reward, impa_house_freestanding_poh, windmill_freestanding_poh, adult_shooting_gallery, redead_grotto_chest,
     kakariko_back_grotto_chest];
 const kak = new Area("Kakariko Village", kak_list, 12);
@@ -195,7 +198,7 @@ const zoras_domain_torch_run = new Location("Zoras Domain Torch Run", 91);
 const king_zora_thawed = new Location("King Zora Thawed", 92);
 
 const domain_list = [diving_minigame, zoras_domain_torch_run, king_zora_thawed];
-const domain = new Area("Zora Domain", domain_list, 18); 
+const domain = new Area("Zora Domain", domain_list, 18);
 
 const zoras_fountain_iceberg_freestanding_poh = new Location("Zoras Fountain Iceberg Freestanding PoH", 93);
 const zoras_fountain_bottom_freestanding_poh = new Location("Zoras Fountain Bottom Freestanding PoH", 94);
@@ -268,7 +271,7 @@ const forest_temple_near_boss_chest = new Location("Forest Temple Near Boss Ches
 const phantom_ganon_heart = new Location("Phantom Ganon Heart", 146);
 
 const forest_list = [forest_temple_first_chest, forest_temple_chest_behind_lobby, forest_temple_outside_hookshot_chest, forest_temple_well_chest, forest_temple_map_chest,
-    forest_temple_falling_room_chest, forest_temple_block_push_chest, forest_temple_boss_key_chest, forest_temple_floormaster_chest, forest_temple_bow_chest, 
+    forest_temple_falling_room_chest, forest_temple_block_push_chest, forest_temple_boss_key_chest, forest_temple_floormaster_chest, forest_temple_bow_chest,
     forest_temple_red_poe_chest, forest_temple_blue_poe_chest, forest_temple_near_boss_chest, phantom_ganon_heart];
 const forest = new Area("Forest Temple", forest_list, 25);
 
@@ -287,9 +290,9 @@ const bottom_of_the_well_basement_chest = new Location("Bottom of the Well Basem
 const bottom_of_the_well_locked_pits = new Location("Bottom of the Well Locked Pits", 159);
 const bottom_of_the_well_behind_right_grate = new Location("Bottom of the Well Behind Right Grate", 160);
 
-const botw_list = [bottom_of_the_well_front_left_hidden_wall, bottom_of_the_well_front_center_bombable, bottom_of_the_well_right_bottom_hidden_wall, 
+const botw_list = [bottom_of_the_well_front_left_hidden_wall, bottom_of_the_well_front_center_bombable, bottom_of_the_well_right_bottom_hidden_wall,
     bottom_of_the_well_center_large_chest, bottom_of_the_well_center_small_chest, bottom_of_the_well_back_left_bombable, bottom_of_the_well_freestanding_key,
-    bottom_of_the_well_defeat_boss, bottom_of_the_well_invisible_chest, bottom_of_the_well_underwater_front_chest, bottom_of_the_well_underwater_left_chest, bottom_of_the_well_basement_chest, 
+    bottom_of_the_well_defeat_boss, bottom_of_the_well_invisible_chest, bottom_of_the_well_underwater_front_chest, bottom_of_the_well_underwater_left_chest, bottom_of_the_well_basement_chest,
     bottom_of_the_well_locked_pits, bottom_of_the_well_behind_right_grate];
 const botw = new Area("Bottom Of The Well", botw_list, 26);
 
@@ -310,8 +313,8 @@ const fire_temple_highest_goron_chest = new Location("Fire Temple Highest Goron 
 const fire_temple_megaton_hammer_chest = new Location("Fire Temple Megaton Hammer Chest", 175);
 
 const fire_list = [fire_temple_chest_near_boss, fire_temple_fire_dancer_chest, fire_temple_boss_key_chest, volvagia_heart, fire_temple_big_lava_room_open_chest,
-    fire_temple_big_lava_room_bombable_chest, fire_temple_boulder_maze_lower_chest, fire_temple_boulder_maze_upper_chest, fire_temple_boulder_maze_side_room, 
-    fire_temple_boulder_maze_bombable_pit, fire_temple_scarecrow_chest, fire_temple_map_chest, fire_temple_compass_chest, fire_temple_highest_goron_chest, 
+    fire_temple_big_lava_room_bombable_chest, fire_temple_boulder_maze_lower_chest, fire_temple_boulder_maze_upper_chest, fire_temple_boulder_maze_side_room,
+    fire_temple_boulder_maze_bombable_pit, fire_temple_scarecrow_chest, fire_temple_map_chest, fire_temple_compass_chest, fire_temple_highest_goron_chest,
     fire_temple_megaton_hammer_chest];
 const fire = new Area("Fire Temple", fire_list, 27);
 
@@ -336,7 +339,7 @@ const water_temple_dark_link_chest = new Location("Water Temple Dark Link Chest"
 const water_temple_river_chest = new Location("Water Temple River Chest", 190);
 
 const water_list = [morpha_heart, water_temple_map_chest, water_temple_compass_chest, water_temple_cracked_wall_chest, water_temple_torches_chest,
-    water_temple_dragon_chest, water_temple_central_bow_target_chest, water_temple_boss_key_chest, water_temple_central_pillar_chest, 
+    water_temple_dragon_chest, water_temple_central_bow_target_chest, water_temple_boss_key_chest, water_temple_central_pillar_chest,
     water_temple_dark_link_chest, water_temple_river_chest];
 const water = new Area("Water Temple", water_list, 29);
 
@@ -388,8 +391,8 @@ const gerudo_training_grounds_heavy_block_second_chest = new Location("Gerudo Tr
 const gerudo_training_grounds_heavy_block_third_chest = new Location("Gerudo Training Grounds Heavy Block Third Chest", 229);
 const gerudo_training_grounds_heavy_block_fourth_chest = new Location("Gerudo Training Grounds Heavy Block Fourth Chest", 230);
 
-const gtg_list = [gerudo_training_grounds_lobby_left_chest, gerudo_training_grounds_lobby_right_chest, gerudo_training_grounds_stalfos_chest, gerudo_training_grounds_beamos_chest, 
-    gerudo_training_grounds_hidden_ceiling_chest, gerudo_training_grounds_maze_path_first_chest, gerudo_training_grounds_maze_path_second_chest, gerudo_training_grounds_maze_path_third_chest, gerudo_training_grounds_maze_path_final_chest, gerudo_training_grounds_maze_right_central_chest, gerudo_training_grounds_maze_right_side_chest, 
+const gtg_list = [gerudo_training_grounds_lobby_left_chest, gerudo_training_grounds_lobby_right_chest, gerudo_training_grounds_stalfos_chest, gerudo_training_grounds_beamos_chest,
+    gerudo_training_grounds_hidden_ceiling_chest, gerudo_training_grounds_maze_path_first_chest, gerudo_training_grounds_maze_path_second_chest, gerudo_training_grounds_maze_path_third_chest, gerudo_training_grounds_maze_path_final_chest, gerudo_training_grounds_maze_right_central_chest, gerudo_training_grounds_maze_right_side_chest,
     gerudo_training_grounds_freestanding_key, gerudo_training_grounds_underwater_silver_rupee_chest, gerudo_training_grounds_hammer_room_clear_chest, gerudo_training_grounds_hammer_room_switch_chest,
     gerudo_training_grounds_eye_statue_chest, gerudo_training_grounds_near_scarecrow_chest, gerudo_training_grounds_before_heavy_block_chest, gerudo_training_grounds_heavy_block_first_chest,
     gerudo_training_grounds_heavy_block_second_chest, gerudo_training_grounds_heavy_block_third_chest, gerudo_training_grounds_heavy_block_fourth_chest];
@@ -439,34 +442,46 @@ const ganons_castle_light_trial_invisible_enemies_chest = new Location("Ganons C
 const ganons_castle_light_trial_lullaby_chest = new Location("Ganons Castle Light Trial Lullaby Chest", 265);
 const ganons_tower_boss_key_chest = new Location("Ganons Tower Boss Key Chest", 98);
 
-const ganon_list = [ganons_castle_forest_trial_chest, ganons_castle_water_trial_left_chest, ganons_castle_water_trial_right_chest, ganons_castle_shadow_trial_first_chest, 
+const ganon_list = [ganons_castle_forest_trial_chest, ganons_castle_water_trial_left_chest, ganons_castle_water_trial_right_chest, ganons_castle_shadow_trial_first_chest,
     ganons_castle_shadow_trial_second_chest, ganons_castle_spirit_trial_first_chest, ganons_castle_spirit_trial_second_chest, ganons_castle_light_trial_first_left_chest, ganons_castle_light_trial_second_left_chest,
     ganons_castle_light_trial_third_left_chest, ganons_castle_light_trial_first_right_chest, ganons_castle_light_trial_second_right_chest,
     ganons_castle_light_trial_third_right_chest, ganons_castle_light_trial_invisible_enemies_chest, ganons_castle_light_trial_lullaby_chest, ganons_tower_boss_key_chest];
 const ganon = new Area("Ganon Castle", ganon_list, 33);
 
-const usually_list = [SM, songs];
-const usually = new GroupArea("Usually", usually_list, 0, 0);
+const usually_list = [];
+const usually = new GroupArea("Hash & Hints", usually_list, 0, 0);
 
-const forest_area_list = [forest_kokiri, forest, LW, deku];
+const forest_area_list = [forest_kokiri, LW, meadow];
 const forest_area = new GroupArea("Forest", forest_area_list, 0, 1);
 
-const fields_list = [hyrule, kak, gy, shadow, botw, ranch];
+const fields_list = [hyrule, kak, gy, ranch];
 const fields = new GroupArea("Fields", fields_list, 0, 2);
 
-const mountain_list = [dmt, dmc, fire, gc, dc];
+const mountain_list = [dmt, dmc, gc, dc];
 const mountain = new GroupArea("Mountain", mountain_list, 0, 3);
 
-const zora_list = [lake, water, domain, river, fountain, ice, jabu];
+const zora_list = [lake, domain, river, fountain];
 const zora = new GroupArea("Zora", zora_list, 0, 4);
 
-const gerudo_list = [gerudo_valley, haunted_wasteland, gtg, gerudo_fortress, colossus, spirit];
+const gerudo_list = [gerudo_valley, haunted_wasteland, gerudo_fortress, colossus];
 const gerudo = new GroupArea("Gerudo", gerudo_list, 0, 5);
 
-const hyrule_castle_list = [market, tot, castle, ganon];
+const hyrule_castle_list = [market, tot, castle];
 const hyrule_castle = new GroupArea("Hyrule Castle", hyrule_castle_list, 0, 6);
 
-const map_list = [usually, forest_area, fields, mountain, zora, gerudo, hyrule_castle];
+const dungeons_child_list = [deku, dc, jabu, botw];
+const dungeons_child = new GroupArea("Child Dungeons", dungeons_child_list, 0, 7);
+
+const dungeons_adult_list = [forest, fire, water, shadow, spirit, ice, gtg, ganon];
+const dungeons_adult = new GroupArea("Adult Dungeons", dungeons_adult_list, 0, 8);
+
+const stones_list = [SM];
+const stones = new GroupArea("Stones & Medallions", stones_list, 0, 9);
+
+const song_group_list = [songs];
+const songs_group = new GroupArea("Songs", song_group_list, 0, 10);
+
+const map_list = [usually, stones, songs_group, dungeons_child, dungeons_adult, forest_area, fields, mountain, zora, gerudo, hyrule_castle];
 const map = new Map(map_list);
 
 export default map;

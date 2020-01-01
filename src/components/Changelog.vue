@@ -2,16 +2,22 @@
 	<div>
 		<h1>Changelog</h1>
 		<br>
-		<h3>Todo list*</h3>
-		<ul>
-			<li>Customization gossip hints</li>
-		</ul>
+<!--		<h3>Todo list*</h3>-->
+<!--		<ul>-->
+<!--			<li>Customization gossip hints</li>-->
+<!--		</ul>-->
 		<br>
-		<h3>VERSION 2.2.1<span class="badge badge-danger">New</span></h3>
+		<h3>VERSION 2.3.0<span class="badge badge-danger">New</span></h3>
+		<ul>
+			<li>First version of gossip stones : You can insert hint for all gossips stones</li>
+			<li>Create two categories for all dungeons : child and adult</li>
+			<li>Remove "Usually" and replace to 3 categories : "Hash & Hints", "Stones & Medallions" and "Songs"</li>
+		</ul>
+		<h3>VERSION 2.2.1</h3>
 		<ul>
 			<li>Fix menu position, it was not same result as local</li>
 		</ul>
-		<h3>VERSION 2.2.0<span class="badge badge-danger">New</span></h3>
+		<h3>VERSION 2.2.0</h3>
 		<ul>
 			<li>Reworking css for responsiveness</li>
 			<li>This website can be used on mobile/tablet, it's responsive</li>
