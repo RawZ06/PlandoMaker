@@ -55,7 +55,7 @@
 					                    </div>
 					                </div>
 				</div>
-				<div class="content">
+				<div v-bind:class="[(group_area.group_area_id === 0 && current_area === -1) ? content:column ]">
 					<div v-if="current_area !== -1 && current_area !== -2 && current_area !== undefined">
 						<div
 							v-bind:key="location.location_id"
@@ -198,7 +198,9 @@
 				hash_code: ["none", "none", "none", "none", "none"],
 				gossip_list: gossip_list,
 				gossip_hint: gossip_hint,
-				page_hint: 1
+				page_hint: 1, 
+				content:"content",
+				column : "col-md-12"
 			}
 		},
 		methods: {
