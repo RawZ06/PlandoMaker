@@ -7,6 +7,7 @@
 		</div>
         <div class="links hide">
             <router-link class="link" to="/">Home</router-link>
+            <router-link class="link" to="/settings">Settings Random</router-link>
             <router-link class="link" to="/about">About</router-link>
 			<router-link class="link" to="/changelog">Changelog</router-link>
         </div>
