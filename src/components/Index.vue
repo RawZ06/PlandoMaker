@@ -47,15 +47,15 @@
 					                <div>
 					                    <div class="list-group-item list-group-item-action active" v-if="group_area.group_area_id === 0 && current_area === -2"
 					                         v-on:click="changeArea(-2)">
-					                        Gossip <span class="badge badge-danger">New</span>
+					                        Gossip
 					                    </div>
 					                    <div class="list-group-item list-group-item-action" v-else-if="group_area.group_area_id === 0"
 					                         v-on:click="changeArea(-2)">
-					                        Gossip <span class="badge badge-danger">New</span>
+					                        Gossip
 					                    </div>
 					                </div>
 				</div>
-				<div v-bind:class="[(group_area.group_area_id === 0 && current_area === -1) ? content:column ]">
+				<div v-bind:class="[(group_area.group_area_id === 0 && current_area === -1) ? 'content' : 'col-md-12' ]">
 					<div v-if="current_area !== -1 && current_area !== -2 && current_area !== undefined">
 						<div
 							v-bind:key="location.location_id"
@@ -195,9 +195,7 @@
 				hash_code: ["", "", "", "", ""],
 				gossip_list: gossip_list,
 				gossip_hint: gossip_hint,
-				page_hint: 1, 
-				content:"content",
-				column : "col-md-12"
+				page_hint: 1
 			}
 		},
 		methods: {

@@ -7,7 +7,14 @@
 <!--			<li>Customization gossip hints</li>-->
 <!--		</ul>-->
 		<br>
-		<h3>VERSION 2.3.0<span class="badge badge-danger">New</span></h3>
+		<h3>VERSION 2.3.1<span class="badge badge-danger">New</span></h3>
+		<ul>
+			<li>Fix some english mistakes</li>
+			<li>More space for gossip region</li>
+			<li>Fix bug when remove element hash, the "?" didn't appear</li>
+			<li>Change designation for barren item and major item.</li>
+		</ul>
+		<h3>VERSION 2.3.0</h3>
 		<ul>
 			<li>First version of gossip stones : You can insert hint for all gossips stones</li>
 			<li>Create two categories for all dungeons : child and adult</li>
