@@ -5,6 +5,13 @@
 			<div class="row">
 				<div class="col-sm">
 					<h2>Classic version</h2>
+					<h3>VERSION 2.3.1</h3>
+					<ul>
+						<li>Fix some english mistakes</li>
+						<li>More space for gossip region</li>
+						<li>Fix bug when remove element hash, the "?" didn't appear</li>
+						<li>Change designation for barren item and major item.</li>
+					</ul>
 					<h3>VERSION 2.3.0</h3>
 					<ul>
 						<li>First version of gossip stones : You can insert hint for all gossips stones</li>
@@ -73,6 +80,10 @@
 				</div>
 				<div class="col-sm">
 					<h2>Settings Random version</h2>
+					<h3>VERSION 3.0.0 B-4 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Import 2.3.1</li>
+					</ul>
 					<h3>VERSION 3.0.0 B-3 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Add discord link</li>

@@ -58,7 +58,7 @@
 					                    </div>
 					                </div>
 				</div>
-				<div class="content">
+				<div v-bind:class="[(group_area.group_area_id === 0 && current_area === -1) ? 'content' : 'col-md-12' ]">
 					<div v-if="current_area !== -1 && current_area !== -2 && current_area !== undefined">
 						<div
 							v-bind:key="location.location_id"
@@ -116,11 +116,8 @@
 							<div style="margin: 1%" v-for="i in 5">
 								<img :src="hash_list[hash_code[i-1]]" alt="" class="d-block m-auto"
 									 v-if="hash_code[i-1] !== 'none'" v-on:click="open('#hash_' + i)">
-								<img alt="" class="d-block m-auto" src="https://ootrandomizer.com/img/hash/none.png"
-									 v-else>
 								<md-field style="width:auto; margin: 0;">
 									<md-select :id="'hash_' + i" class="selectpicker" v-model="hash_code[i-1]">
-										<md-option default value=""/>
 										<md-option
 											v-bind:key="hash"
 											v-bind:value="hash"
@@ -136,9 +133,9 @@
 						<div class="alert alert-warning" role="alert">
 							<img height="20px" width="20px" src="https://image.flaticon.com/icons/svg/158/158591.svg" alt="">
 							This version of hint is not automatic ! <br>
-							There are not color management of hint (blue for woth, purple for foolish for example)<br>
-							There are not control with content of location (you can insert an element on location and say another element on hint) <br>
-							It's work in progress and will be added for next versions.
+							There is no color management of hint (blue for woth, purple for foolish for example)<br>
+							There is no control location's content (you can make a gossip stone lie) <br>
+							It's work in progress and will be added in futures versions.
 						</div>
 						<md-list>
 							<md-list-item
@@ -198,7 +195,7 @@
 				plando: {},
 				item_pool: item_pool,
 				hash_list: hash_list,
-				hash_code: ["none", "none", "none", "none", "none"],
+				hash_code: ["", "", "", "", ""],
 				gossip_list: gossip_list,
 				gossip_hint: gossip_hint,
 				page_hint: 1
