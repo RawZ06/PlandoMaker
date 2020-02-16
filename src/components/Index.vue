@@ -1,5 +1,8 @@
 <template>
 	<div v-if="current_area !== null">
+		<div class="alert alert-warning" role="alert">
+			<span class="badge badge-warning">Warning</span> This is a similar version with official, go to <a href="https://ootplandomizer.com">official version</a>
+		</div>
 		<div class="app">
 			<div class="left">
 				<div class="list-group">
@@ -47,11 +50,11 @@
 					                <div>
 					                    <div class="list-group-item list-group-item-action active" v-if="group_area.group_area_id === 0 && current_area === -2"
 					                         v-on:click="changeArea(-2)">
-					                        Gossip<span class="badge badge-danger">New</span>
+					                        Gossip
 					                    </div>
 					                    <div class="list-group-item list-group-item-action" v-else-if="group_area.group_area_id === 0"
 					                         v-on:click="changeArea(-2)">
-					                        Gossip<span class="badge badge-danger">New</span>
+					                        Gossip
 					                    </div>
 					                </div>
 				</div>

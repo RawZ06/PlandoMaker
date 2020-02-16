@@ -5,7 +5,7 @@
 			<div class="row">
 				<div class="col-sm">
 					<h2>Classic version</h2>
-					<h3>VERSION 2.3.0<span class="badge badge-danger">New</span></h3>
+					<h3>VERSION 2.3.0</h3>
 					<ul>
 						<li>First version of gossip stones : You can insert hint for all gossips stones</li>
 						<li>Create two categories for all dungeons : child and adult</li>
@@ -40,30 +40,30 @@
 					<ul>
 						<li>Removing back-end server and save system</li>
 					</ul>
-					<h3>VERSION BETA 2.0.6</h3>
+					<h3>VERSION 2.0.6 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Removing Skull Mask double location</li>
 					</ul>
-					<h3>VERSION BETA 2.0.5</h3>
+					<h3>VERSION 2.0.5 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Fixing bug, can't open GTG</li>
 					</ul>
-					<h3>VERSION BETA 2.0.4</h3>
+					<h3>VERSION 2.0.4 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Download plando don't add locations</li>
 						<li>Removing page numbering when there is only one page</li>
 					</ul>
-					<h3>VERSION BETA 2.0.3</h3>
+					<h3>VERSION 2.0.3 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						Nothing, just for me
 					</ul>
-					<h3>VERSION BETA 2.0.2</h3>
+					<h3>VERSION 2.0.2 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Bugfix : If you fill a location with a blank item, it is removed of the list when you download the
 							plando
 						</li>
 					</ul>
-					<h3>VERSION BETA 2.0.1</h3>
+					<h3>VERSION 2.0.1 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Removing double locations</li>
 						<li>Creating page without signup</li>
@@ -73,7 +73,11 @@
 				</div>
 				<div class="col-sm">
 					<h2>Settings Random version</h2>
-					<h3>VERSION BETA 3.0.0</h3>
+					<h3>VERSION 3.0.0 B-2 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Create random settings MVP<span class="badge badge-danger">ALPHA version</span></li>
+					</ul>
+					<h3>VERSION 3.0.0 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Create random settings creator section</li>
 					</ul>
