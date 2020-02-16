@@ -73,6 +73,11 @@
 				</div>
 				<div class="col-sm">
 					<h2>Settings Random version</h2>
+					<h3>VERSION 3.0.0 B-3 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Add discord link</li>
+						<li>Fix mistake spelling</li>
+					</ul>
 					<h3>VERSION 3.0.0 B-2 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Create random settings MVP<span class="badge badge-danger">ALPHA version</span></li>

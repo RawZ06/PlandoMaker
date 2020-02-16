@@ -10,6 +10,7 @@
             <router-link class="link" to="/settings">Settings Random</router-link>
             <router-link class="link" to="/about">About</router-link>
 			<router-link class="link" to="/changelog">Changelog</router-link>
+			<a class="link" href="https://discord.gg/psSGn45">Discord</a>
         </div>
     </header>
 </template>

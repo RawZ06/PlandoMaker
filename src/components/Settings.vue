@@ -1,7 +1,8 @@
 <template>
 	<div>
 		<div class="alert alert-danger" role="alert">
-			<span class="badge badge-danger">ALPHA VERSION</span> This is a first version ! It's un minimal viable product ! There may be some bugs ! I will fix with next versions...
+			<span class="badge badge-danger">ALPHA VERSION</span> This is a first version ! It's a minimum viable product ! There may be some bugs ! I will fix with next versions...
+			<br><span class="badge badge-danger">Discord</span> If you find a bug or you don't know how it work, go to my discord : <a href="https://discord.gg/psSGn45">Discord</a>
 		</div>
 		<div class="component">
 			<div v-for="setting in settings">
