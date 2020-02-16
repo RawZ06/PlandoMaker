@@ -44,7 +44,7 @@ collectables.push(new Item("Deku Nuts (5)", 19));
 collectables.push(new Item("Deku Stick (1)", 121));
 collectables.push(new Item("Deku Seeds (30)", 122));
 
-items.push(new groupItem("Collectables", collectables, 0));
+items.push(new groupItem("Consommables", collectables, 0));
 
 const rupees = [];
 
@@ -84,7 +84,7 @@ barrens.push(new Item("Kokiri Sword", 35));
 barrens.push(new Item("Nayrus Love", 41));
 barrens.push(new Item("Stone of Agony", 63));
 
-items.push(new groupItem("Barrens", barrens, 4));
+items.push(new groupItem("Non Progression Items", barrens, 4));
 
 const bottles = [];
 
@@ -144,7 +144,7 @@ tools.push(new Item("Progressive Strength Upgrade", 49));
 tools.push(new Item("Progressive Wallet", 50));
 tools.push(new Item("Slingshot", 60));
 
-items.push(new groupItem("Tools", tools, 8));
+items.push(new groupItem("Progression Items", tools, 8));
 
 const keys = [];
 

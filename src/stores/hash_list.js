@@ -1,4 +1,5 @@
 export default {
+    "" : "https://ootrandomizer.com/img/hash/none.png",
     "Deku Stick" : "https://ootrandomizer.com/img/hash/Deku Stick.png",
     "Deku Nut" : "https://ootrandomizer.com/img/hash/Deku Nut.png",
     "Bow" : "https://ootrandomizer.com/img/hash/Bow.png",
