@@ -80,6 +80,14 @@
 				</div>
 				<div class="col-sm">
 					<h2>Settings Random version</h2>
+					<h3>VERSION 3.0.0 B-5 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Create a select to choice what setting can be select</li>
+						<li>Create tab like rando and sort settings</li>
+						<li>Some Bug fix</li>
+						<li>Update with the new version (removing Start with)</li>
+						<li>Help tab</li>
+					</ul>
 					<h3>VERSION 3.0.0 B-4 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Import 2.3.1</li>

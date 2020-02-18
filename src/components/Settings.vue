@@ -1,12 +1,52 @@
 <template>
 	<div>
 		<div class="alert alert-danger" role="alert">
-			<span class="badge badge-danger">ALPHA VERSION</span> This is a first version ! It's a minimum viable product ! There may be some bugs ! I will fix with next versions...
+			<span class="badge badge-danger">BETA VERSION</span> This is a beta version ! There may be some bugs ! I will fix with next versions...
 			<br><span class="badge badge-danger">Discord</span> If you find a bug or you don't know how it work, go to my discord : <a href="https://discord.gg/psSGn45">Discord</a>
 		</div>
+		<div class="alert alert-warning" role="alert">
+			<span class="badge badge-warning">Bug</span> The dependence settings can not work (eg Triforce Hunt with Ganon BK and Number Triforce, Bridge with token and number of token)
+			</div>
+		<md-tabs v-on:md-changed="changeTab" class="md-primary">
+			<md-tab v-for="tab in Object.keys(settings)" :id="tab" :key="tab" :md-label="tab" />
+			<md-tab id="Help" md-label="Help" />
+		</md-tabs>
+		<div v-if="tab === 'Starting Inventory'">
+			<h1>Work In Progress (WIP)... Soon.</h1>
+		</div>
+		<div v-if="tab === 'Help'">
+			<h1><span class="badge badge-success">Tutorial</span> How to use</h1>
+			<h2>Step 1</h2>
+			<p>For each setting that you want to randomize, select it. If the setting has a list of choices, select all choices that you want</p>
+			<h2>Step 2</h2>
+			<p>Download the json file with the "Download" button</p>
+			<h2>Step 3</h2>
+			<p>Open Roman's Fork app and select the preset that you want (it's for settings that you don't have check and select default value)</p>
+			<h2>Step 4</h2>
+			<p>Insert on plando file the json download previously</p>
+
+			<h1><span class="badge badge-warning">Information</span> Information</h1>
+			<p>It's only for Roman's fork actually</p>
+
+			<h1><span class="badge badge-danger">ALPHA</span> ALPHA version</h1>
+			<p>It's an alpha version and there may be some bugs</p>
+		</div>
 		<div class="component">
-			<div v-for="setting in settings">
-				<md-switch :id="setting.name" v-model="choices[setting.name]">{{setting.gui_text}}</md-switch>
+			<div v-for="setting in settings[tab]">
+				<md-switch :id="setting.name" v-model="choices[setting.name].active">{{setting.gui_text}}</md-switch>
+				<div>
+					<md-field v-if="setting.type === 'list' && choices[setting.name].active === true">
+						<label>Settings allowed</label>
+						<md-select v-model="choices[setting.name].allow" multiple>
+							<md-option :key="choice" :value="choice" v-for="choice in Object.keys(setting.choices)">{{setting.choices[choice]}}
+							</md-option>
+						</md-select>
+					</md-field>
+					<md-field style="background: #EEE" v-else-if="setting.type === 'list'">
+						<label>Settings allowed</label>
+						<md-select class="md-secondary" disabled/>
+					</md-field>
+				</div>
 			</div>
 		</div>
 		<div style="width: 100vw; text-align: center;">
@@ -16,16 +56,30 @@
 </template>
 
 <script>
-	import settings from '../stores/settings'
+	import settings from '../stores/settings.json'
 
 	const choices = {};
-	settings.forEach(setting => choices[setting] = false);
+
+	Object.values(settings).forEach(settinglist => {
+		settinglist.forEach(setting => {
+			choices[setting.name] = {
+				type: setting.type,
+				active: false,
+				allow: [],
+				min: setting.type === 'scale' ? setting.min : undefined,
+				max: setting.type === 'scale' ? setting.max : undefined,
+				depend: setting.depend,
+				gui_text: setting.gui_text
+			}
+		})
+	})
 
     export default {
         name: "Settings.vue",
 		data() {
 			return {
 				settings: settings,
+				tab: "Main Rules",
 				choices: choices
 			}
 		},
@@ -39,15 +93,8 @@
 			randomNumber(min, max) {
 				return Math.floor(Math.random() * (max - min + 1) + min);
 			},
-			getSettingFromKey(key) {
-        		let found = null;
-        		this.settings.forEach(setting => {
-        			if(setting.name === key) {
-        				found = setting;
-        				return null;
-					}
-				})
-				return found;
+			randomBoolean() {
+				return this.randomNumber(0, 1) === 0;
 			},
 			downloadObjectAsJson(exportObj, exportName) {
 				const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj, null, 4));
@@ -58,34 +105,58 @@
 				downloadAnchorNode.click();
 				downloadAnchorNode.remove();
 			},
-        	download() {
-        		alert('Warning, there may be some bugs !');
-        		const that = this;
-        		const randoms = Object.keys(this.choices).filter(key => that.choices[key]);
-        		const plando = {};
-        		randoms.forEach(key => {
-        			const setting = that.getSettingFromKey(key);
-        			if(setting.choices === 'multiples') {
-        				plando[key] = that.randomNumber(setting.min, setting.max);
-					}
-        			else {
-        				plando[key] = that.randomItem(setting.choices);
+			changeTab(tab) {
+        		this.tab = tab
+			},
+			generate() {
+        		const err = [];
+        		const settings = {};
+        		const choicesTrue = Object.keys(this.choices).filter(key => this.choices[key].active);
+        		choicesTrue.forEach(key => {
+        			const setting = this.choices[key];
+        			if(setting.type === 'list') {
+        				if(setting.allow.length === 0) {
+        					err.push('The setting "' + setting.gui_text + '" is randomized but has no element allowed')
+						}
+        				settings[key] = this.randomItem(setting.allow);
+					} else if(setting.type === 'boolean') {
+        				settings[key] = this.randomBoolean()
+					} else {
+        				settings[key] = this.randomNumber(setting.min, setting.max)
 					}
 				});
-				const settings_dependencies = this.settings.filter(setting => setting.depend !== undefined);
-				settings_dependencies.forEach(setting => {
-					const dependencies = Object.keys(setting.depend);
-					dependencies.forEach(dependency => {
-						if(plando[dependency] !== setting.depend[dependency]) {
-							delete plando[dependency];
+				if(err.length > 0)
+				{
+					alert(err.join('\n'));
+					return null;
+				}
+				const dependencies = this.getDependencies();
+				Object.keys(dependencies).forEach(settingToRemove => {
+					const depend = dependencies[settingToRemove].depend;
+					Object.keys(depend).forEach(key => {
+						if(settings[key] !== depend[key]) {
+							delete settings[settingToRemove];
 						}
 					})
-				})
-        		this.downloadObjectAsJson({
-					settings: plando
-				}, "settings_random");
+				});
+				console.log(settings);
+				return settings;
+			},
+			getDependencies() {
+        		const dependencies_settings = Object.keys(this.choices).filter(key => this.choices[key].depend !== undefined);
+				const dependenciesObject = {};
+				dependencies_settings.forEach(key => {
+					dependenciesObject[key] = this.choices[key];
+				});
+				return dependenciesObject;
+			},
+			download() {
+        		const settings = this.generate();
+        		if(settings === null) {}
+        		else this.downloadObjectAsJson({
+					"settings":settings
+				}, 'settings_random');
 			}
-
 		}
     }
 </script>
@@ -93,6 +164,13 @@
 <style scoped>
 	.component {
 		display: grid;
-		grid-template-columns: 20% 20% 20% 20% 20%;
+		grid-auto-flow: row;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-column-gap: 10px;
+		grid-row-gap: 15px;
+	}
+
+	.component > div {
+		background: #fafafa
 	}
 </style>
