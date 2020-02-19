@@ -11,6 +11,7 @@
             <router-link class="link" to="/about">About</router-link>
 			<router-link class="link" to="/changelog">Changelog</router-link>
 			<a class="link" href="https://discord.gg/psSGn45">Discord</a>
+			<a class="link" href="https://github.com/RawZ06/PlandomizerGUI/">Repository Github</a>
         </div>
     </header>
 </template>

@@ -5,6 +5,11 @@
 			<div class="row">
 				<div class="col-sm">
 					<h2>Classic version</h2>
+					<h3>VERSION 2.3.2<span class="badge badge-danger">New</span></h3>
+					<ul>
+						<li>Add license information</li>
+						<li>Add link to github</li>
+					</ul> 
 					<h3>VERSION 2.3.1</h3>
 					<ul>
 						<li>Fix some english mistakes</li>
@@ -80,6 +85,10 @@
 				</div>
 				<div class="col-sm">
 					<h2>Settings Random version</h2>
+					<h3>VERSION 3.0.0 B-7 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Import 2.3.2</li>
+					</ul>
 					<h3>VERSION 3.0.0 B-6 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Bug fix dependencies settings (aka removing number skull bridge if bridge token is not choice by the program for example)</li>
