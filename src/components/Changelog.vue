@@ -85,6 +85,12 @@
 				</div>
 				<div class="col-sm">
 					<h2>Settings Random version</h2>
+					<h3>VERSION 3.0.0 B-8 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Create range input to take minimum and maximum value</li>
+						<li>Change alert message when you have an error, changed by a modal</li>
+						<li>Update help tab</li>
+					</ul>
 					<h3>VERSION 3.0.0 B-7 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Import 2.3.2</li>
