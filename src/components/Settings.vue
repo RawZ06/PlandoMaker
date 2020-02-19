@@ -48,6 +48,18 @@
 		<div style="width: 100vw; text-align: center;">
 			<button class="btn btn-success" v-on:click="download()">Download</button>
 		</div>
+		<md-dialog :md-active.sync="showDialog">
+			<md-dialog-title><span class="badge badge-danger">Errors</span></md-dialog-title>
+
+			<md-tab md-label="General">
+				<div v-for="err in errors" class="alert alert-danger" role="alert">
+					{{err}}
+				</div>
+				<md-dialog-actions>
+					<md-button class="md-primary" @click="showDialog = false">Close</md-button>
+				</md-dialog-actions>
+			</md-tab>
+		</md-dialog>
 	</div>
 </template>
 
@@ -76,7 +88,9 @@
 			return {
 				settings: settings,
 				tab: "Main Rules",
-				choices: choices
+				choices: choices,
+				showDialog: false,
+				errors: []
 			}
 		},
 		methods: {
@@ -123,7 +137,8 @@
 				});
 				if(err.length > 0)
 				{
-					alert(err.join('\n'));
+					this.showDialog = true;
+					this.errors = err;
 					return null;
 				}
 				const dependencies = this.getDependencies();
@@ -168,5 +183,9 @@
 
 	.component > div {
 		background: #fafafa
+	}
+
+	.md-dialog {
+		width: 768px;
 	}
 </style>
