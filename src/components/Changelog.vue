@@ -9,7 +9,7 @@
 					<ul>
 						<li>Add license information</li>
 						<li>Add link to github</li>
-					</ul> 
+					</ul>
 					<h3>VERSION 2.3.1</h3>
 					<ul>
 						<li>Fix some english mistakes</li>
