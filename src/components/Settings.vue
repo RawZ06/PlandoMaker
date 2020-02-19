@@ -4,9 +4,6 @@
 			<span class="badge badge-danger">BETA VERSION</span> This is a beta version ! There may be some bugs ! I will fix with next versions...
 			<br><span class="badge badge-danger">Discord</span> If you find a bug or you don't know how it work, go to my discord : <a href="https://discord.gg/psSGn45">Discord</a>
 		</div>
-		<div class="alert alert-warning" role="alert">
-			<span class="badge badge-warning">Bug</span> The dependence settings can not work (eg Triforce Hunt with Ganon BK and Number Triforce, Bridge with token and number of token)
-			</div>
 		<md-tabs v-on:md-changed="changeTab" class="md-primary">
 			<md-tab v-for="tab in Object.keys(settings)" :id="tab" :key="tab" :md-label="tab" />
 			<md-tab id="Help" md-label="Help" />
