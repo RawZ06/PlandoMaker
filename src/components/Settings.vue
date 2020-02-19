@@ -42,7 +42,22 @@
 						<label>Settings allowed</label>
 						<md-select class="md-secondary" disabled/>
 					</md-field>
-				</div>
+					<div v-else-if="setting.type === 'scale' && choices[setting.name].active === true" style="width: 80%; margin: auto;">
+						<label :for="'min_' + setting.name">Min : <span class="badge badge-secondary">{{ choices[setting.name].min }}</span> </label>
+						<input :id="'min_' + setting.name" class="custom-range" :min="setting.min" :max="choices[setting.name].max" type="range" v-model.number="choices[setting.name].min">
+						<br>
+						<label :for="'max_' + setting.name">Max : <span class="badge badge-secondary">{{ choices[setting.name].max }}</span></label>
+						<input :id="'max_' + setting.name" class="custom-range" :min="choices[setting.name].min" :max="setting.max" type="range" v-model.number="choices[setting.name].max">
+					</div>
+
+					<div v-else-if="setting.type === 'scale'" style="width: 80%; margin: auto;">
+						<label :for="'min_' + setting.name">Min : <span class="badge badge-secondary">{{ choices[setting.name].min }}</span> </label>
+						<input :id="'min_' + setting.name" class="custom-range" :min="setting.min" :max="setting.max" type="range" :value="choices[setting.name].min" disabled>
+						<br>
+						<label :for="'max_' + setting.name">Max : <span class="badge badge-secondary">{{ choices[setting.name].max }}</span></label>
+						<input :id="'max_' + setting.name" class="custom-range" :min="setting.min" :max="setting.max" type="range" :value="choices[setting.name].max" disabled>
+					</div>
+					</div>
 			</div>
 		</div>
 		<div style="width: 100vw; text-align: center;">
