@@ -37,6 +37,8 @@
 						<md-select v-model="choices[setting.name].allow" multiple>
 							<md-option :key="choice" :value="choice" v-for="choice in Object.keys(setting.choices)">{{setting.choices[choice]}}
 							</md-option>
+							<md-button v-on:click="() => {choices[setting.name].allow = Object.keys(setting.choices)}" class="md-raised md-primary" v-if="choices[setting.name].allow.length === 0">Select all</md-button>
+							<md-button v-on:click="() => {choices[setting.name].allow = []}" class="md-raised md-primary" v-else>Deselect all</md-button>
 						</md-select>
 					</md-field>
 					<md-field style="background: #EEE" v-else-if="setting.type === 'list'">

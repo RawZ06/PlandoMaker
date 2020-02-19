@@ -80,6 +80,11 @@
 				</div>
 				<div class="col-sm">
 					<h2>Settings Random version</h2>
+					<h3>VERSION 3.0.0 B-6 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Bug fix dependencies settings (aka removing number skull bridge if bridge token is not choice by the program for example)</li>
+						<li>Create select all/deselect all button</li>
+					</ul>
 					<h3>VERSION 3.0.0 B-5 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Create a select to choice what setting can be select</li>
