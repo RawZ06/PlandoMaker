@@ -12,7 +12,7 @@
 			<h1>Work In Progress (WIP)... Soon.</h1>
 		</div>
 		<div v-if="tab === 'Help'">
-			<h1><span class="badge badge-success">Tutorial</span> How to use</h1>
+			<h1><span class="badge badge-success">Tutorial</span></h1>
 			<h2>Step 1</h2>
 			<p>For each setting that you want to randomize, select it. If the setting has a list of choices, select all choices that you want</p>
 			<h2>Step 2</h2>
@@ -22,11 +22,8 @@
 			<h2>Step 4</h2>
 			<p>Insert on plando file the json download previously</p>
 
-			<h1><span class="badge badge-warning">Information</span> Information</h1>
+			<h1><span class="badge badge-warning">Information</span></h1>
 			<p>It's only for Roman's fork actually</p>
-
-			<h1><span class="badge badge-danger">ALPHA</span> ALPHA version</h1>
-			<p>It's an alpha version and there may be some bugs</p>
 		</div>
 		<div class="component">
 			<div v-for="setting in settings[tab]">
