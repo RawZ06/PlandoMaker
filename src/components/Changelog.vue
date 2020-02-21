@@ -85,6 +85,10 @@
 				</div>
 				<div class="col-sm">
 					<h2>Settings Random version</h2>
+					<h3>VERSION 3.0.0 B-9 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Add starting inventory</li>
+					</ul>
 					<h3>VERSION 3.0.0 B-8 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Create range input to take minimum and maximum value</li>
