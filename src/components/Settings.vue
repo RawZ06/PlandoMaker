@@ -1,24 +1,67 @@
 <template>
 	<div>
 		<div class="alert alert-danger" role="alert">
-			<span class="badge badge-danger">BETA VERSION</span> This is a beta version ! There may be some bugs ! I will fix with next versions...
-			<br><span class="badge badge-danger">Discord</span> If you find a bug or you don't know how it work, go to my discord : <a href="https://discord.gg/psSGn45">Discord</a>
+			<span class="badge badge-danger">BETA VERSION</span> This is a beta version ! There may be some bugs ! I
+			will fix with next versions...
+			<br><span class="badge badge-danger">Discord</span> If you find a bug or you don't know how it work, go to
+			my discord : <a href="https://discord.gg/psSGn45">Discord</a>
 		</div>
-		<md-tabs v-on:md-changed="changeTab" class="md-primary">
-			<md-tab v-for="tab in Object.keys(settings)" :id="tab" :key="tab" :md-label="tab" />
-			<md-tab id="Help" md-label="Help" />
+		<md-tabs class="md-primary" v-on:md-changed="changeTab">
+			<md-tab :id="tab" :key="tab" :md-label="tab" v-for="tab in Object.keys(settings)"/>
+			<md-tab id="Help" md-label="Help"/>
 		</md-tabs>
-		<div v-if="tab === 'Starting Inventory'">
-			<h1>Work In Progress (WIP)... Soon.</h1>
+		<div class="component" v-if="tab === 'Starting Inventory'">
+			<div v-for="tabitem in Object.keys(items)">
+				<md-switch v-model="items_choices[tabitem].active">{{items[tabitem].gui_text}}</md-switch>
+				<div>
+					<md-field v-if="items_choices[tabitem].active === true">
+						<label>Items allowed</label>
+						<md-select v-model="items_choices[tabitem].allow" multiple>
+							<md-option :key="key" :value="key" v-for="key in Object.keys(items[tabitem].allow)">{{items[tabitem].allow[key]}}
+							</md-option>
+												<md-button v-on:click="() => {items_choices[tabitem].allow = Object.keys(items[tabitem].allow)}" class="md-raised md-primary" v-if="items_choices[tabitem].allow.length === 0">Select all</md-button>
+												<md-button v-on:click="() => {items_choices[tabitem].allow = []}" class="md-raised md-primary" v-else>Deselect all</md-button>
+						</md-select>
+					</md-field>
+					<md-field style="background: #EEE" v-else>
+						<label>Items allowed</label>
+						<md-select v-model="items_choices[tabitem].allow" multiple disabled/>
+					</md-field>
+					<div style="width: 80%; margin: auto;"
+						 v-if="items_choices[tabitem].active === true">
+						<label :for="'min_' + tabitem">Min : <span class="badge badge-secondary">{{ items_choices[tabitem].min }}</span>
+						</label>
+						<input :id="'min_' + tabitem" :max="items_choices[tabitem].max" :min="0"
+							   class="custom-range" type="range" v-model.number="items_choices[tabitem].min">
+						<br>
+						<label :for="'max_' + tabitem">Max : <span class="badge badge-secondary">{{ items_choices[tabitem].max }}</span></label>
+						<input :id="'max_' + tabitem" :max="items_choices[tabitem].allow.length" :min="items_choices[tabitem].min"
+							   class="custom-range" type="range" v-model.number="items_choices[tabitem].max">
+					</div>
+					<div style="width: 80%; margin: auto;"
+						 v-else>
+						<label :for="'min_' + tabitem">Min : <span class="badge badge-secondary">{{ items_choices[tabitem].min }}</span>
+						</label>
+						<input :id="'min_' + tabitem" :max="items_choices[tabitem].max" :min="0"
+							   class="custom-range" type="range" :value="items_choices[tabitem].min" disabled>
+						<br>
+						<label :for="'max_' + tabitem">Max : <span class="badge badge-secondary">{{ items_choices[tabitem].max }}</span></label>
+						<input :id="'max_' + tabitem" :max="items_choices[tabitem].allow.length" :min="items_choices[tabitem].min"
+							   class="custom-range" type="range" :value="items_choices[tabitem].max" disabled>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div v-if="tab === 'Help'">
 			<h1><span class="badge badge-success">Tutorial</span></h1>
 			<h2>Step 1</h2>
-			<p>For each setting that you want to randomize, select it. If the setting has a list of choices, select all choices that you want</p>
+			<p>For each setting that you want to randomize, select it. If the setting has a list of choices, select all
+				choices that you want</p>
 			<h2>Step 2</h2>
 			<p>Download the json file with the "Download" button</p>
 			<h2>Step 3</h2>
-			<p>Open Roman's Fork app and select the preset that you want (it's for settings that you don't have check and select default value)</p>
+			<p>Open Roman's Fork app and select the preset that you want (it's for settings that you don't have check
+				and select default value)</p>
 			<h2>Step 4</h2>
 			<p>Insert on plando file the json download previously</p>
 
@@ -31,33 +74,46 @@
 				<div>
 					<md-field v-if="setting.type === 'list' && choices[setting.name].active === true">
 						<label>Settings allowed</label>
-						<md-select v-model="choices[setting.name].allow" multiple>
-							<md-option :key="choice" :value="choice" v-for="choice in Object.keys(setting.choices)">{{setting.choices[choice]}}
+						<md-select multiple v-model="choices[setting.name].allow">
+							<md-option :key="choice" :value="choice" v-for="choice in Object.keys(setting.choices)">
+								{{setting.choices[choice]}}
 							</md-option>
-							<md-button v-on:click="() => {choices[setting.name].allow = Object.keys(setting.choices)}" class="md-raised md-primary" v-if="choices[setting.name].allow.length === 0">Select all</md-button>
-							<md-button v-on:click="() => {choices[setting.name].allow = []}" class="md-raised md-primary" v-else>Deselect all</md-button>
+							<md-button class="md-raised md-primary"
+									   v-if="choices[setting.name].allow.length === 0" v-on:click="() => {choices[setting.name].allow = Object.keys(setting.choices)}">
+								Select all
+							</md-button>
+							<md-button class="md-raised md-primary"
+									   v-else v-on:click="() => {choices[setting.name].allow = []}">Deselect all
+							</md-button>
 						</md-select>
 					</md-field>
 					<md-field style="background: #EEE" v-else-if="setting.type === 'list'">
 						<label>Settings allowed</label>
 						<md-select class="md-secondary" disabled/>
 					</md-field>
-					<div v-else-if="setting.type === 'scale' && choices[setting.name].active === true" style="width: 80%; margin: auto;">
-						<label :for="'min_' + setting.name">Min : <span class="badge badge-secondary">{{ choices[setting.name].min }}</span> </label>
-						<input :id="'min_' + setting.name" class="custom-range" :min="setting.min" :max="choices[setting.name].max" type="range" v-model.number="choices[setting.name].min">
+					<div style="width: 80%; margin: auto;"
+						 v-else-if="setting.type === 'scale' && choices[setting.name].active === true">
+						<label :for="'min_' + setting.name">Min : <span class="badge badge-secondary">{{ choices[setting.name].min }}</span>
+						</label>
+						<input :id="'min_' + setting.name" :max="choices[setting.name].max" :min="setting.min"
+							   class="custom-range" type="range" v-model.number="choices[setting.name].min">
 						<br>
 						<label :for="'max_' + setting.name">Max : <span class="badge badge-secondary">{{ choices[setting.name].max }}</span></label>
-						<input :id="'max_' + setting.name" class="custom-range" :min="choices[setting.name].min" :max="setting.max" type="range" v-model.number="choices[setting.name].max">
+						<input :id="'max_' + setting.name" :max="setting.max" :min="choices[setting.name].min"
+							   class="custom-range" type="range" v-model.number="choices[setting.name].max">
 					</div>
 
-					<div v-else-if="setting.type === 'scale'" style="width: 80%; margin: auto;">
-						<label :for="'min_' + setting.name">Min : <span class="badge badge-secondary">{{ choices[setting.name].min }}</span> </label>
-						<input :id="'min_' + setting.name" class="custom-range" :min="setting.min" :max="setting.max" type="range" :value="choices[setting.name].min" disabled>
+					<div style="width: 80%; margin: auto;" v-else-if="setting.type === 'scale'">
+						<label :for="'min_' + setting.name">Min : <span class="badge badge-secondary">{{ choices[setting.name].min }}</span>
+						</label>
+						<input :id="'min_' + setting.name" :max="setting.max" :min="setting.min" :value="choices[setting.name].min"
+							   class="custom-range" disabled type="range">
 						<br>
 						<label :for="'max_' + setting.name">Max : <span class="badge badge-secondary">{{ choices[setting.name].max }}</span></label>
-						<input :id="'max_' + setting.name" class="custom-range" :min="setting.min" :max="setting.max" type="range" :value="choices[setting.name].max" disabled>
+						<input :id="'max_' + setting.name" :max="setting.max" :min="setting.min" :value="choices[setting.name].max"
+							   class="custom-range" disabled type="range">
 					</div>
-					</div>
+				</div>
 			</div>
 		</div>
 		<div style="width: 100vw; text-align: center;">
@@ -67,11 +123,11 @@
 			<md-dialog-title><span class="badge badge-danger">Errors</span></md-dialog-title>
 
 			<md-tab md-label="General">
-				<div v-for="err in errors" class="alert alert-danger" role="alert">
+				<div class="alert alert-danger" role="alert" v-for="err in errors">
 					{{err}}
 				</div>
 				<md-dialog-actions>
-					<md-button class="md-primary" @click="showDialog = false">Close</md-button>
+					<md-button @click="showDialog = false" class="md-primary">Close</md-button>
 				</md-dialog-actions>
 			</md-tab>
 		</md-dialog>
@@ -80,6 +136,7 @@
 
 <script>
 	import settings from '../stores/settings.json'
+	import items from '../stores/starting_item.json'
 
 	const choices = {};
 
@@ -97,21 +154,45 @@
 		})
 	})
 
-    export default {
-        name: "Settings.vue",
+	const choices_items = {};
+
+	Object.keys(items).forEach(itemList => {
+		choices_items[itemList] = {
+			active: false,
+			allow: [],
+			min: 0,
+			max: 0
+		}
+	})
+
+	function shuffle(a) {
+		let j, x, i;
+		for (i = a.length - 1; i > 0; i--) {
+			j = Math.floor(Math.random() * (i + 1));
+			x = a[i];
+			a[i] = a[j];
+			a[j] = x;
+		}
+		return a;
+	}
+
+	export default {
+		name: "Settings.vue",
 		data() {
 			return {
 				settings: settings,
 				tab: "Main Rules",
 				choices: choices,
 				showDialog: false,
-				errors: []
+				errors: [],
+				items: items,
+				items_choices: choices_items
 			}
 		},
 		methods: {
-        	randomItem(items) {
-        		if(typeof items[0] === "string")
-        			return items[Math.floor(Math.random() * items.length)]
+			randomItem(items) {
+				if (typeof items[0] === "string")
+					return items[Math.floor(Math.random() * items.length)]
 				else
 					return Object.keys(items)[Math.floor(Math.random() * Object.keys(items).length)]
 			},
@@ -120,6 +201,14 @@
 			},
 			randomBoolean() {
 				return this.randomNumber(0, 1) === 0;
+			},
+			filter_random(list, nb) {
+				const cpy = list.filter(() => true);
+				const output = [];
+				for(let i=0; i<nb; i++) {
+					output.push(cpy.pop())
+				}
+				return output;
 			},
 			downloadObjectAsJson(exportObj, exportName) {
 				const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj, null, 4));
@@ -131,27 +220,26 @@
 				downloadAnchorNode.remove();
 			},
 			changeTab(tab) {
-        		this.tab = tab
+				this.tab = tab
 			},
 			generate() {
-        		const err = [];
-        		const settings = {};
-        		const choicesTrue = Object.keys(this.choices).filter(key => this.choices[key].active);
-        		choicesTrue.forEach(key => {
-        			const setting = this.choices[key];
-        			if(setting.type === 'list') {
-        				if(setting.allow.length === 0) {
-        					err.push('The setting "' + setting.gui_text + '" is randomized but has no element allowed')
+				const err = [];
+				const settings = {};
+				const choicesTrue = Object.keys(this.choices).filter(key => this.choices[key].active);
+				choicesTrue.forEach(key => {
+					const setting = this.choices[key];
+					if (setting.type === 'list') {
+						if (setting.allow.length === 0) {
+							err.push('The setting "' + setting.gui_text + '" is randomized but has no element allowed')
 						}
-        				settings[key] = this.randomItem(setting.allow);
-					} else if(setting.type === 'boolean') {
-        				settings[key] = this.randomBoolean()
+						settings[key] = this.randomItem(setting.allow);
+					} else if (setting.type === 'boolean') {
+						settings[key] = this.randomBoolean()
 					} else {
-        				settings[key] = this.randomNumber(setting.min, setting.max)
+						settings[key] = this.randomNumber(setting.min, setting.max+1)
 					}
 				});
-				if(err.length > 0)
-				{
+				if (err.length > 0) {
 					this.showDialog = true;
 					this.errors = err;
 					return null;
@@ -160,16 +248,22 @@
 				Object.keys(dependencies).forEach(settingToRemove => {
 					const depend = dependencies[settingToRemove].depend;
 					Object.keys(depend).forEach(key => {
-						if(settings[key] !== depend[key]) {
+						if (settings[key] !== depend[key]) {
 							delete settings[settingToRemove];
 						}
 					})
 				});
+				Object.keys(this.items_choices).forEach(key => {
+					if(this.items_choices[key].active === true) {
+						const items = this.filter_random(this.items_choices[key].allow, this.items_choices[key].min, this.items_choices[key].max)
+						settings[key] = items;
+					}
+				})
 				console.log(settings);
 				return settings;
 			},
 			getDependencies() {
-        		const dependencies_settings = Object.keys(this.choices).filter(key => this.choices[key].depend !== undefined);
+				const dependencies_settings = Object.keys(this.choices).filter(key => this.choices[key].depend !== undefined);
 				const dependenciesObject = {};
 				dependencies_settings.forEach(key => {
 					dependenciesObject[key] = this.choices[key];
@@ -177,14 +271,14 @@
 				return dependenciesObject;
 			},
 			download() {
-        		const settings = this.generate();
-        		if(settings === null) {}
-        		else this.downloadObjectAsJson({
-					"settings":settings
+				const settings = this.generate();
+				if (settings === null) {
+				} else this.downloadObjectAsJson({
+					"settings": settings
 				}, 'settings_random');
 			}
 		}
-    }
+	}
 </script>
 
 <style scoped>
