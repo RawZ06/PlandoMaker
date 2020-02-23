@@ -56,13 +56,28 @@
 					href="https://ootrandomizer.com/generator">generator</a> to work! It returns an error if you break
 				the <a
 					href="https://wiki.ootrandomizer.com/index.php?title=Logic">logic</a>, or if you break some inner
-				Randomizer
-				rules or settings.
+				Randomizer rules or settings.
 			</li>
 			<li>Hit the "Download" button. You will get a JSON file that is to be imported in the <a
 				href="https://ootrandomizer.com/generator">web generator</a>, or in any other method you'd like to use
 				to generate your seed.
 			</li>
+		</ul>
+		<h3>[NEW] Settings Randomizer is now available!</h3>
+		<p>In the "Settings Randomizer" tab on this website, you have now access to a GUI for randomizing any seed setting
+			you would like to randomize. Just check a setting, select every option you want in the pool for this setting,
+			and let the randomizer choose the settings of your seed for you! You can choose as many settings as you want.
+			Once you're done with configurations, hit the "Download" button. Then, on the Randomizer, select a preset with
+			non-random settings to get the default value for every setting, generate your settings, and put the previously
+			downloaded JSON file into your freshly generated plando file. Enjoy!</p>
+		<p>Please note that at this moment, this Settings Randomizer is specifically made to work with Roman's fork of the
+			Randomizer. We do not guarantee a 100% compatibility with any other Randomizer.</p>
+		<h3>Contributors</h3>
+		Credits to :
+		<ul>
+			<li>RawZ06, maintainer and developer</li>
+			<li>Touyet, developer</li>
+			<li>Et0san, developer and author of this page</li>
 		</ul>
 	</div>
 </template>
