@@ -4,7 +4,7 @@ A non-official Plandomizer GUI for ZOoTR.
 
 You can access it with [this link](https://ootplandomizer.com)
 
-This branch is a BETA version for setting random maker, you can access it with [this link](https://dev.ootplandomizer.com)
+This branch is a BETA version for Random Settings maker, you can access it with [this link](https://dev.ootplandomizer.com)
 
 # Wait, what?
 
@@ -64,7 +64,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 ## LICENSE
 
-This reposity is GPL License. You can use this repository, but every modification must be published.
+This reposity is GNU's General Public License (GPL). You can use this repository, but every modification must be published.
 
 ## CONTRIBUTORS
 
