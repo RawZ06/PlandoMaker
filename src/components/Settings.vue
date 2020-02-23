@@ -121,15 +121,14 @@
 		</div>
 		<md-dialog :md-active.sync="showDialog">
 			<md-dialog-title><span class="badge badge-danger">Errors</span></md-dialog-title>
-
-			<md-tab md-label="General">
+			<div class="modal-body">
 				<div class="alert alert-danger" role="alert" v-for="err in errors">
 					{{err}}
 				</div>
 				<md-dialog-actions>
 					<md-button @click="showDialog = false" class="md-primary">Close</md-button>
 				</md-dialog-actions>
-			</md-tab>
+			</div>
 		</md-dialog>
 	</div>
 </template>
