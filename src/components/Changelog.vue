@@ -85,11 +85,16 @@
 				</div>
 				<div class="col-sm">
 					<h2>Settings Random version</h2>
+					<h3>VERSION 3.0.0 B-11 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Rephrasing description pages (About, Changelog, Settings)</li>
+						<li>Added credits to contributors</li>
+					</ul>
 					<h3>VERSION 3.0.0 B-10 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Fix console error with md-dialog</li>
-						<li>Add warning message when you select an dependency setting and you don't randomize the setting (for example when you randomize the number of token for the bridge but you don't randomize the bridge)</li>
-						<li>Bug fix dependency settings, when the setting is not selected, it's setup to false</li>
+						<li>Add warning message when you select a setting with non-randomized dependencies (for example, when you randomize the number of needed tokens for the bridge but you didn't randomize the bridge requirements)</li>
+						<li>Bug fix dependency settings: when the setting is not selected, it defaults to false</li>
 					</ul>
 					<h3>VERSION 3.0.0 B-9 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
@@ -107,12 +112,12 @@
 					</ul>
 					<h3>VERSION 3.0.0 B-6 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
-						<li>Bug fix dependencies settings (aka removing number skull bridge if bridge token is not choice by the program for example)</li>
+						<li>Bug fix settings dependencies (aka removing number skull bridge if bridge token is not choice by the program for example)</li>
 						<li>Create select all/deselect all button</li>
 					</ul>
 					<h3>VERSION 3.0.0 B-5 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
-						<li>Create a select to choice what setting can be select</li>
+						<li>Create a select to choice what setting can be selected</li>
 						<li>Create tab like rando and sort settings</li>
 						<li>Some Bug fix</li>
 						<li>Update with the new version (removing Start with)</li>
@@ -138,7 +143,7 @@
 				</div>
 			</div>
 		</div>
-		<small>*Todo list is features I want to implement but which are not guaranteed to be developed?</small>
+		<small>*Todo list is features I want to implement but which are not guaranteed to be developed</small>
 	</div>
 </template>
 
