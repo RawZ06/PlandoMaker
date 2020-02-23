@@ -64,7 +64,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 ## LICENSE
 
-This reposity is GNU's General Public License (GPL). You can use this repository, but every modification must be published.
+This reposity is under GNU's General Public License (GPL). You can use this repository, but every modification must be published.
 
 ## CONTRIBUTORS
 
