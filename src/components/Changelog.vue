@@ -85,6 +85,12 @@
 				</div>
 				<div class="col-sm">
 					<h2>Settings Random version</h2>
+					<h3>VERSION 3.0.0 B-10 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Fix console error with md-dialog</li>
+						<li>Add warning message when you select an dependency setting and you don't randomize the setting (for example when you randomize the number of token for the bridge but you don't randomize the bridge)</li>
+						<li>Bug fix dependency settings, when the setting is not selected, it's setup to false</li>
+					</ul>
 					<h3>VERSION 3.0.0 B-9 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Add starting inventory</li>
