@@ -119,14 +119,29 @@
 		<div style="width: 100vw; text-align: center;">
 			<button class="btn btn-success" v-on:click="download()">Download</button>
 		</div>
-		<md-dialog :md-active.sync="showDialog">
+		<md-dialog :md-active.sync="showDialogError">
 			<md-dialog-title><span class="badge badge-danger">Errors</span></md-dialog-title>
 			<div class="modal-body">
 				<div class="alert alert-danger" role="alert" v-for="err in errors">
 					{{err}}
 				</div>
 				<md-dialog-actions>
-					<md-button @click="showDialog = false" class="md-primary">Close</md-button>
+					<md-button @click="showDialogError = false" class="md-primary">Close</md-button>
+				</md-dialog-actions>
+			</div>
+		</md-dialog>
+
+		<md-dialog :md-active.sync="showDialogWarning">
+			<md-dialog-title><span class="badge badge-warning">Warning</span></md-dialog-title>
+
+			<div class="modal-body">
+				<div>You selected an dependency setting ! Please check when you create a seed that :</div>
+				<div class="alert alert-warning" role="alert" v-for="war in warnings">
+					{{war.setting}} is {{war.value}}
+				</div>
+
+				<md-dialog-actions>
+					<md-button @click="showDialogWarning = false" class="md-primary">Close</md-button>
 				</md-dialog-actions>
 			</div>
 		</md-dialog>
@@ -182,10 +197,12 @@
 				settings: settings,
 				tab: "Main Rules",
 				choices: choices,
-				showDialog: false,
+				showDialogError: false,
+				showDialogWarning: false,
 				errors: [],
 				items: items,
-				items_choices: choices_items
+				items_choices: choices_items,
+				warnings: [],
 			}
 		},
 		methods: {
@@ -239,10 +256,11 @@
 					}
 				});
 				if (err.length > 0) {
-					this.showDialog = true;
+					this.showDialogError = true;
 					this.errors = err;
 					return null;
 				}
+				const warnings = [];
 				const dependencies = this.getDependencies();
 				Object.keys(dependencies).forEach(settingToRemove => {
 					const depend = dependencies[settingToRemove].depend;
@@ -250,8 +268,18 @@
 						if (settings[key] !== undefined && settings[key] !== depend[key]) {
 							delete settings[settingToRemove];
 						}
+						else if(settings[key] === undefined && settings[settingToRemove] !== undefined) {
+							warnings.push({
+								"setting": key,
+								"value": depend[key]
+							})
+						}
 					})
 				});
+				if (warnings.length > 0) {
+					this.showDialogWarning = true;
+					this.warnings = warnings;
+				}
 				Object.keys(this.items_choices).forEach(key => {
 					if(this.items_choices[key].active === true) {
 						const items = this.filter_random(this.items_choices[key].allow, this.items_choices[key].min, this.items_choices[key].max)
