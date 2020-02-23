@@ -56,17 +56,17 @@
 			<h1><span class="badge badge-success">Tutorial</span></h1>
 			<h2>Step 1</h2>
 			<p>For each setting that you want to randomize, select it. If the setting has a list of choices, select all
-				choices that you want</p>
+				choices that you want in the pool.</p>
 			<h2>Step 2</h2>
-			<p>Download the json file with the "Download" button</p>
+			<p>Download the json file with the "Download" button.</p>
 			<h2>Step 3</h2>
-			<p>Open Roman's Fork app and select the preset that you want (it's for settings that you don't have check
-				and select default value)</p>
+			<p>Open Roman's Fork app and select the preset with non-random settings (to set the default value to settings
+				that you didn't randomize).</p>
 			<h2>Step 4</h2>
-			<p>Insert on plando file the json download previously</p>
+			<p>Insert the json file you just downloaded into the plando file.</p>
 
 			<h1><span class="badge badge-warning">Information</span></h1>
-			<p>It's only for Roman's fork actually</p>
+			<p>At this moment, it only works with Roman's fork.</p>
 		</div>
 		<div class="component">
 			<div v-for="setting in settings[tab]">
