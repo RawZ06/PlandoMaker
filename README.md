@@ -2,6 +2,8 @@
 
 A non-official Plandomizer GUI for ZOoTR.
 
+You can access it with [this link](https://ootplandomizer.com)
+
 # Wait, what?
 
 Ok. Let's start from the beginning.
