@@ -248,7 +248,7 @@
 				Object.keys(dependencies).forEach(settingToRemove => {
 					const depend = dependencies[settingToRemove].depend;
 					Object.keys(depend).forEach(key => {
-						if (settings[key] !== depend[key]) {
+						if (settings[key] !== undefined && settings[key] !== depend[key]) {
 							delete settings[settingToRemove];
 						}
 					})
