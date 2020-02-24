@@ -44,18 +44,20 @@
 							Hash
 						</div>
 					</div>
-					                <div>
-					                    <div class="list-group-item list-group-item-action active" v-if="group_area.group_area_id === 0 && current_area === -2"
-					                         v-on:click="changeArea(-2)">
-					                        Gossip
-					                    </div>
-					                    <div class="list-group-item list-group-item-action" v-else-if="group_area.group_area_id === 0"
-					                         v-on:click="changeArea(-2)">
-					                        Gossip
-					                    </div>
-					                </div>
+					<div>
+						<div class="list-group-item list-group-item-action active"
+							 v-if="group_area.group_area_id === 0 && current_area === -2"
+							 v-on:click="changeArea(-2)">
+							Gossip
+						</div>
+						<div class="list-group-item list-group-item-action" v-else-if="group_area.group_area_id === 0"
+							 v-on:click="changeArea(-2)">
+							Gossip
+						</div>
+					</div>
 				</div>
-				<div v-bind:class="[(group_area.group_area_id === 0 && current_area === -1) ? 'content' : 'col-md-12' ]">
+				<div
+					v-bind:class="[(group_area.group_area_id === 0 && current_area === -1) ? 'content' : 'col-md-12' ]">
 					<div v-if="current_area !== -1 && current_area !== -2 && current_area !== undefined">
 						<div
 							v-bind:key="location.location_id"
@@ -128,7 +130,8 @@
 					</div>
 					<div v-else-if="current_area === -2">
 						<div class="alert alert-warning" role="alert">
-							<img height="20px" width="20px" src="https://image.flaticon.com/icons/svg/158/158591.svg" alt="">
+							<img alt="" height="20px" src="https://image.flaticon.com/icons/svg/158/158591.svg"
+								 width="20px">
 							This version of hint is not automatic ! <br>
 							There is no color management of hint (blue for woth, purple for foolish for example)<br>
 							There is no control location's content (you can make a gossip stone lie) <br>
@@ -136,8 +139,8 @@
 						</div>
 						<md-list>
 							<md-list-item
-								v-for="hint in gossip_list.slice(5*(page_hint-1), 5*page_hint)"
 								v-bind:key="hint"
+								v-for="hint in gossip_list.slice(5*(page_hint-1), 5*page_hint)"
 							>
 								<md-field>
 									<label>{{hint}}</label>
@@ -147,7 +150,8 @@
 							</md-list-item>
 						</md-list>
 						<div class="paginator">
-							<Paginator v-on:pageChange="changePageHint" :page="page_hint" :max-page="gossip_list.length / 5 - 1"/>
+							<Paginator :max-page="gossip_list.length / 5 - 1" :page="page_hint"
+									   v-on:pageChange="changePageHint"/>
 						</div>
 					</div>
 				</div>
@@ -202,7 +206,7 @@
 			changeGroup(group) {
 				this.success = false;
 				this.group_area = group;
-				if(group.group_area_id !== 0)
+				if (group.group_area_id !== 0)
 					this.current_area = this.group_area.areas[0];
 				else
 					this.current_area = -1;
@@ -273,8 +277,8 @@
 				const copy = {};
 				Object.keys(plando).forEach(key => {
 					const att = plando[key];
-					if (att.length === 0) {}
-					else copy[key] = att;
+					if (att.length === 0) {
+					} else copy[key] = att;
 				});
 				return copy;
 			},
@@ -284,10 +288,10 @@
 			getGossipStones() {
 				const data = {};
 				this.gossip_list.forEach(gossip => {
-					if(this.gossip_hint[gossip] !== undefined && this.gossip_hint[gossip] !== null && this.gossip_hint[gossip].length > 0)
-					data[gossip] = {
-						text: this.gossip_hint[gossip]
-					}
+					if (this.gossip_hint[gossip] !== undefined && this.gossip_hint[gossip] !== null && this.gossip_hint[gossip].length > 0)
+						data[gossip] = {
+							text: this.gossip_hint[gossip]
+						}
 				});
 				return data;
 			}
@@ -361,6 +365,7 @@
 		.right {
 			width: 100%;
 		}
+
 		.app {
 			flex-direction: row;
 		}
@@ -396,7 +401,8 @@
 
 		.hash_list {
 			display: flex;
-			flex-direction: column;
+			flex-direction: row;
+			flex-wrap: wrap;
 		}
 
 		.content {
