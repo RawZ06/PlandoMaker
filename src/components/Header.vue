@@ -2,13 +2,15 @@
     <header>
 		<div class="title-version">
 			<div class="title">Plandomizer</div>
-			<small>v.2.3.2 Release - By RawZ</small>
+			<small>v.3.0.0 B-12 <span class="badge badge-danger">BETA</span> - By RawZ</small>
 			<div title="Menu" class="c-icon c-icon-burger"><span> </span></div>
 		</div>
         <div class="links hide">
             <router-link class="link" to="/">Home</router-link>
+            <router-link class="link" to="/settings">Settings Random</router-link>
             <router-link class="link" to="/about">About</router-link>
 			<router-link class="link" to="/changelog">Changelog</router-link>
+			<a class="link" href="https://discord.gg/psSGn45">Discord</a>
 			<a class="link" href="https://github.com/RawZ06/PlandomizerGUI/">Repository Github</a>
         </div>
     </header>
@@ -156,7 +158,7 @@ export default {
 		background: #000;
 	}
 
-	@media screen and (min-width: 640px) {
+	@media screen and (min-width: 800px) {
 		.c-icon {
 			display: none;
 		}

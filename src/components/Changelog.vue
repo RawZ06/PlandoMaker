@@ -1,90 +1,155 @@
 <template>
 	<div>
 		<h1>Changelog</h1>
-		<br>
-<!--		<h3>Todo list*</h3>-->
-<!--		<ul>-->
-<!--			<li>Customization gossip hints</li>-->
-<!--		</ul>-->
-		<br>
-		<h3>VERSION 2.3.2<span class="badge badge-danger">New</span></h3>
-		<ul>
-			<li>Add license information</li>
-			<li>Add link to github</li>
-		</ul>
-		<h3>VERSION 2.3.1</h3>
-		<ul>
-			<li>Fix some english mistakes</li>
-			<li>More space for gossip region</li>
-			<li>Fix bug when remove element hash, the "?" didn't appear</li>
-			<li>Change designation for barren item and major item.</li>
-		</ul>
-		<h3>VERSION 2.3.0</h3>
-		<ul>
-			<li>First version of gossip stones : You can insert hint for all gossips stones</li>
-			<li>Create two categories for all dungeons : child and adult</li>
-			<li>Remove "Usually" and replace to 3 categories : "Hash & Hints", "Stones & Medallions" and "Songs"</li>
-		</ul>
-		<h3>VERSION 2.2.1</h3>
-		<ul>
-			<li>Fix menu position, it was not same result as local</li>
-		</ul>
-		<h3>VERSION 2.2.0</h3>
-		<ul>
-			<li>Reworking css for responsiveness</li>
-			<li>This website can be used on mobile/tablet, it's responsive</li>
-		</ul>
-		<h3>VERSION 2.1.3</h3>
-		<ul>
-			<li>Add About page</li>
-			<li>Fix bottom buttons position</li>
-		</ul>
-		<h3>VERSION 2.1.2</h3>
-		<ul>
-			<li>New design for all select</li>
-			<li>Customization hash seed</li>
-		</ul>
-		<h3>VERSION 2.1.1</h3>
-		<ul>
-			<li>Import of existing plando is now available</li>
-			<li>Generating plando 5.x (dev and release) compatible</li>
-			<li>Removing some console errors</li>
-		</ul>
-		<h3>VERSION 2.1</h3>
-		<ul>
-			<li>Removing back-end server and save system</li>
-		</ul>
-		<h3>VERSION BETA 2.0.6</h3>
-		<ul>
-			<li>Removing Skull Mask double location</li>
-		</ul>
-		<h3>VERSION BETA 2.0.5</h3>
-		<ul>
-			<li>Fixing bug, can't open GTG</li>
-		</ul>
-		<h3>VERSION BETA 2.0.4</h3>
-		<ul>
-			<li>Download plando don't add locations</li>
-			<li>Removing page numbering when there is only one page</li>
-		</ul>
-		<h3>VERSION BETA 2.0.3</h3>
-		<ul>
-			Nothing, just for me
-		</ul>
-		<h3>VERSION BETA 2.0.2</h3>
-		<ul>
-			<li>Bugfix : If you fill a location with a blank item, it is removed of the list when you download the
-				plando
-			</li>
-		</ul>
-		<h3>VERSION BETA 2.0.1</h3>
-		<ul>
-			<li>Removing double locations</li>
-			<li>Creating page without signup</li>
-			<li>Add item_pool in json generated (resolve plando errors with bottle and trade item for example)</li>
-			<li>Creating page version</li>
-		</ul>
-		<small>*Todo list is features I want to implement but which are not guaranteed to be developed?</small>
+		<div>
+			<div class="row">
+				<div class="col-sm">
+					<h2>Classic version</h2>
+					<h3>VERSION 2.3.2<span class="badge badge-danger">New</span></h3>
+					<ul>
+						<li>Add license information</li>
+						<li>Add link to github</li>
+					</ul>
+					<h3>VERSION 2.3.1</h3>
+					<ul>
+						<li>Fix some english mistakes</li>
+						<li>More space for gossip region</li>
+						<li>Fix bug when remove element hash, the "?" didn't appear</li>
+						<li>Change designation for barren item and major item.</li>
+					</ul>
+					<h3>VERSION 2.3.0</h3>
+					<ul>
+						<li>First version of gossip stones : You can insert hint for all gossips stones</li>
+						<li>Create two categories for all dungeons : child and adult</li>
+						<li>Remove "Usually" and replace to 3 categories : "Hash & Hints", "Stones & Medallions" and "Songs"</li>
+					</ul>
+					<h3>VERSION 2.2.1</h3>
+					<ul>
+						<li>Fix menu position, it was not same result as local</li>
+					</ul>
+					<h3>VERSION 2.2.0</h3>
+					<ul>
+						<li>Reworking css for responsiveness</li>
+						<li>This website can be used on mobile/tablet, it's responsive</li>
+					</ul>
+					<h3>VERSION 2.1.3</h3>
+					<ul>
+						<li>Add About page</li>
+						<li>Fix bottom buttons position</li>
+					</ul>
+					<h3>VERSION 2.1.2</h3>
+					<ul>
+						<li>New design for all select</li>
+						<li>Customization hash seed</li>
+					</ul>
+					<h3>VERSION 2.1.1</h3>
+					<ul>
+						<li>Import of existing plando is now available</li>
+						<li>Generating plando 5.x (dev and release) compatible</li>
+						<li>Removing some console errors</li>
+					</ul>
+					<h3>VERSION 2.1</h3>
+					<ul>
+						<li>Removing back-end server and save system</li>
+					</ul>
+					<h3>VERSION 2.0.6 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Removing Skull Mask double location</li>
+					</ul>
+					<h3>VERSION 2.0.5 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Fixing bug, can't open GTG</li>
+					</ul>
+					<h3>VERSION 2.0.4 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Download plando don't add locations</li>
+						<li>Removing page numbering when there is only one page</li>
+					</ul>
+					<h3>VERSION 2.0.3 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						Nothing, just for me
+					</ul>
+					<h3>VERSION 2.0.2 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Bugfix : If you fill a location with a blank item, it is removed of the list when you download the
+							plando
+						</li>
+					</ul>
+					<h3>VERSION 2.0.1 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Removing double locations</li>
+						<li>Creating page without signup</li>
+						<li>Add item_pool in json generated (resolve plando errors with bottle and trade item for example)</li>
+						<li>Creating page version</li>
+					</ul>
+				</div>
+				<div class="col-sm">
+					<h2>Settings Random version</h2>
+					<h3>VERSION 3.0.0 B-12 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Adding save system</li>
+						<li>Moving download button</li>
+						<li>Adding Reset all" button</li>
+					</ul>
+					<h3>VERSION 3.0.0 B-11 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Rephrasing description pages (About, Changelog, Settings)</li>
+						<li>Added credits to contributors</li>
+					</ul>
+					<h3>VERSION 3.0.0 B-10 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Fix console error with md-dialog</li>
+						<li>Add warning message when you select a setting with non-randomized dependencies (for example, when you randomize the number of needed tokens for the bridge but you didn't randomize the bridge requirements)</li>
+						<li>Bug fix dependency settings: when the setting is not selected, it defaults to false</li>
+					</ul>
+					<h3>VERSION 3.0.0 B-9 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Add starting inventory</li>
+					</ul>
+					<h3>VERSION 3.0.0 B-8 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Create range input to take minimum and maximum value</li>
+						<li>Change alert message when you have an error, changed by a modal</li>
+						<li>Update help tab</li>
+					</ul>
+					<h3>VERSION 3.0.0 B-7 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Import 2.3.2</li>
+					</ul>
+					<h3>VERSION 3.0.0 B-6 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Bug fix settings dependencies (aka removing number skull bridge if bridge token is not choice by the program for example)</li>
+						<li>Create select all/deselect all button</li>
+					</ul>
+					<h3>VERSION 3.0.0 B-5 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Create a select to choice what setting can be selected</li>
+						<li>Create tab like rando and sort settings</li>
+						<li>Some Bug fix</li>
+						<li>Update with the new version (removing Start with)</li>
+						<li>Help tab</li>
+					</ul>
+					<h3>VERSION 3.0.0 B-4 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Import 2.3.1</li>
+					</ul>
+					<h3>VERSION 3.0.0 B-3 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Add discord link</li>
+						<li>Fix mistake spelling</li>
+					</ul>
+					<h3>VERSION 3.0.0 B-2 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Create random settings MVP<span class="badge badge-danger">ALPHA version</span></li>
+					</ul>
+					<h3>VERSION 3.0.0 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Create random settings creator section</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<small>*Todo list is features I want to implement but which are not guaranteed to be developed</small>
 	</div>
 </template>
 

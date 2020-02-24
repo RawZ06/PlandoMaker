@@ -1,5 +1,8 @@
 <template>
 	<div v-if="current_area !== null">
+		<div class="alert alert-warning" role="alert">
+			<span class="badge badge-warning">Warning</span> This is a similar version with official, go to <a href="https://ootplandomizer.com">official version</a>
+		</div>
 		<div class="app">
 			<div class="left">
 				<div class="list-group">
