@@ -1,31 +1,34 @@
 <template>
-	<div>
-		<div class="alert alert-danger" role="alert">
-			<span class="badge badge-danger">BETA VERSION</span> This is a beta version ! There may be some bugs ! I
+	<div style="max-width: 100%">
+		<md-switch v-model="saving">Auto save</md-switch>
+		<md-button @click="reset_active = true" class="md-raised md-accent">Reset all</md-button>
 			will fix with next versions...
-			<br><span class="badge badge-danger">Discord</span> If you find a bug or you don't know how it work, go to
-			my discord : <a href="https://discord.gg/psSGn45">Discord</a>
-		</div>
 		<md-tabs class="md-primary" v-on:md-changed="changeTab">
 			<md-tab :id="tab" :key="tab" :md-label="tab" v-for="tab in Object.keys(settings)"/>
 			<md-tab id="Help" md-label="Help"/>
 		</md-tabs>
 		<div class="component" v-if="tab === 'Starting Inventory'">
 			<div v-for="tabitem in Object.keys(items)">
-				<md-switch v-model="items_choices[tabitem].active">{{items[tabitem].gui_text}}</md-switch>
+				<md-switch class="md-primary" v-model="items_choices[tabitem].active">{{items[tabitem].gui_text}}</md-switch>
 				<div>
 					<md-field v-if="items_choices[tabitem].active === true">
 						<label>Items allowed</label>
-						<md-select v-model="items_choices[tabitem].allow" multiple>
-							<md-option :key="key" :value="key" v-for="key in Object.keys(items[tabitem].allow)">{{items[tabitem].allow[key]}}
+						<md-select multiple v-model="items_choices[tabitem].allow">
+							<md-option :key="key" :value="key" v-for="key in Object.keys(items[tabitem].allow)">
+								{{items[tabitem].allow[key]}}
 							</md-option>
-												<md-button v-on:click="() => {items_choices[tabitem].allow = Object.keys(items[tabitem].allow)}" class="md-raised md-primary" v-if="items_choices[tabitem].allow.length === 0">Select all</md-button>
-												<md-button v-on:click="() => {items_choices[tabitem].allow = []}" class="md-raised md-primary" v-else>Deselect all</md-button>
+							<md-button
+								class="md-raised md-primary"
+								v-if="items_choices[tabitem].allow.length === 0" v-on:click="() => {items_choices[tabitem].allow = Object.keys(items[tabitem].allow)}">Select all
+							</md-button>
+							<md-button class="md-raised md-primary"
+									   v-else v-on:click="() => {items_choices[tabitem].allow = []}">Deselect all
+							</md-button>
 						</md-select>
 					</md-field>
 					<md-field style="background: #EEE" v-else>
 						<label>Items allowed</label>
-						<md-select v-model="items_choices[tabitem].allow" multiple disabled/>
+						<md-select disabled multiple v-model="items_choices[tabitem].allow"/>
 					</md-field>
 					<div style="width: 80%; margin: auto;"
 						 v-if="items_choices[tabitem].active === true">
@@ -35,7 +38,8 @@
 							   class="custom-range" type="range" v-model.number="items_choices[tabitem].min">
 						<br>
 						<label :for="'max_' + tabitem">Max : <span class="badge badge-secondary">{{ items_choices[tabitem].max }}</span></label>
-						<input :id="'max_' + tabitem" :max="items_choices[tabitem].allow.length" :min="items_choices[tabitem].min"
+						<input :id="'max_' + tabitem" :max="items_choices[tabitem].allow.length"
+							   :min="items_choices[tabitem].min"
 							   class="custom-range" type="range" v-model.number="items_choices[tabitem].max">
 					</div>
 					<div style="width: 80%; margin: auto;"
@@ -43,11 +47,12 @@
 						<label :for="'min_' + tabitem">Min : <span class="badge badge-secondary">{{ items_choices[tabitem].min }}</span>
 						</label>
 						<input :id="'min_' + tabitem" :max="items_choices[tabitem].max" :min="0"
-							   class="custom-range" type="range" :value="items_choices[tabitem].min" disabled>
+							   :value="items_choices[tabitem].min" class="custom-range" disabled type="range">
 						<br>
 						<label :for="'max_' + tabitem">Max : <span class="badge badge-secondary">{{ items_choices[tabitem].max }}</span></label>
-						<input :id="'max_' + tabitem" :max="items_choices[tabitem].allow.length" :min="items_choices[tabitem].min"
-							   class="custom-range" type="range" :value="items_choices[tabitem].max" disabled>
+						<input :id="'max_' + tabitem" :max="items_choices[tabitem].allow.length"
+							   :min="items_choices[tabitem].min"
+							   :value="items_choices[tabitem].max" class="custom-range" disabled type="range">
 					</div>
 				</div>
 			</div>
@@ -60,7 +65,8 @@
 			<h2>Step 2</h2>
 			<p>Download the json file with the "Download" button.</p>
 			<h2>Step 3</h2>
-			<p>Open Roman's Fork app and select the preset with non-random settings (to set the default value to settings
+			<p>Open Roman's Fork app and select the preset with non-random settings (to set the default value to
+				settings
 				that you didn't randomize).</p>
 			<h2>Step 4</h2>
 			<p>Insert the json file you just downloaded into the plando file.</p>
@@ -79,7 +85,8 @@
 								{{setting.choices[choice]}}
 							</md-option>
 							<md-button class="md-raised md-primary"
-									   v-if="choices[setting.name].allow.length === 0" v-on:click="() => {choices[setting.name].allow = Object.keys(setting.choices)}">
+									   v-if="choices[setting.name].allow.length === 0"
+									   v-on:click="() => {choices[setting.name].allow = Object.keys(setting.choices)}">
 								Select all
 							</md-button>
 							<md-button class="md-raised md-primary"
@@ -106,11 +113,13 @@
 					<div style="width: 80%; margin: auto;" v-else-if="setting.type === 'scale'">
 						<label :for="'min_' + setting.name">Min : <span class="badge badge-secondary">{{ choices[setting.name].min }}</span>
 						</label>
-						<input :id="'min_' + setting.name" :max="setting.max" :min="setting.min" :value="choices[setting.name].min"
+						<input :id="'min_' + setting.name" :max="setting.max" :min="setting.min"
+							   :value="choices[setting.name].min"
 							   class="custom-range" disabled type="range">
 						<br>
 						<label :for="'max_' + setting.name">Max : <span class="badge badge-secondary">{{ choices[setting.name].max }}</span></label>
-						<input :id="'max_' + setting.name" :max="setting.max" :min="setting.min" :value="choices[setting.name].max"
+						<input :id="'max_' + setting.name" :max="setting.max" :min="setting.min"
+							   :value="choices[setting.name].max"
 							   class="custom-range" disabled type="range">
 					</div>
 				</div>
@@ -145,6 +154,13 @@
 				</md-dialog-actions>
 			</div>
 		</md-dialog>
+		<md-dialog-confirm
+			:md-active.sync="reset_active"
+			md-title="Do you want reset all settings?"
+			md-content="All element will be definitively removed"
+			md-confirm-text="Yes"
+			md-cancel-text="Cancel"
+			@md-confirm="reset" />
 	</div>
 </template>
 
@@ -203,6 +219,8 @@
 				items: items,
 				items_choices: choices_items,
 				warnings: [],
+				saving: false,
+				reset_active: false
 			}
 		},
 		methods: {
@@ -221,7 +239,7 @@
 			filter_random(list, nb) {
 				const cpy = list.filter(() => true);
 				const output = [];
-				for(let i=0; i<nb; i++) {
+				for (let i = 0; i < nb; i++) {
 					output.push(cpy.pop())
 				}
 				return output;
@@ -252,7 +270,7 @@
 					} else if (setting.type === 'boolean') {
 						settings[key] = this.randomBoolean()
 					} else {
-						settings[key] = this.randomNumber(setting.min, setting.max+1)
+						settings[key] = this.randomNumber(setting.min, setting.max + 1)
 					}
 				});
 				if (err.length > 0) {
@@ -267,8 +285,7 @@
 					Object.keys(depend).forEach(key => {
 						if (settings[key] !== undefined && settings[key] !== depend[key]) {
 							delete settings[settingToRemove];
-						}
-						else if(settings[key] === undefined && settings[settingToRemove] !== undefined) {
+						} else if (settings[key] === undefined && settings[settingToRemove] !== undefined) {
 							warnings.push({
 								"setting": key,
 								"value": depend[key]
@@ -281,12 +298,11 @@
 					this.warnings = warnings;
 				}
 				Object.keys(this.items_choices).forEach(key => {
-					if(this.items_choices[key].active === true) {
+					if (this.items_choices[key].active === true) {
 						const items = this.filter_random(this.items_choices[key].allow, this.items_choices[key].min, this.items_choices[key].max)
 						settings[key] = items;
 					}
 				})
-				console.log(settings);
 				return settings;
 			},
 			getDependencies() {
@@ -303,7 +319,85 @@
 				} else this.downloadObjectAsJson({
 					"settings": settings
 				}, 'settings_random');
+			},
+			reset() {
+				const choices_default = {};
+
+				Object.values(settings).forEach(settinglist => {
+					settinglist.forEach(setting => {
+						choices_default[setting.name] = {
+							type: setting.type,
+							active: false,
+							allow: [],
+							min: setting.type === 'scale' ? setting.min : undefined,
+							max: setting.type === 'scale' ? setting.max : undefined,
+							depend: setting.depend,
+							gui_text: setting.gui_text
+						}
+					})
+				});
+
+				const choices_items_default = {};
+
+				Object.keys(items).forEach(itemList => {
+					choices_items_default[itemList] = {
+						active: false,
+						allow: [],
+						min: 0,
+						max: 0
+					}
+				});
+				this.choices = choices_default;
+				this.items_choices = choices_items_default;
 			}
+		},
+		watch: {
+			choices: {
+				handler: function (value) {
+					if(this.saving === true)
+					{
+						const storage = {
+							choices: value,
+							items_choices: this.items_choices
+						};
+						localStorage.settings = JSON.stringify(storage);
+					}
+				},
+				deep: true
+			},
+			items_choices: {
+				handler: function (value) {
+					if(this.saving === true)
+					{
+						const storage = {
+							choices: this.choices,
+							items_choices: value
+						};
+						localStorage.settings = JSON.stringify(storage);
+					}
+				},
+				deep: true
+			},
+			saving: function (value) {
+				if(value === false) {
+					localStorage.removeItem('settings');
+				} else {
+					const storage = {
+						choices: this.choices,
+						items_choices: this.items_choices
+					};
+					localStorage.settings = JSON.stringify(storage);
+				}
+			}
+		},
+		mounted: function () {
+			this.$nextTick(function () {
+				if(localStorage.settings !== undefined) {
+					const storage = JSON.parse(localStorage.settings);
+					this.choices = storage.choices;
+					this.items_choices = storage.items_choices;
+				}
+			})
 		}
 	}
 </script>
