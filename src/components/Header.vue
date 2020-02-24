@@ -2,7 +2,7 @@
     <header>
 		<div class="title-version">
 			<div class="title">Plandomizer</div>
-			<small>v.3.0.0 B-12 <span class="badge badge-danger">BETA</span> - By RawZ</small>
+			<small>v.3.0.0 Release - By RawZ</small>
 			<div title="Menu" class="c-icon c-icon-burger"><span> </span></div>
 		</div>
         <div class="links hide">
