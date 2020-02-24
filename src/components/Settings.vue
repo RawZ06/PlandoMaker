@@ -2,7 +2,7 @@
 	<div style="max-width: 100%">
 		<md-switch v-model="saving">Auto save</md-switch>
 		<md-button @click="reset_active = true" class="md-raised md-accent">Reset all</md-button>
-			will fix with next versions...
+		<md-button @click="download" class="md-raised md-primary">Download</md-button>
 		<md-tabs class="md-primary" v-on:md-changed="changeTab">
 			<md-tab :id="tab" :key="tab" :md-label="tab" v-for="tab in Object.keys(settings)"/>
 			<md-tab id="Help" md-label="Help"/>
@@ -403,13 +403,32 @@
 </script>
 
 <style scoped>
-	.component {
-		display: grid;
-		grid-auto-flow: row;
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-		grid-column-gap: 10px;
-		grid-row-gap: 15px;
+
+	@media screen and (min-width: 768px) {
+		.component {
+			display: grid;
+			grid-auto-flow: row;
+			grid-template-columns: 1fr 1fr;
+			grid-column-gap: 10px;
+			grid-row-gap: 15px;
+			justify-content: start;
+			overflow: hidden;
+			min-height: 0;  /* NEW */
+			min-width: 0;   /* NEW; needed for Firefox */
+		}
+
+		.component > div {
+			overflow: hidden;  /* NEW */
+			min-width: 0;      /* NEW; needed for Firefox */
+		}
 	}
+
+	@media screen and (min-width: 800px) {
+		.component {
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+		}
+	}
+
 
 	.component > div {
 		background: #fafafa
