@@ -7,6 +7,14 @@
 				<md-tab id="beta-3-version" md-label="V3 BETA"/>
 			</md-tabs>
 				<div v-if="tab === 'classic-version'">
+					<h3>VERSION 3.0.1<span class="badge badge-danger">New</span></h3>
+					<ul>
+						<h5>Only for the PlandoMaker</h5>
+						<li>Moving button download and upload</li>
+						<li>Reset all system</li>
+						<li>Save system</li>
+						<li>Fix flex position hash code</li>
+					</ul>
 					<h3>VERSION 3.0.0<span class="badge badge-danger">New</span></h3>
 					<ul>
 						<li>Create settings random maker (go to V3 BETA to have more information)</li>
