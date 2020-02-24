@@ -2,6 +2,10 @@
 
 A non-official Plandomizer GUI for ZOoTR.
 
+You can access it with [this link](https://ootplandomizer.com)
+
+This branch is a BETA version for Random Settings maker, you can access it with [this link](https://dev.ootplandomizer.com)
+
 # Wait, what?
 
 Ok. Let's start from the beginning.
@@ -35,6 +39,11 @@ This non-official Plando GUI has for a goal to be closer to the user than the of
 - Plando your things. You can plando only a few items if you want, or all of them - I do not guarantee the [generator](https://ootrandomizer.com/generator) to work! It returns an error if you break the [logic](https://wiki.ootrandomizer.com/index.php?title=Logic), or if you break some inner Randomizer rules or settings.
 - Hit the "Download" button. You will get a JSON file that is to be imported in the [web generator](https://ootrandomizer.com/generator), or in any other method you'd like to use to generate your seed.
 
+# [NEW] Settings Randomizer is now available!
+In the "Settings Randomizer" tab on this website, you have now access to a GUI for randomizing any seed setting	you would like to randomize. Just check a setting, select every option you want in the pool for this setting, and let the randomizer choose the settings of your seed for you! You can choose as many settings as you want.	Once you're done with configurations, hit the "Download" button. Then, on the Randomizer, select a preset with non-random settings to get the default value for every setting, generate your settings, and put the previously downloaded JSON file into your freshly generated plando file. Enjoy!
+
+Please note that at this moment, this Settings Randomizer is specifically made to work with Roman's fork of the	Randomizer. We do not guarantee a 100% compatibility with any other Randomizer.
+
 ## Build Setup
 
 ``` bash
@@ -55,4 +64,8 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 ## LICENSE
 
-This reposity is GPL License. You can use this repository, but every modification must be published.
+This reposity is under GNU's General Public License (GPL). You can use this repository, but every modification must be published.
+
+## CONTRIBUTORS
+
+RawZ06 (Project lead) ; Et0san ; Touyet
