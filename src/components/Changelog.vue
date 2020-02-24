@@ -85,6 +85,12 @@
 				</div>
 				<div class="col-sm">
 					<h2>Settings Random version</h2>
+					<h3>VERSION 3.0.0 B-12 <span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Adding save system</li>
+						<li>Moving download button</li>
+						<li>Adding Reset all" button</li>
+					</ul>
 					<h3>VERSION 3.0.0 B-11 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Rephrasing description pages (About, Changelog, Settings)</li>
