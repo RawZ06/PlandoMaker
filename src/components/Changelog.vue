@@ -2,10 +2,17 @@
 	<div>
 		<h1>Changelog</h1>
 		<div>
-			<div class="row">
-				<div class="col-sm">
-					<h2>Classic version</h2>
-					<h3>VERSION 2.3.2<span class="badge badge-danger">New</span></h3>
+			<md-tabs v-on:md-changed="changeTab">
+				<md-tab id="classic-version" md-label="Classic"/>
+				<md-tab id="beta-3-version" md-label="V3 BETA"/>
+			</md-tabs>
+				<div v-if="tab === 'classic-version'">
+					<h3>VERSION 3.0.0<span class="badge badge-danger">New</span></h3>
+					<ul>
+						<li>Create settings random maker (go to V3 BETA to have more information)</li>
+						<li>Reworking changelog page to add beta changelog in new tab</li>
+					</ul>
+					<h3>VERSION 2.3.2</h3>
 					<ul>
 						<li>Add license information</li>
 						<li>Add link to github</li>
@@ -83,7 +90,7 @@
 						<li>Creating page version</li>
 					</ul>
 				</div>
-				<div class="col-sm">
+				<div v-else-if="tab === 'beta-3-version'">
 					<h2>Settings Random version</h2>
 					<h3>VERSION 3.0.0 B-12 <span class="badge badge-danger">BETA</span></h3>
 					<ul>
@@ -147,7 +154,6 @@
 						<li>Create random settings creator section</li>
 					</ul>
 				</div>
-			</div>
 		</div>
 		<small>*Todo list is features I want to implement but which are not guaranteed to be developed</small>
 	</div>
@@ -155,6 +161,16 @@
 
 <script>
 	export default {
-		name: "Changelog"
+		name: "Changelog",
+		data() {
+			return {
+				tab: "classic-version",
+			}
+		},
+		methods: {
+			changeTab(tab) {
+				this.tab = tab
+			},
+		}
 	}
 </script>
