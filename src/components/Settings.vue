@@ -76,7 +76,7 @@
 		</div>
 		<div class="component">
 			<div v-for="setting in settings[tab]">
-				<md-switch :id="setting.name" v-model="choices[setting.name].active">{{setting.gui_text}}</md-switch>
+				<md-switch class="md-primary" :id="setting.name" v-model="choices[setting.name].active">{{setting.gui_text}}</md-switch>
 				<div>
 					<md-field v-if="setting.type === 'list' && choices[setting.name].active === true">
 						<label>Settings allowed</label>
@@ -124,9 +124,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div style="width: 100vw; text-align: center;">
-			<button class="btn btn-success" v-on:click="download()">Download</button>
 		</div>
 		<md-dialog :md-active.sync="showDialogError">
 			<md-dialog-title><span class="badge badge-danger">Errors</span></md-dialog-title>

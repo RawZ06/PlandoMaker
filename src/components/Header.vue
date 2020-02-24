@@ -158,7 +158,7 @@ export default {
 		background: #000;
 	}
 
-	@media screen and (min-width: 640px) {
+	@media screen and (min-width: 800px) {
 		.c-icon {
 			display: none;
 		}
