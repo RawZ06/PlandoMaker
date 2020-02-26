@@ -8,28 +8,29 @@ import Settings from '@/components/Settings'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '*',
-      template: '<h1>404 Not Found</h1>'
-    },
-    {
-      path: '/',
-      name: 'Index',
-      component: Index
-    },
-	{
-		path: '/changelog',
-		name: 'Changelog',
-		component: Changelog
-	},{
-		path: '/about',
-		name: 'About',
-		component: About
-	},,{
-		path: '/settings',
-		name: 'Settings',
-		component: Settings
-	},
-  ]
+	routes: [
+		{
+			path: '*',
+			template: '<h1>404 Not Found</h1>'
+		},
+		{
+			path: '/',
+			name: 'Index',
+			component: Index
+		},
+		{
+			path: '/changelog',
+			name: 'Changelog',
+			component: Changelog
+		}, {
+			path: '/about',
+			name: 'About',
+			component: About
+		}, , {
+			path: '/settings',
+			name: 'Settings',
+			component: Settings
+		},
+	],
+	mode: 'history'
 })
