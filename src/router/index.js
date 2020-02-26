@@ -4,6 +4,7 @@ import Index from '@/components/Index'
 import Changelog from '@/components/Changelog'
 import About from '@/components/About'
 import Settings from '@/components/Settings'
+import Tests from '@/components/Tests'
 
 Vue.use(Router)
 
@@ -26,10 +27,14 @@ export default new Router({
 		path: '/about',
 		name: 'About',
 		component: About
-	},,{
+	},{
 		path: '/settings',
 		name: 'Settings',
 		component: Settings
-	},
+	},{
+		path:'/test',
+		name:'Development Test',
+		component: Tests
+	}
   ]
 })
