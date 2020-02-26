@@ -4,6 +4,7 @@ import Index from '@/components/Index'
 import Changelog from '@/components/Changelog'
 import About from '@/components/About'
 import Settings from '@/components/Settings'
+import Page404 from '@/components/404'
 
 Vue.use(Router)
 
@@ -11,7 +12,8 @@ export default new Router({
 	routes: [
 		{
 			path: '*',
-			template: '<h1>404 Not Found</h1>'
+			name: 'Page404',
+			component: Page404
 		},
 		{
 			path: '/',
