@@ -7,11 +7,20 @@
 				<md-tab id="beta-3-version" md-label="V3 BETA"/>
 			</md-tabs>
 				<div v-if="tab === 'classic-version'">
-					<h3>VERSION 3.0.2<span class="badge badge-danger">New</span></h3>
+					<h3>VERSION 3.0.3<span class="badge badge-danger">New</span></h3>
+					<ul>
+						<li>Create favicon</li>
+						<li>Create logo and insert it</li>
+						<li>Adding option to preview settings selected</li>
+						<li>Adding starting with : "Hearts", "Consumables", "Rupees" settings</li>
+						<li>Bug fix starting inventory, it selected always the min</li>
+						<li>Set auto save to true if back-up exist</li>
+					</ul>
+					<h3>VERSION 3.0.2</h3>
 					<ul>
 						<li>Removing hashbang from url</li>
 					</ul>
-					<h3>VERSION 3.0.1<span class="badge badge-danger">New</span></h3>
+					<h3>VERSION 3.0.1</h3>
 					<ul>
 						<h5>Only for the PlandoMaker</h5>
 						<li>Moving button download and upload</li>
@@ -19,7 +28,7 @@
 						<li>Save system</li>
 						<li>Fix flex position hash code</li>
 					</ul>
-					<h3>VERSION 3.0.0<span class="badge badge-danger">New</span></h3>
+					<h3>VERSION 3.0.0</h3>
 					<ul>
 						<li>Create settings random maker (go to V3 BETA to have more information)</li>
 						<li>Reworking changelog page to add beta changelog in new tab</li>
