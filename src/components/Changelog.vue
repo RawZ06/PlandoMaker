@@ -7,6 +7,10 @@
 				<md-tab id="beta-3-version" md-label="V3 BETA"/>
 			</md-tabs>
 				<div v-if="tab === 'classic-version'">
+					<h3>VERSION 3.0.5<span class="badge badge-danger">New</span></h3>
+					<ul>
+						<li>Adding elements for SEO</li>
+					</ul>
 					<h3>VERSION 3.0.4<span class="badge badge-danger">New</span></h3>
 					<ul>
 						<li>Create 404 page</li>
