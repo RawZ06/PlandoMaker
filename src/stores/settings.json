@@ -429,7 +429,31 @@
 		}
 	],
 	"Starting Inventory": [
-
+		{
+			"name": "starting_hearts",
+			"gui_text": "Starting Hearts",
+			"type": "scale",
+			"min": 3,
+			"max": 20
+		},
+		{
+			"name": "start_with_consumables",
+			"gui_text": "Start With Consumables",
+			"type": "boolean",
+			"choices": [
+				true,
+				false
+			]
+		},
+		{
+			"name": "start_with_rupees",
+			"gui_text": "Start with Max Rupees",
+			"type": "boolean",
+			"choices": [
+				true,
+				false
+			]
+		}
 	],
 	"Other": [
 		{
