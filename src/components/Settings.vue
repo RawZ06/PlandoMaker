@@ -390,6 +390,7 @@
 		mounted: function () {
 			this.$nextTick(function () {
 				if(localStorage.settings !== undefined) {
+					this.saving = true;
 					const storage = JSON.parse(localStorage.settings);
 					this.choices = storage.choices;
 					this.items_choices = storage.items_choices;

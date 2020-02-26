@@ -391,6 +391,7 @@
 				this.current_area = -1;
 				this.reset();
 				if(localStorage.plando !== undefined) {
+					this.saving = true;
 					const storage = JSON.parse(localStorage.plando);
 					this.plando = storage.plando;
 					this.hash_code = storage.hash;
