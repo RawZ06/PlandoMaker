@@ -296,8 +296,7 @@
 				}
 				Object.keys(this.items_choices).forEach(key => {
 					if (this.items_choices[key].active === true) {
-						const items = this.filter_random(this.items_choices[key].allow, this.items_choices[key].min, this.items_choices[key].max)
-						settings[key] = items;
+						settings[key] = this.filter_random(this.items_choices[key].allow, this.randomNumber(this.items_choices[key].min, this.items_choices[key].max));
 					}
 				})
 				return settings;
