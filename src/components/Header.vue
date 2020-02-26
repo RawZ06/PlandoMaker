@@ -1,7 +1,7 @@
 <template>
     <header>
 		<div class="title-version">
-			<router-link to="/"><img src="../img/logo.png" width="200px" alt="" class="title"></router-link>
+			<router-link to="/"><img src="../img/logo.png" width="200px" alt="Logo Plando Maker with an Ocarina" title="Logo Plando Maker" class="title"></router-link>
 			<small>v.3.0.4 <span class="badge badge-success">Release</span></small>
 			<div title="Menu" class="c-icon c-icon-burger"></div>
 		</div>
@@ -10,8 +10,8 @@
             <router-link class="link" to="/settings">Settings Random</router-link>
             <router-link class="link" to="/about">About</router-link>
 			<router-link class="link" to="/changelog">Changelog</router-link>
-			<a class="link" href="https://discord.gg/psSGn45">Discord</a>
-			<a class="link" href="https://github.com/RawZ06/PlandomizerGUI/">Repository Github</a>
+			<a title="My discord" class="link" href="https://discord.gg/psSGn45">Discord</a>
+			<a title="Repository Github" class="link" href="https://github.com/RawZ06/PlandomizerGUI/">Repository Github</a>
         </div>
     </header>
 </template>
