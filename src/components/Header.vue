@@ -1,9 +1,9 @@
 <template>
     <header>
 		<div class="title-version">
-			<div class="title">PlandoMaker</div>
-			<small>v.3.0.2 Release</small>
-			<div title="Menu" class="c-icon c-icon-burger"><span> </span></div>
+			<img src="../img/logo.png" width="200px" alt="" class="title">
+			<small>v.3.0.2 <span class="badge badge-success">Release</span></small>
+			<div title="Menu" class="c-icon c-icon-burger"></div>
 		</div>
         <div class="links hide">
             <router-link class="link" to="/">Home</router-link>
@@ -69,18 +69,17 @@ export default {
 
 	.title-version {
 		position: relative;
-		top: 50%;
 	}
 
 	.title-version {
 		display: flex;
 		flex-direction: column;
+		text-align: left;
 	}
 
-    .title {
-        font-size: 200%;
-        margin-left: 2vw;
-    }
+	small {
+		margin-left: 20px;
+	}
 
     .link  {
         position: relative;
@@ -158,7 +157,7 @@ export default {
 		background: #000;
 	}
 
-	@media screen and (min-width: 800px) {
+	@media screen and (min-width: 840px) {
 		.c-icon {
 			display: none;
 		}
@@ -172,12 +171,13 @@ export default {
 			height: 80px;
 		}
 
-		.title, small {
-			height: 20px;
+		.title-version {
+			flex-direction: row;
 		}
 
 		small {
 			text-align: center;
+			line-height: 80px;
 		}
 
 		.links {
