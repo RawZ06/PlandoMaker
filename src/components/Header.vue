@@ -1,8 +1,8 @@
 <template>
     <header>
 		<div class="title-version">
-			<div class="title">Plandomizer</div>
-			<small>v.3.0.2 Release - By RawZ</small>
+			<div class="title">PlandoMaker</div>
+			<small>v.3.0.2 Release</small>
 			<div title="Menu" class="c-icon c-icon-burger"><span> </span></div>
 		</div>
         <div class="links hide">
@@ -172,16 +172,20 @@ export default {
 			height: 80px;
 		}
 
+		.title, small {
+			height: 20px;
+		}
+
+		small {
+			text-align: center;
+		}
+
 		.links {
 			flex-direction: row;
 		}
 
 		.hide {
 			display: initial;
-		}
-
-		.title-version {
-			flex-direction: row;
 		}
 
 		.link  {
