@@ -1,7 +1,7 @@
 <template>
     <header>
 		<div class="title-version">
-			<a href="/"><img src="../img/logo.png" width="200px" alt="" class="title"></a>
+			<router-link to="/"><img src="../img/logo.png" width="200px" alt="" class="title"></router-link>
 			<small>v.3.0.3 <span class="badge badge-success">Release</span></small>
 			<div title="Menu" class="c-icon c-icon-burger"></div>
 		</div>
