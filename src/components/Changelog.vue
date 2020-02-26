@@ -7,6 +7,10 @@
 				<md-tab id="beta-3-version" md-label="V3 BETA"/>
 			</md-tabs>
 				<div v-if="tab === 'classic-version'">
+					<h3>VERSION 3.0.2<span class="badge badge-danger">New</span></h3>
+					<ul>
+						<li>Removing hashbang from url</li>
+					</ul>
 					<h3>VERSION 3.0.1<span class="badge badge-danger">New</span></h3>
 					<ul>
 						<h5>Only for the PlandoMaker</h5>
