@@ -7,6 +7,10 @@
 				<md-tab id="beta-3-version" md-label="V3 BETA"/>
 			</md-tabs>
 				<div v-if="tab === 'classic-version'">
+					<h3>VERSION 3.0.8</h3>
+					<ul>
+						Fix deployment system
+					</ul>
 					<h3>VERSION 3.0.7<span class="badge badge-danger">New</span></h3>
 					<ul>
 						<li>Bug fix buttons position at home page</li>
