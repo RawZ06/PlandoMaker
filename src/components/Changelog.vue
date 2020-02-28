@@ -7,9 +7,9 @@
 				<md-tab id="beta-3-version" md-label="V3 BETA"/>
 			</md-tabs>
 				<div v-if="tab === 'classic-version'">
-					<h3>VERSION 3.0.8</h3>
+					<h3>VERSION 3.1.0</h3>
 					<ul>
-						Fix deployment system
+						Create a clean déployment system with two branch, master with ootplandomizer.com and develop with dev.ootplandomizer.com
 					</ul>
 					<h3>VERSION 3.0.7<span class="badge badge-danger">New</span></h3>
 					<ul>
