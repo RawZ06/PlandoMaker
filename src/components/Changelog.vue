@@ -7,6 +7,10 @@
 				<md-tab id="beta-3-version" md-label="V3 BETA"/>
 			</md-tabs>
 				<div v-if="tab === 'classic-version'">
+					<h3>VERSION 3.2.1<span class="badge badge-danger">New</span><span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Disable slider dragg by default</li>
+					</ul>
 					<h3>VERSION 3.2.0<span class="badge badge-danger">New</span><span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Reworking slider to chooses min and max values of settings randomizer (like number of skull ect...)</li>
