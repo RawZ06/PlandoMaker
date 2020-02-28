@@ -7,21 +7,26 @@
 				<md-tab id="beta-3-version" md-label="V3 BETA"/>
 			</md-tabs>
 				<div v-if="tab === 'classic-version'">
-					<h3>VERSION 3.0.6<span class="badge badge-danger">New</span></h3>
+					<h3>VERSION 3.0.7<span class="badge badge-danger">New</span></h3>
+					<ul>
+						<li>Bug fix buttons position at home page</li>
+						<li>Bug fix hidden burger menu</li>
+					</ul>
+					<h3>VERSION 3.0.6</h3>
 					<ul>
 						Nothing just for test CI
 					</ul>
-					<h3>VERSION 3.0.5<span class="badge badge-danger">New</span></h3>
+					<h3>VERSION 3.0.5</h3>
 					<ul>
 						<li>Adding elements for SEO</li>
 					</ul>
-					<h3>VERSION 3.0.4<span class="badge badge-danger">New</span></h3>
+					<h3>VERSION 3.0.4</h3>
 					<ul>
 						<li>Create 404 page</li>
 						<li>Footer always at bottom of page</li>
 						<li>Adding link to home on logo</li>
 					</ul>
-					<h3>VERSION 3.0.3<span class="badge badge-danger">New</span></h3>
+					<h3>VERSION 3.0.3</h3>
 					<ul>
 						<li>Create favicon</li>
 						<li>Create logo and insert it</li>
