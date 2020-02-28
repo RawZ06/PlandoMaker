@@ -2,11 +2,11 @@
   <div>
     <label>
       Min :
-      <span class="badge badge-secondary">{{ value_min }}</span>
+      <span class="badge badge-secondary">{{ min }}</span>
     </label>
     <label>
       Max :
-      <span class="badge badge-secondary">{{ value_max }}</span>
+      <span class="badge badge-secondary">{{ max }}</span>
     </label>
     <div class="ui-slider" tabindex="0" ref="slider">
       <div class="ui-slider-containment" ref="container"></div>
@@ -14,17 +14,17 @@
       <div class="ui-slider-wrapper">
         <div class="ui-slider-track-container">
           <div class="ui-slider-track"></div>
-          <div class="ui-slider-track-fill" ref="fillValue"></div>
+          <div class="ui-slider-track-fill" v-bind:class="{disabled:isDisabled}" ref="fillValue"></div>
         </div>
 
         <div class="ui-slider-thumb-container" ref="thumb_min">
-          <div class="ui-slider-focus-ring"></div>
-          <div class="ui-slider-thumb" id="thumb_min"></div>
+          <div class="ui-slider-focus-ring" v-bind:class="{'disabled-focus':isDisabled}"></div>
+          <div class="ui-slider-thumb" v-bind:class="{'disabled-thumb':isDisabled}"></div>
         </div>
 
         <div class="ui-slider-thumb-container" ref="thumb_max">
-          <div class="ui-slider-focus-ring"></div>
-          <div class="ui-slider-thumb" id="thumb_max"></div>
+          <div class="ui-slider-focus-ring" v-bind:class="{'disabled-focus':isDisabled}"></div>
+          <div class="ui-slider-thumb" v-bind:class="{'disabled-thumb':isDisabled}"></div>
         </div>
       </div>
     </div>
@@ -35,74 +35,143 @@
 import Draggabilly from "draggabilly";
 
 export default {
-  name: "Tests.vue",
+  name: "SliderComponent",
+  props: {
+    minValue: { default: 0, type: Number },
+    maxValue: { default: 0, type: Number },
+    disabled: Boolean
+    // gui_text: String
+  },
   data: function() {
     return {
-      value_max: 0,
-      value_min: 0,
-      isDraggable: false
+      max: 0,
+      min: 0,
+      maxVal: 100,
+      isDraggable: false,
+      isDisabled: false,
+      draggMax: null,
+      draggMin: null
+      // parentText: ""
     };
   },
   mounted: function() {
-    this.updateSlider(this.value_max - this.value_min, this.value_min);
-    this.$refs.thumb_max.style.left = this.value_max + "%";
-    this.$refs.thumb_min.style.left = this.value_min + "%";
-
-    let draggMax = new Draggabilly(this.$refs.thumb_max, {
+    this.maxVal = this.maxValue;
+    this.max = this.maxVal;
+    this.min = this.minValue;
+    this.isDisabled = this.disabled;
+    // this.parentText = this.gui_text;
+    this.updateThumb(this.$refs.thumb_max, this.max);
+    this.updateThumb(this.$refs.thumb_min, this.min);
+    this.updateSlider(this.max - this.min, this.min);
+    this.draggMax = new Draggabilly(this.$refs.thumb_max, {
       axis: "x",
-      containment: this.$refs.container
+      containment: this.$refs.container,
+      grid: [
+        this.$refs.slider.getBoundingClientRect().width / (this.maxVal || 100),
+        0
+      ]
     });
-    let draggMin = new Draggabilly(this.$refs.thumb_min, {
+    this.draggMin = new Draggabilly(this.$refs.thumb_min, {
       axis: "x",
-      containment: this.$refs.container
+      containment: this.$refs.container,
+      grid: [
+        this.$refs.slider.getBoundingClientRect().width / (this.maxVal || 100),
+        0
+      ]
     });
 
-    draggMax.on("dragMove", (event, pointer) => {
-      let x = draggMax.position.x;
-      this.value_max = Math.round(
-        (100 * x) / this.$refs.slider.getBoundingClientRect().width
+    this.draggMax.on("dragMove", (event, pointer) => {
+      let x = this.draggMax.position.x;
+      this.max = Math.round(
+        (this.maxVal * x) / this.$refs.slider.getBoundingClientRect().width
       );
-      this.value_max = Math.max(0, Math.min(100, this.value_max));
-      if (this.value_min >= this.value_max) {
-        this.value_min = this.value_max;
+      this.max = Math.max(0, Math.min(this.maxVal, this.max));
+      if (this.min >= this.max) {
+        this.min = this.max;
+        this.updateThumb(this.$refs.thumb_min, this.min);
       }
-      this.updateSlider(this.value_max - this.value_min, this.value_min);
+      this.updateSlider(this.max - this.min, this.min);
       this.$refs.slider.focus();
     });
 
-    draggMax.on("dragStart", () => {
+    this.draggMax.on("dragStart", () => {
       this.isDraggable = true;
     });
-    draggMax.on("dragEnd", () => {
-      this.$refs.thumb_max.style.left = this.value_max + "%";
+    this.draggMax.on("dragEnd", () => {
+      this.updateThumb(this.$refs.thumb_max, this.max);
       this.isDraggable = false;
     });
 
-    draggMin.on("dragMove", (event, pointer) => {
-      let x = draggMin.position.x;
-      this.value_min = Math.round(
-        (100 * x) / this.$refs.slider.getBoundingClientRect().width
+    this.draggMin.on("dragMove", (event, pointer) => {
+      let x = this.draggMin.position.x;
+      this.min = Math.round(
+        (this.maxVal * x) / this.$refs.slider.getBoundingClientRect().width
       );
-      this.value_min = Math.max(0, Math.min(100, this.value_min));
-      if (this.value_max <= this.value_min) {
-        this.value_max = this.value_min;
+      this.min = Math.max(0, Math.min(this.maxVal, this.min));
+      if (this.max <= this.min) {
+        this.max = this.min;
+        this.updateThumb(this.$refs.thumb_max, this.max);
       }
-      this.updateSlider(this.value_max - this.value_min, this.value_min);
+      this.updateSlider(this.max - this.min, this.min);
       this.$refs.slider.focus();
     });
 
-    draggMin.on("dragStart", () => {
+    this.draggMin.on("dragStart", () => {
       this.isDraggable = true;
     });
-    draggMin.on("dragEnd", () => {
-      this.$refs.thumb_min.style.left = this.value_min + "%";
+    this.draggMin.on("dragEnd", () => {
+      this.updateThumb(this.$refs.thumb_min, this.min);
       this.isDraggable = false;
     });
   },
+  watch: {
+    disabled: function() {
+      this.isDisabled = !this.isDisabled;
+      this.updateDraggiesIfNeeded();
+    },
+    maxValue: function(v) {
+      this.maxVal = v;
+      if (this.max === 0) {
+        this.max = v;
+      }
+      if (this.maxVal < this.max) {
+        this.max = v;
+      }
+      if (this.maxVal < this.min) {
+        this.min = v;
+      }
+      this.updateThumb(this.$refs.thumb_max, this.max);
+      this.updateThumb(this.$refs.thumb_min, this.min);
+      this.updateSlider(this.max - this.min, this.min);
+      this.updateDraggiesIfNeeded();
+    }
+  },
   methods: {
     updateSlider(width, left) {
-      this.$refs.fillValue.style.width = width + 0.01 + "%";
-      this.$refs.fillValue.style.left = left + "%";
+      this.$refs.fillValue.style.width =
+        (100 * width) / (this.maxVal || 100) + "%";
+      this.$refs.fillValue.style.left =
+        (100 * left) / (this.maxVal || 100) + "%";
+    },
+    updateThumb(thumb, value) {
+      thumb.style.left = (100 * value) / (this.maxVal || 100) + "%";
+    },
+    updateDraggiesIfNeeded() {
+      if (this.isDisabled || this.maxValue === 0) {
+        this.draggMin.disable();
+        this.draggMax.disable();
+      } else {
+        this.draggMax.options.grid = [
+          this.$refs.slider.getBoundingClientRect().width / this.maxVal,
+          0
+        ];
+        this.draggMin.options.grid = [
+          this.$refs.slider.getBoundingClientRect().width / this.maxVal,
+          0
+        ];
+        this.draggMin.enable();
+        this.draggMax.enable();
+      }
     }
   }
 };
@@ -145,6 +214,15 @@ export default {
   top: 0;
   height: 3px;
   background-color: #f44336;
+}
+.disabled {
+  background-color: darkgray !important;
+}
+.disabled-focus {
+  background-color: lightgray !important;
+}
+.disabled-thumb {
+  background-color: darkgray !important;
 }
 .ui-slider-thumb-container {
   position: absolute;

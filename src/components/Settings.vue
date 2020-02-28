@@ -39,61 +39,12 @@
             <label>Items allowed</label>
             <md-select disabled multiple v-model="items_choices[tabitem].allow" />
           </md-field>
-          <div style="width: 80%; margin: auto;" v-if="items_choices[tabitem].active === true">
-            <label :for="'min_' + tabitem">
-              Min :
-              <span class="badge badge-secondary">{{ items_choices[tabitem].min }}</span>
-            </label>
-            <input
-              :id="'min_' + tabitem"
-              :max="items_choices[tabitem].max"
-              :min="0"
-              class="custom-range"
-              type="range"
-              v-model.number="items_choices[tabitem].min"
-            />
-            <br />
-            <label :for="'max_' + tabitem">
-              Max :
-              <span class="badge badge-secondary">{{ items_choices[tabitem].max }}</span>
-            </label>
-            <input
-              :id="'max_' + tabitem"
-              :max="items_choices[tabitem].allow.length"
-              :min="items_choices[tabitem].min"
-              class="custom-range"
-              type="range"
-              v-model.number="items_choices[tabitem].max"
-            />
-          </div>
-          <div style="width: 80%; margin: auto;" v-else>
-            <label :for="'min_' + tabitem">
-              Min :
-              <span class="badge badge-secondary">{{ items_choices[tabitem].min }}</span>
-            </label>
-            <input
-              :id="'min_' + tabitem"
-              :max="items_choices[tabitem].max"
-              :min="0"
-              :value="items_choices[tabitem].min"
-              class="custom-range"
-              disabled
-              type="range"
-            />
-            <br />
-            <label :for="'max_' + tabitem">
-              Max :
-              <span class="badge badge-secondary">{{ items_choices[tabitem].max }}</span>
-            </label>
-            <input
-              :id="'max_' + tabitem"
-              :max="items_choices[tabitem].allow.length"
-              :min="items_choices[tabitem].min"
-              :value="items_choices[tabitem].max"
-              class="custom-range"
-              disabled
-              type="range"
-            />
+          <div style="width: 80%; margin: auto;">
+            <SliderComponent
+              :minValue="0"
+              :maxValue="items_choices[tabitem].allow.length"
+              :disabled="items_choices[tabitem].active !== true"
+            ></SliderComponent>
           </div>
         </div>
       </div>
@@ -122,9 +73,6 @@
         <span class="badge badge-warning">Information</span>
       </h1>
       <p>At this moment, it only works with Roman's fork.</p>
-      <div class="component">
-        <SliderComponent></SliderComponent>
-      </div>
     </div>
     <div class="component">
       <div v-for="setting in settings[tab]">
@@ -158,15 +106,12 @@
             <label>Settings allowed</label>
             <md-select class="md-secondary" disabled />
           </md-field>
-          <div
-            style="width: 80%; margin: auto;"
-            v-else-if="setting.type === 'scale' && choices[setting.name].active === true"
-          >
-            <SliderComponent disabled></SliderComponent>
-          </div>
-
           <div style="width: 80%; margin: auto;" v-else-if="setting.type === 'scale'">
-            <SliderComponent disabled></SliderComponent>
+            <SliderComponent
+              :minValue="0"
+              :maxValue="choices[setting.name].active !== true ? 0 : choices[setting.name].max"
+              :disabled="choices[setting.name].active !== true"
+            ></SliderComponent>
           </div>
         </div>
       </div>
@@ -483,7 +428,8 @@ export default {
         this.items_choices = storage.items_choices;
       }
     });
-  }
+  },
+  components: { SliderComponent }
 };
 </script>
 
