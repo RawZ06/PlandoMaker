@@ -4,7 +4,6 @@ import Index from '@/components/Index'
 import Changelog from '@/components/Changelog'
 import About from '@/components/About'
 import Settings from '@/components/Settings'
-import Tests from '@/components/Tests'
 import Page404 from '@/components/404'
 
 Vue.use(Router)
@@ -98,11 +97,7 @@ const routes = [
 				}
 			]
 		}
-	}, {
-		path: '/test',
-		name: 'Development Test',
-		component: Tests
-	}
+	},
 ];
 
 const router = new Router({
