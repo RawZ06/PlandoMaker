@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<Header></Header>
-		<router-view/>
+		<main><router-view/></main>
 		<div class="copyleft">Copyleft - <img
 			alt="Copyleft logo"
 			height="10px"
@@ -29,6 +29,10 @@
 		padding: 0;
 		font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
 	  	width: 100vw;
+	}
+
+	main {
+		min-height: calc(100vh - 80px - 3em);
 	}
 
 	.copyleft {

@@ -1,6 +1,7 @@
 <template>
   <div style="max-width: 100%">
     <md-switch v-model="saving">Auto save</md-switch>
+    <md-switch v-model="preview">Preview settings before downloading</md-switch>
     <md-button @click="reset_active = true" class="md-raised md-accent">Reset all</md-button>
     <md-button @click="download" class="md-raised md-primary">Download</md-button>
     <md-tabs class="md-primary" v-on:md-changed="changeTab">
@@ -171,18 +172,6 @@
       </div>
     </div>
 
-    <md-dialog :md-active.sync="showDialogError">
-      <md-dialog-title>
-        <span class="badge badge-danger">Errors</span>
-      </md-dialog-title>
-      <div class="modal-body">
-        <div class="alert alert-danger" role="alert" v-for="err in errors">{{err}}</div>
-        <md-dialog-actions>
-          <md-button @click="showDialogError = false" class="md-primary">Close</md-button>
-        </md-dialog-actions>
-      </div>
-    </md-dialog>
-
     <md-dialog :md-active.sync="showDialogWarning">
       <md-dialog-title>
         <span class="badge badge-warning">Warning</span>
@@ -198,6 +187,22 @@
 
         <md-dialog-actions>
           <md-button @click="showDialogWarning = false" class="md-primary">Close</md-button>
+        </md-dialog-actions>
+      </div>
+    </md-dialog>
+    <md-dialog :md-active.sync="showDialogPreview">
+      <md-dialog-title>
+        <span class="badge badge-success">Preview</span>
+      </md-dialog-title>
+
+      <div class="modal-body">
+        {
+        <div
+          style="margin-left: 10px"
+          v-for="(value, name) in preview_content"
+        >{{ choices[name].gui_text }}: {{ choices[name].type === 'list' ? choices[name].choices[value] : value }}</div>}
+        <md-dialog-actions>
+          <md-button @click="showDialogPreview = false" class="md-primary">Close</md-button>
         </md-dialog-actions>
       </div>
     </md-dialog>
@@ -228,7 +233,8 @@ Object.values(settings).forEach(settinglist => {
       min: setting.type === "scale" ? setting.min : undefined,
       max: setting.type === "scale" ? setting.max : undefined,
       depend: setting.depend,
-      gui_text: setting.gui_text
+      gui_text: setting.gui_text,
+      choices: setting.choices
     };
   });
 });
@@ -269,7 +275,10 @@ export default {
       items_choices: choices_items,
       warnings: [],
       saving: false,
-      reset_active: false
+      reset_active: false,
+      preview: false,
+      preview_content: "",
+      showDialogPreview: false
     };
   },
   methods: {
@@ -361,14 +370,19 @@ export default {
       }
       Object.keys(this.items_choices).forEach(key => {
         if (this.items_choices[key].active === true) {
-          const items = this.filter_random(
+          settings[key] = this.filter_random(
             this.items_choices[key].allow,
-            this.items_choices[key].min,
-            this.items_choices[key].max
+            this.randomNumber(
+              this.items_choices[key].min,
+              this.items_choices[key].max
+            )
           );
-          settings[key] = items;
         }
       });
+      if (this.preview === true) {
+        this.showDialogPreview = true;
+        this.preview_content = settings;
+      }
       return settings;
     },
     getDependencies() {
@@ -463,14 +477,12 @@ export default {
   mounted: function() {
     this.$nextTick(function() {
       if (localStorage.settings !== undefined) {
+        this.saving = true;
         const storage = JSON.parse(localStorage.settings);
         this.choices = storage.choices;
         this.items_choices = storage.items_choices;
       }
     });
-  },
-  components: {
-    SliderComponent
   }
 };
 </script>

@@ -1,8 +1,8 @@
 <template>
     <header>
 		<div class="title-version">
-			<div class="title">Plandomizer</div>
-			<small>v.3.0.1 Release - By RawZ</small>
+			<router-link to="/"><img src="../img/logo.png" width="200px" alt="Logo Plando Maker with an Ocarina" title="Logo Plando Maker" class="title"></router-link>
+			<small>v.3.1.0 <span class="badge badge-danger">BETA</span></small>
 			<div title="Menu" class="c-icon c-icon-burger"><span> </span></div>
 		</div>
         <div class="links hide">
@@ -10,8 +10,8 @@
             <router-link class="link" to="/settings">Settings Random</router-link>
             <router-link class="link" to="/about">About</router-link>
 			<router-link class="link" to="/changelog">Changelog</router-link>
-			<a class="link" href="https://discord.gg/psSGn45">Discord</a>
-			<a class="link" href="https://github.com/RawZ06/PlandomizerGUI/">Repository Github</a>
+			<a title="My discord" class="link" href="https://discord.gg/psSGn45">Discord</a>
+			<a title="Repository Github" class="link" href="https://github.com/RawZ06/PlandomizerGUI/">Repository Github</a>
         </div>
     </header>
 </template>
@@ -69,18 +69,17 @@ export default {
 
 	.title-version {
 		position: relative;
-		top: 50%;
 	}
 
 	.title-version {
 		display: flex;
 		flex-direction: column;
+		text-align: left;
 	}
 
-    .title {
-        font-size: 200%;
-        margin-left: 2vw;
-    }
+	small {
+		margin-left: 20px;
+	}
 
     .link  {
         position: relative;
@@ -158,7 +157,7 @@ export default {
 		background: #000;
 	}
 
-	@media screen and (min-width: 800px) {
+	@media screen and (min-width: 840px) {
 		.c-icon {
 			display: none;
 		}
@@ -172,16 +171,21 @@ export default {
 			height: 80px;
 		}
 
+		.title-version {
+			flex-direction: row;
+		}
+
+		small {
+			text-align: center;
+			line-height: 80px;
+		}
+
 		.links {
 			flex-direction: row;
 		}
 
 		.hide {
 			display: initial;
-		}
-
-		.title-version {
-			flex-direction: row;
 		}
 
 		.link  {

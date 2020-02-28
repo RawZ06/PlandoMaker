@@ -1,11 +1,13 @@
 <template>
 	<div>
-		<md-switch v-model="saving">Auto save</md-switch>
-		<md-button @click="reset_active = true" class="md-raised md-accent">Reset all</md-button>
-		<md-button @click="download" class="md-raised md-primary">Download</md-button>
-		<div class="d-inline-block" style="position: absolute">
-			<input accept="application/JSON" id="upload" type="file" v-on:change="take_json_uploaded">
-			<md-button @click="upload" class="md-raised md-primary">Upload</md-button>
+		<div class="menu-buttons">
+			<md-switch v-model="saving">Auto save</md-switch>
+			<md-button @click="reset_active = true" class="md-raised md-accent">Reset all</md-button>
+			<md-button @click="download" class="md-raised md-primary">Download</md-button>
+			<div>
+				<input accept="application/JSON" id="upload" type="file" v-on:change="take_json_uploaded">
+				<md-button @click="upload" class="md-raised md-primary">Upload</md-button>
+			</div>
 		</div>
 		<div v-if="current_area !== null">
 			<div class="app">
@@ -391,6 +393,7 @@
 				this.current_area = -1;
 				this.reset();
 				if(localStorage.plando !== undefined) {
+					this.saving = true;
 					const storage = JSON.parse(localStorage.plando);
 					this.plando = storage.plando;
 					this.hash_code = storage.hash;
@@ -508,6 +511,11 @@
 
 	.paginator {
 		margin-top: 20px
+	}
+
+	.menu-buttons {
+		display: flex;
+		flex-wrap: wrap;
 	}
 
 </style>
