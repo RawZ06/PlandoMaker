@@ -7,11 +7,15 @@
 				<md-tab id="beta-3-version" md-label="V3 BETA"/>
 			</md-tabs>
 				<div v-if="tab === 'classic-version'">
+					<h3>VERSION 3.2.0<span class="badge badge-danger">New</span><span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Reworking slider to chooses min and max values of settings randomizer (like number of skull ect...)</li>
+					</ul>
 					<h3>VERSION 3.1.0</h3>
 					<ul>
 						Create a clean déployment system with two branch, master with ootplandomizer.com and develop with dev.ootplandomizer.com
 					</ul>
-					<h3>VERSION 3.0.7<span class="badge badge-danger">New</span></h3>
+					<h3>VERSION 3.0.7</h3>
 					<ul>
 						<li>Bug fix buttons position at home page</li>
 						<li>Bug fix hidden burger menu</li>
