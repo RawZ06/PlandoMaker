@@ -9,96 +9,96 @@ import Page404 from '@/components/404'
 Vue.use(Router)
 
 const routes = [
-		{
-			path: '*',
-			name: 'Page404',
-			component: Page404,
-			meta: {
-				title: 'PlandoMaker | 404 Not Found',
-				metaTags: [
-					{
-						name: 'description',
-						content: '404 Not Found.'
-					},
-					{
-						property: 'og:description',
-						content: '404 Not Found.'
-					}
-				]
-			}
-		},
-		{
-			path: '/',
-			name: 'Index',
-			component: Index,
-			meta: {
-				title: 'PlandoMaker | Home',
-				metaTags: [
-					{
-						name: 'description',
-						content: 'Create your own seed Ocarina Of Time Randomizer.'
+	{
+		path: '*',
+		name: 'Page404',
+		component: Page404,
+		meta: {
+			title: 'PlandoMaker | 404 Not Found',
+			metaTags: [
+				{
+					name: 'description',
+					content: '404 Not Found.'
+				},
+				{
+					property: 'og:description',
+					content: '404 Not Found.'
+				}
+			]
+		}
+	},
+	{
+		path: '/',
+		name: 'Index',
+		component: Index,
+		meta: {
+			title: 'PlandoMaker | Home',
+			metaTags: [
+				{
+					name: 'description',
+					content: 'Create your own seed Ocarina Of Time Randomizer.'
 
-					},
-					{
-						property: 'og:description',
-						content: 'Create your own seed Ocarina Of Time Randomizer.'
-					}
-				]
-			}
-		},
-		{
-			path: '/changelog',
-			name: 'Changelog',
-			component: Changelog,
-			meta: {
-				title: 'PlandoMaker | Changelog ',
-				metaTags: [
-					{
-						name: 'description',
-						content: 'Changelog of PlandoMaker.'
-					},
-					{
-						property: 'og:description',
-						content: 'Changelog of PlandoMaker.'
-					}
-				]
-			}
-		}, {
-			path: '/about',
-			name: 'About',
-			component: About,
-			meta: {
-				title: 'PlandoMaker | About',
-				metaTags: [
-					{
-						name: 'description',
-						content: 'About of PlandoMaker.'
-					},
-					{
-						property: 'og:description',
-						content: 'About of PlandoMaker.'
-					}
-				]
-			}
-		}, , {
-			path: '/settings',
-			name: 'Settings',
-			component: Settings,
-			meta: {
-				title: 'PlandoMaker | Settings Random Maker',
-				metaTags: [
-					{
-						name: 'description',
-						content: 'Generate a settings random for Ocarina of Time Randomizer.'
-					},
-					{
-						property: 'og:description',
-						content: 'Generate a settings random for Ocarina of Time Randomizer.'
-					}
-				]
-			}
-		},
-	];
+				},
+				{
+					property: 'og:description',
+					content: 'Create your own seed Ocarina Of Time Randomizer.'
+				}
+			]
+		}
+	},
+	{
+		path: '/changelog',
+		name: 'Changelog',
+		component: Changelog,
+		meta: {
+			title: 'PlandoMaker | Changelog ',
+			metaTags: [
+				{
+					name: 'description',
+					content: 'Changelog of PlandoMaker.'
+				},
+				{
+					property: 'og:description',
+					content: 'Changelog of PlandoMaker.'
+				}
+			]
+		}
+	}, {
+		path: '/about',
+		name: 'About',
+		component: About,
+		meta: {
+			title: 'PlandoMaker | About',
+			metaTags: [
+				{
+					name: 'description',
+					content: 'About of PlandoMaker.'
+				},
+				{
+					property: 'og:description',
+					content: 'About of PlandoMaker.'
+				}
+			]
+		}
+	}, {
+		path: '/settings',
+		name: 'Settings',
+		component: Settings,
+		meta: {
+			title: 'PlandoMaker | Settings Random Maker',
+			metaTags: [
+				{
+					name: 'description',
+					content: 'Generate a settings random for Ocarina of Time Randomizer.'
+				},
+				{
+					property: 'og:description',
+					content: 'Generate a settings random for Ocarina of Time Randomizer.'
+				}
+			]
+		}
+	},
+];
 
 const router = new Router({
 	routes,
@@ -116,13 +116,13 @@ router.beforeEach((to, from, next) => {
 	const previousNearestWithMeta = from.matched.slice().reverse().find(r => r.meta && r.meta.metaTags);
 
 	// If a route with a title was found, set the document (page) title to that value.
-	if(nearestWithTitle) document.title = nearestWithTitle.meta.title;
+	if (nearestWithTitle) document.title = nearestWithTitle.meta.title;
 
 	// Remove any stale meta tags from the document using the key attribute we set below.
 	Array.from(document.querySelectorAll('[data-vue-router-controlled]')).map(el => el.parentNode.removeChild(el));
 
 	// Skip rendering meta tags if there are none.
-	if(!nearestWithMeta) return next();
+	if (!nearestWithMeta) return next();
 
 	// Turn the meta tag definitions into actual elements in the head.
 	nearestWithMeta.meta.metaTags.map(tagDef => {
