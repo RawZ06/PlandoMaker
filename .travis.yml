@@ -13,8 +13,13 @@ before_deploy:
     - ssh-add /tmp/deploy_rsa
     - echo 'ootplandomizer.com' >> $HOME/.ssh/known_hosts
 deploy:
-    provider: script
+    - provider: script
     skip_cleanup: true
     script: ssh root@ootplandomizer.com "rm -rf /var/www/html/static /var/www/html/index.html"; scp -r dist/* root@ootplandomizer.com:/var/www/html
+    on:
+        branch: master
+    - provider: script
+    skip_cleanup: true
+    script: ssh root@ootplandomizer.com "rm -rf /var/www/dev/static /var/www/dev/index.html"; scp -r dist/* root@ootplandomizer.com:/var/www/dev
     on:
         branch: develop
