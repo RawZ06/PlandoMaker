@@ -254,6 +254,7 @@
 			},
 			filter_random(list, nb) {
 				const cpy = list.filter(() => true);
+				shuffle(cpy);
 				const output = [];
 				for (let i = 0; i < nb; i++) {
 					output.push(cpy.pop())
