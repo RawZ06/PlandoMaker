@@ -15,6 +15,11 @@
 					<ul>
 						<li>Reworking slider to chooses min and max values of settings randomizer (like number of skull ect...)</li>
 					</ul>
+					<h3>VERSION 3.1.1<span class="badge badge-danger">New</span></h3>
+					<ul>
+						<li>Starting equipment : The items selection was not random</li>
+						<li>Starting equipment : Rename a few label</li>
+					</ul>
 					<h3>VERSION 3.1.0</h3>
 					<ul>
 						Create a clean déployment system with two branch, master with ootplandomizer.com and develop with dev.ootplandomizer.com
