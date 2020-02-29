@@ -2,7 +2,7 @@
     <header>
 		<div class="title-version">
 			<router-link to="/"><img src="../img/logo.png" width="200px" alt="Logo Plando Maker with an Ocarina" title="Logo Plando Maker" class="title"></router-link>
-			<small>v.3.2.2 <span class="badge badge-danger">BETA</span></small>
+			<small>v.3.2.3 <span class="badge badge-danger">BETA</span></small>
 			<div title="Menu" class="c-icon c-icon-burger"><span> </span></div>
 		</div>
         <div class="links hide">

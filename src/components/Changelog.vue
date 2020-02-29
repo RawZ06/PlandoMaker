@@ -7,6 +7,10 @@
 				<md-tab id="beta-3-version" md-label="V3 BETA"/>
 			</md-tabs>
 				<div v-if="tab === 'classic-version'">
+					<h3>VERSION 3.2.3<span class="badge badge-danger">New</span><span class="badge badge-danger">BETA</span></h3>
+					<ul>
+						<li>Import 3.1.2 from release</li>
+					</ul>
 					<h3>VERSION 3.2.2<span class="badge badge-danger">New</span><span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Import 3.1.1 from release</li>
