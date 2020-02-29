@@ -7,11 +7,16 @@
 				<md-tab id="beta-3-version" md-label="V3 BETA"/>
 			</md-tabs>
 				<div v-if="tab === 'classic-version'">
+					<h3>VERSION 3.1.1<span class="badge badge-danger">New</span></h3>
+					<ul>
+						<li>Starting equipment : The items selection was not random</li>
+						<li>Starting equipment : Rename a few label</li>
+					</ul>
 					<h3>VERSION 3.1.0</h3>
 					<ul>
 						Create a clean déployment system with two branch, master with ootplandomizer.com and develop with dev.ootplandomizer.com
 					</ul>
-					<h3>VERSION 3.0.7<span class="badge badge-danger">New</span></h3>
+					<h3>VERSION 3.0.7</h3>
 					<ul>
 						<li>Bug fix buttons position at home page</li>
 						<li>Bug fix hidden burger menu</li>
