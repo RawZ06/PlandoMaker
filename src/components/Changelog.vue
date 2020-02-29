@@ -7,6 +7,11 @@
 				<md-tab id="beta-3-version" md-label="V3 BETA"/>
 			</md-tabs>
 				<div v-if="tab === 'classic-version'">
+					<h3>VERSION 3.1.2<span class="badge badge-danger">New</span></h3>
+					<ul>
+						<li>Starting equipment : Sort item list</li>
+						<li>Starting equipment : Rename a few label</li>
+					</ul>
 					<h3>VERSION 3.1.1<span class="badge badge-danger">New</span></h3>
 					<ul>
 						<li>Starting equipment : The items selection was not random</li>
