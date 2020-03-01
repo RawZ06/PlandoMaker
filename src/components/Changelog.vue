@@ -7,28 +7,33 @@
 				<md-tab id="beta-3-version" md-label="V3 BETA"/>
 			</md-tabs>
 				<div v-if="tab === 'classic-version'">
-					<h3>VERSION 3.2.3<span class="badge badge-danger">New</span><span class="badge badge-danger">BETA</span></h3>
+					<h3>VERSION 3.2.4<span class="badge badge-danger">New</span></h3>
+					<ul>
+						<li>Release 3.2.x</li>
+						<li>Update readme</li>
+					</ul>
+					<h3>VERSION 3.2.3<span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Import 3.1.2 from release</li>
 					</ul>
-					<h3>VERSION 3.2.2<span class="badge badge-danger">New</span><span class="badge badge-danger">BETA</span></h3>
+					<h3>VERSION 3.2.2<span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Import 3.1.1 from release</li>
 					</ul>
-					<h3>VERSION 3.2.1<span class="badge badge-danger">New</span><span class="badge badge-danger">BETA</span></h3>
+					<h3>VERSION 3.2.1<span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Disable slider dragg by default</li>
 					</ul>
-					<h3>VERSION 3.2.0<span class="badge badge-danger">New</span><span class="badge badge-danger">BETA</span></h3>
+					<h3>VERSION 3.2.0<span class="badge badge-danger">BETA</span></h3>
 					<ul>
 						<li>Reworking slider to chooses min and max values of settings randomizer (like number of skull ect...)</li>
 					</ul>
-					<h3>VERSION 3.1.2<span class="badge badge-danger">New</span></h3>
+					<h3>VERSION 3.1.2</h3>
 					<ul>
 						<li>Starting equipment : Sort item list</li>
 						<li>Starting equipment : Rename a few label</li>
 					</ul>
-					<h3>VERSION 3.1.1<span class="badge badge-danger">New</span></h3>
+					<h3>VERSION 3.1.1</h3>
 					<ul>
 						<li>Starting equipment : The items selection was not random</li>
 						<li>Starting equipment : Rename a few label</li>
