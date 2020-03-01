@@ -1,10 +1,10 @@
 <p align="center"><img src="https://ootplandomizer.com/static/img/logo.f0cb379.png" width="400"></p>
 
 <p align="center">
-<a href="https://badgen.net/travis/rawz06/plandomizerGUI/master"><img src="https://badgen.net/travis/rawz06/plandomizerGUI/master" alt="Build Status"></a>
+<a href="https://badgen.net/travis/rawz06/plandomizerGUI/develop"><img src="https://badgen.net/travis/rawz06/plandomizerGUI/develop" alt="Build Status"></a>
 <a href="https://badgen.net/github/tags/rawz06/plandomizergui"><img src="https://badgen.net/github/tags/rawz06/plandomizergui" alt="Tags"></a>
 <a href="https://badgen.net/github/tag/rawz06/plandomizergui"><img src="https://badgen.net/github/tag/rawz06/plandomizergui" alt="Latest Stable Version"></a>
-	<a href="https://badgen.net/github/last-commit/rawz06/plandomizergui"><img src="https://badgen.net/github/last-commit/rawz06/plandomizergui/master" alt="Latest Commit"></a>
+	<a href="https://badgen.net/github/last-commit/rawz06/plandomizergui/develop"><img src="https://badgen.net/github/last-commit/rawz06/plandomizergui/develop" alt="Latest Commit"></a>
 <a href="https://badgen.net/github/license/rawz06/plandomizergui"><img src="https://badgen.net/github/license/rawz06/plandomizergui" alt="License"></a>
 </p>
 
