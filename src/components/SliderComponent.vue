@@ -29,8 +29,10 @@
 	export default {
 		name: "SliderComponent",
 		props: {
-			minValue: {default: 0, type: Number},
-			maxValue: {default: 0, type: Number},
+			minValue: { default: 0, type: Number },
+			maxValue: { default: 0, type: Number },
+			currentMaxValue: { default: 0, type: Number },
+			currentMinValue: { default: 0, type: Number },
 			disabled: Boolean
 			// gui_text: String
 		},
@@ -39,6 +41,8 @@
 				max: 0,
 				min: 0,
 				maxVal: 100,
+				currentMax: 0,
+				currentMin: 0,
 				isDraggable: false,
 				isDisabled: false,
 				draggMax: null,
@@ -47,9 +51,13 @@
 			};
 		},
 		mounted: function () {
+			//Store current value. At the beginning these value are equal to maxVal & minVal
+			//There ought to be a better solution tho.
+			this.currentMin = this.currentMinValue;
+			this.currentMax = this.currentMaxValue;
 			this.maxVal = this.maxValue;
-			this.max = this.maxVal;
-			this.min = this.minValue;
+			this.max = this.currentMaxValue != this.maxVal ? this.currentMaxValue : this.maxVal;
+			this.min = this.currentMinValue != this.minValue ? this.currentMinValue : this.minValue;
 			this.isDisabled = this.disabled;
 			// this.parentText = this.gui_text;
 			this.updateThumb(this.$refs.thumb_max, this.max);
