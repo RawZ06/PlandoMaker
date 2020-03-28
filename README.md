@@ -15,8 +15,6 @@ A non-official Plandomizer GUI for ZOoTR.
 
 You can access it with [this link](https://ootplandomizer.com)
 
-This branch is a BETA version for Random Settings maker, you can access it with [this link](https://dev.ootplandomizer.com)
-
 # Wait, what?
 
 Ok. Let's start from the beginning.

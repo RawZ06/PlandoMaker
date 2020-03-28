@@ -8,9 +8,13 @@
             </md-tabs>
             <div v-if="tab === 'classic-version'">
                 <h3>
-                    VERSION 3.2.4
+                    VERSION 3.2.5
                     <span class="badge badge-danger">New</span>
                 </h3>
+                <ul>
+                    <li>Fixing slider don't save when we change tab</li>
+                </ul>
+                <h3>VERSION 3.2.4</h3>
                 <ul>
                     <li>Release 3.2.x</li>
                     <li>Update readme</li>
