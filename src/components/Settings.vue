@@ -5,16 +5,15 @@
 		<md-button @click="reset_active = true" class="md-raised md-accent">Reset all</md-button>
 		<md-button @click="download" class="md-raised md-primary">Download</md-button>
 		<md-tabs class="md-primary" v-on:md-changed="changeTab">
-			<md-tab :id="tab" :key="tab" :md-label="tab" v-for="tab in Object.keys(settings)"/>
-			<md-tab id="Help" md-label="Help"/>
+			<md-tab :id="tab" :key="tab" :md-label="tab" v-for="tab in Object.keys(settings)" />
+			<md-tab id="Help" md-label="Help" />
 		</md-tabs>
 		<div class="component" v-if="tab === 'Starting Inventory'">
 			<div v-for="tabitem in Object.keys(items)">
 				<md-switch
 					class="md-primary"
 					v-model="items_choices[tabitem].active"
-				>{{items[tabitem].gui_text}}
-				</md-switch>
+				>{{items[tabitem].gui_text}}</md-switch>
 				<div>
 					<md-field v-if="items_choices[tabitem].active === true">
 						<label>Items allowed</label>
@@ -23,25 +22,22 @@
 								:key="key"
 								:value="key"
 								v-for="key in Object.keys(items[tabitem].allow)"
-							>{{items[tabitem].allow[key]}}
-							</md-option>
+							>{{items[tabitem].allow[key]}}</md-option>
 							<md-button
 								class="md-raised md-primary"
 								v-if="items_choices[tabitem].allow.length === 0"
 								v-on:click="() => {items_choices[tabitem].allow = Object.keys(items[tabitem].allow)}"
-							>Select all
-							</md-button>
+							>Select all</md-button>
 							<md-button
 								class="md-raised md-primary"
 								v-else
 								v-on:click="() => {items_choices[tabitem].allow = []}"
-							>Deselect all
-							</md-button>
+							>Deselect all</md-button>
 						</md-select>
 					</md-field>
 					<md-field style="background: #EEE" v-else>
 						<label>Items allowed</label>
-						<md-select disabled multiple v-model="items_choices[tabitem].allow"/>
+						<md-select disabled multiple v-model="items_choices[tabitem].allow" />
 					</md-field>
 					<div style="width: 80%; margin: auto;">
 						<label>
@@ -56,6 +52,8 @@
 							:disabled="items_choices[tabitem].active !== true"
 							:maxValue="items_choices[tabitem].allow.length"
 							:minValue="0"
+							:currentMinValue="items_choices[tabitem].min"
+							:currentMaxValue="items_choices[tabitem].max"
 							v-bind:maxChange.sync="items_choices[tabitem].max"
 							v-bind:minChange.sync="items_choices[tabitem].min"
 						/>
@@ -94,8 +92,7 @@
 					:id="setting.name"
 					class="md-primary"
 					v-model="choices[setting.name].active"
-				>{{setting.gui_text}}
-				</md-switch>
+				>{{setting.gui_text}}</md-switch>
 				<div>
 					<md-field v-if="setting.type === 'list' && choices[setting.name].active === true">
 						<label>Settings allowed</label>
@@ -104,25 +101,22 @@
 								:key="choice"
 								:value="choice"
 								v-for="choice in Object.keys(setting.choices)"
-							>{{setting.choices[choice]}}
-							</md-option>
+							>{{setting.choices[choice]}}</md-option>
 							<md-button
 								class="md-raised md-primary"
 								v-if="choices[setting.name].allow.length === 0"
 								v-on:click="() => {choices[setting.name].allow = Object.keys(setting.choices)}"
-							>Select all
-							</md-button>
+							>Select all</md-button>
 							<md-button
 								class="md-raised md-primary"
 								v-else
 								v-on:click="() => {choices[setting.name].allow = []}"
-							>Deselect all
-							</md-button>
+							>Deselect all</md-button>
 						</md-select>
 					</md-field>
 					<md-field style="background: #EEE" v-else-if="setting.type === 'list'">
 						<label>Settings allowed</label>
-						<md-select class="md-secondary" disabled/>
+						<md-select class="md-secondary" disabled />
 					</md-field>
 					<div style="width: 80%; margin: auto;" v-else-if="setting.type === 'scale'">
 						<label>
@@ -137,6 +131,8 @@
 							:disabled="choices[setting.name].active !== true"
 							:maxValue="setting.max"
 							:minValue="setting.min"
+							:currentMinValue="choices[setting.name].min"
+							:currentMaxValue="choices[setting.name].max"
 							v-bind:maxChange.sync="choices[setting.name].max"
 							v-bind:minChange.sync="choices[setting.name].min"
 						/>
@@ -156,8 +152,7 @@
 					class="alert alert-warning"
 					role="alert"
 					v-for="war in warnings"
-				>{{war.setting}} is {{war.value}}
-				</div>
+				>{{war.setting}} is {{war.value}}</div>
 
 				<md-dialog-actions>
 					<md-button @click="showDialogWarning = false" class="md-primary">Close</md-button>
@@ -171,13 +166,10 @@
 
 			<div class="modal-body">
 				{
-				<div
-					style="margin-left: 10px"
-					v-for="(value, name) in preview_content"
-				>{{ choices[name].gui_text }}: {{ choices[name].type === 'list' ? choices[name].choices[value] : value
+				<div style="margin-left: 10px" v-for="(value, name) in preview_content">
+					{{ choices[name].gui_text }}: {{ choices[name].type === 'list' ? choices[name].choices[value] : value
 					}}
-				</div>
-				}
+				</div>}
 				<md-dialog-actions>
 					<md-button @click="showDialogPreview = false" class="md-primary">Close</md-button>
 				</md-dialog-actions>
@@ -265,7 +257,7 @@
 				else
 					return Object.keys(items)[
 						Math.floor(Math.random() * Object.keys(items).length)
-						];
+					];
 			},
 			randomNumber(min, max) {
 				return Math.floor(Math.random() * (max - min + 1) + min);
@@ -462,7 +454,7 @@
 				}
 			});
 		},
-		components: {SliderComponent}
+		components: { SliderComponent }
 	};
 </script>
 
