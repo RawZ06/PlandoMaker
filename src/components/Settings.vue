@@ -9,7 +9,7 @@
 			<md-tab id="Help" md-label="Help"/>
 		</md-tabs>
 		<div class="component" v-if="tab === 'Starting Inventory'">
-			<div v-for="tabitem in Object.keys(items)">
+			<div v-bind:key="tabitem" v-for="tabitem in Object.keys(items)">
 				<md-switch
 					class="md-primary"
 					v-model="items_choices[tabitem].active"
@@ -89,7 +89,7 @@
 			<p>At this moment, it only works with Roman's fork.</p>
 		</div>
 		<div class="component">
-			<div v-for="setting in settings[tab]">
+			<div v-bind:key="setting" v-for="setting in settings[tab]">
 				<md-switch
 					:id="setting.name"
 					class="md-primary"
@@ -153,6 +153,7 @@
 			<div class="modal-body">
 				<div>You selected an dependency setting ! Please check when you create a seed that :</div>
 				<div
+					v-bind:key="war"
 					class="alert alert-warning"
 					role="alert"
 					v-for="war in warnings"
@@ -172,6 +173,7 @@
 			<div class="modal-body">
 				{
 				<div
+					v-bind:key="value"
 					style="margin-left: 10px"
 					v-for="(value, name) in preview_content"
 				>{{ choices[name].gui_text }}: {{ choices[name].type === 'list' ? choices[name].choices[value] : value
