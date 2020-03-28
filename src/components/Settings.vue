@@ -55,9 +55,9 @@
 						<SliderComponent
 							:disabled="items_choices[tabitem].active !== true"
 							:maxValue="items_choices[tabitem].allow.length"
-							v-bind:minChange.sync="items_choices[tabitem].min"
-							v-bind:maxChange.sync="items_choices[tabitem].max"
 							:minValue="0"
+							v-bind:maxChange.sync="items_choices[tabitem].max"
+							v-bind:minChange.sync="items_choices[tabitem].min"
 						/>
 					</div>
 				</div>
@@ -135,9 +135,10 @@
 						</label>
 						<SliderComponent
 							:disabled="choices[setting.name].active !== true"
-							v-bind:minChange.sync="choices[setting.name].min" v-bind:maxChange.sync="choices[setting.name].max"
 							:maxValue="setting.max"
 							:minValue="setting.min"
+							v-bind:maxChange.sync="choices[setting.name].max"
+							v-bind:minChange.sync="choices[setting.name].min"
 						/>
 					</div>
 				</div>
@@ -274,6 +275,7 @@
 			},
 			filter_random(list, nb) {
 				const cpy = list.filter(() => true);
+				shuffle(cpy);
 				const output = [];
 				for (let i = 0; i < nb; i++) {
 					output.push(cpy.pop());

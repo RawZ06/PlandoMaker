@@ -138,11 +138,11 @@
 				this.updateSlider(this.max - this.min, this.min);
 				this.updateDraggiesIfNeeded();
 			},
-			min: function(v) {
-				this.$emit('update:minChange', v)
+			min: function (v) {
+				this.$emit("update:minChange", v);
 			},
-			max: function(v) {
-				this.$emit('update:maxChange', v)
+			max: function (v) {
+				this.$emit("update:maxChange", v);
 			}
 		},
 		methods: {
