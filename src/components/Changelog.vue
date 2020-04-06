@@ -7,9 +7,34 @@
                 <md-tab id="beta-3-version" md-label="V3 BETA" />
             </md-tabs>
             <div v-if="tab === 'classic-version'">
+				<h3>Todo</h3>
+				<ul>
+					<li>Scrubsanity</li>
+					<li>Shopsanity</li>
+					<li>Skullsanity (i don't know how display a list of location)</li>
+				</ul>
+				<h3>
+                    VERSION 3.3.0
+					 <span class="badge badge-danger">BETA</span>
+                    <span class="badge badge-danger">New</span>
+                </h3>
+                <ul>
+                    <li>Adding sanities</li>
+					<ul>
+						<li>Songsanity</li>
+						<li>Cowsanity</li>
+						<li>Weird Egg Shuflle</li>
+						<li>Ocarina Shuflle</li>
+						<li>Gerudo Card Shuflle</li>
+						<li>Bean Saleman Shuflle</li>
+						<li>Medigoron Shuflle</li>
+						<li>Carpet Saleman Shuflle</li>
+						<li>Map/Compass Shuflle</li>
+					</ul>
+					<li>Adding Triforce Piece</li>
+                </ul>
                 <h3>
                     VERSION 3.2.5
-                    <span class="badge badge-danger">New</span>
                 </h3>
                 <ul>
                     <li>Fixing slider don't save when we change tab</li>
