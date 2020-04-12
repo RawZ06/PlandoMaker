@@ -12,11 +12,20 @@
 					<li>Scrubsanity</li>
 					<li>Shopsanity</li>
 					<li>Skullsanity (i don't know how display a list of location)</li>
+					<br>
+					<li>Second implementation setting_string</li>
 				</ul>
+				<h3>
+                    VERSION 3.4.0
+					 <span class="badge badge-danger">BETA</span>
+                    <span class="badge badge-danger">New</span>
+                </h3>
+                <ul>
+                    <li>First implementation of settings_string, just settings to string, next step will be string to settings</li>
+                </ul>
 				<h3>
                     VERSION 3.3.0
 					 <span class="badge badge-danger">BETA</span>
-                    <span class="badge badge-danger">New</span>
                 </h3>
                 <ul>
                     <li>Adding sanities</li>
