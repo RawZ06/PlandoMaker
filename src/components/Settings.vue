@@ -91,7 +91,7 @@
             <p>At this moment, it only works with Roman's fork.</p>
         </div>
         <div class="component">
-            <div v-bind:key="setting" v-for="setting in settings[tab]">
+            <div v-bind:key="setting.name" v-for="setting in settings[tab]">
                 <md-switch
                     :id="setting.name"
                     class="md-primary"
