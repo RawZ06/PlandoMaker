@@ -4,6 +4,7 @@
         <md-switch v-model="preview">Preview settings before downloading</md-switch>
         <md-button @click="reset_active = true" class="md-raised md-accent">Reset all</md-button>
         <md-button @click="download" class="md-raised md-primary">Download</md-button>
+		<div>Settings : {{setting_string}}</div>
         <md-tabs class="md-primary" v-on:md-changed="changeTab">
             <md-tab :id="tab" :key="tab" :md-label="tab" v-for="tab in Object.keys(settings)" />
             <md-tab id="Help" md-label="Help" />
@@ -204,6 +205,8 @@ import SliderComponent from "./SliderComponent";
 
 const choices = {};
 
+const settings_list_for_string = [];
+
 Object.values(settings).forEach(settinglist => {
     settinglist.forEach(setting => {
         choices[setting.name] = {
@@ -216,6 +219,12 @@ Object.values(settings).forEach(settinglist => {
             gui_text: setting.gui_text,
             choices: setting.choices
         };
+        settings_list_for_string.push({
+			name: setting.name,
+            type: setting.type,
+            choices:
+                setting.type === "list" ? Object.keys(setting.choices) : null
+        });
     });
 });
 
@@ -258,7 +267,10 @@ export default {
             reset_active: false,
             preview: false,
             preview_content: "",
-            showDialogPreview: false
+            showDialogPreview: false,
+            array: [],
+			settings_list_for_string: settings_list_for_string,
+			setting_string: ""
         };
     },
     methods: {
@@ -392,7 +404,41 @@ export default {
                     },
                     "settings_random"
                 );
-        },
+		},
+		setting_to_array() {
+			let array = [];
+                this.settings_list_for_string.forEach(setting => {
+					const setting_active = this.choices[setting.name].active;
+					const setting_allow = this.choices[setting.name].allow;
+                    if (setting_active) array.push(1);
+                    else array.push(0);
+                    if (setting.type === "list") {
+                        setting.choices.forEach(choice => {
+                            if (setting_allow.indexOf(choice) >= 0)
+                                array.push(1);
+                            else array.push(0);
+                        });
+                    }
+                });
+                this.array = array;
+		},
+		array_to_string() {
+			let chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
+			let bits = this.array.filter(() => true);
+			//pad the bits array to be multiple of 5
+			if(bits.length % 5 > 0)
+				for(let i =0; i<5 - bits.length % 5; i++) bits.push(0)
+			//convert to characters
+			let result = ""
+			for(let i =0; i < bits.length; i+=5)
+			{
+				let value = 0
+				for(let b = i; b<i+5; b++)
+					value |= bits[b] << b-i
+				result += chars[value]
+			}
+			this.setting_string = result;
+		},
         reset() {
             const choices_default = {};
 
@@ -434,6 +480,10 @@ export default {
                     };
                     localStorage.settings = JSON.stringify(storage);
                 }
+
+                /** Convert to settings string */
+				this.setting_to_array()
+				this.array_to_string()
             },
             deep: true
         },
@@ -468,7 +518,9 @@ export default {
                 const storage = JSON.parse(localStorage.settings);
                 this.choices = storage.choices;
                 this.items_choices = storage.items_choices;
-            }
+			}
+			this.setting_to_array();
+			this.array_to_string()
         });
     },
     components: { SliderComponent }
