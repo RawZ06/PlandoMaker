@@ -16,6 +16,14 @@
 					<li>Second implementation setting_string</li>
 				</ul>
 				<h3>
+                    VERSION 3.4.1
+					 <span class="badge badge-danger">BETA</span>
+                    <span class="badge badge-danger">New</span>
+                </h3>
+                <ul>
+                    <li>Second implementation of settings_string, everything except starting inventory (equipment, items, songs)</li>
+                </ul>
+				<h3>
                     VERSION 3.4.0
 					 <span class="badge badge-danger">BETA</span>
                     <span class="badge badge-danger">New</span>
