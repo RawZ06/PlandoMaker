@@ -166,7 +166,24 @@
                 </div>
             </div>
         </div>
+		<md-dialog :md-active.sync="showDialogError">
+            <md-dialog-title>
+                <span class="badge badge-danger">Error</span>
+            </md-dialog-title>
 
+            <div class="modal-body">
+                <div
+                    v-bind:key="err"
+                    class="alert alert-danger"
+                    role="alert"
+                    v-for="err in errors"
+                >{{err}}</div>
+
+                <md-dialog-actions>
+                    <md-button @click="showDialogError = false" class="md-primary">Close</md-button>
+                </md-dialog-actions>
+            </div>
+        </md-dialog>
         <md-dialog :md-active.sync="showDialogWarning">
             <md-dialog-title>
                 <span class="badge badge-warning">Warning</span>
