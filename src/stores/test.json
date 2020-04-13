@@ -1,0 +1,835 @@
+{
+	"logic_rules": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Logic Rules",
+		"choices": {
+			"glitchless": "Glitchless",
+			"glitched": "Glitched",
+			"none": "No Logic"
+		}
+	},
+	"open_forest": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Forest",
+		"choices": {
+			"open": "Open Forest",
+			"closed_deku": "Closed Deku",
+			"closed": "Closed Forest"
+		}
+	},
+	"open_kakariko": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Open Kakariko Gate",
+		"choices": [true, false]
+	},
+	"open_door_of_time": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Open Door of Time",
+		"choices": [true, false]
+	},
+	"zora_fountain": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Zora\"s Fountain",
+		"choices": {
+			"closed": "Default Behavior (Closed)",
+			"adult": "Open For Adult",
+			"open": "Always Open"
+		}
+	},
+	"gerudo_fortress": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Gerudo Fortress",
+		"choices": {
+			"normal": "Default Behavior",
+			"fast": "Rescue One Carpenter",
+			"open": "Open Gerudo Fortress"
+		}
+	},
+	"bridge": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Rainbow Bridge Requirement",
+		"choices": {
+			"open": "Always Open",
+			"vanilla": "Vanilla Requirements",
+			"stones": "All Spiritual Stones",
+			"medallions": "All Medallions",
+			"dungeons": "All Dungeons",
+			"tokens": "Gold Skulltula Tokens"
+		}
+	},
+	"bridge_tokens": {
+		"type": "scale",
+		"active": false,
+		"allow": [],
+		"min": 1,
+		"max": 100,
+		"depend": {
+			"bridge": "tokens"
+		},
+		"gui_text": "Skulltulas Required for Bridge",
+		"choices": "__vue_devtool_undefined__"
+	},
+	"triforce_hunt": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Triforce Hunt",
+		"choices": [true, false]
+	},
+	"triforce_goal_per_world": {
+		"type": "scale",
+		"active": false,
+		"allow": [],
+		"min": 1,
+		"max": 100,
+		"depend": {
+			"triforce_hunt": true
+		},
+		"gui_text": "Required Triforces Per World",
+		"choices": "__vue_devtool_undefined__"
+	},
+	"bombchus_in_logic": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Bombchus Are Considered in Logic",
+		"choices": [true, false]
+	},
+	"one_item_per_dungeon": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Dungeons Have One Major Item",
+		"choices": [true, false]
+	},
+	"trials_random": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Random Number of Ganon\"s Trials",
+		"choices": [true, false]
+	},
+	"starting_age": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Starting Age",
+		"choices": {
+			"child": "Child",
+			"adult": "Adult",
+			"random": "Random"
+		}
+	},
+	"shuffle_interior_entrances": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Shuffle Interior Entrances",
+		"choices": {
+			"off": "Off",
+			"simple": "Simple Interiors",
+			"all": "All Interiors"
+		}
+	},
+	"shuffle_grotto_entrances": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Shuffle Grotto Entrances",
+		"choices": [true, false]
+	},
+	"shuffle_dungeon_entrances": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Shuffle Dungeon Entrances",
+		"choices": [true, false]
+	},
+	"shuffle_overworld_entrances": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Shuffle Overworld Entrances",
+		"choices": [true, false]
+	},
+	"mix_entrance_pools": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Mix Entrance Pools",
+		"choices": [true, false]
+	},
+	"decouple_entrances": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Decouple Entrances",
+		"choices": [true, false]
+	},
+	"owl_drops": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Randomize Owl Drops",
+		"choices": [true, false]
+	},
+	"warp_songs": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Randomize Warp Song Destinations",
+		"choices": [true, false]
+	},
+	"spawn_positions": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Randomize Overworld Spawns",
+		"choices": [true, false]
+	},
+	"mq_dungeons_random": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Random Number of MQ Dungeons",
+		"choices": [true, false]
+	},
+	"shopsanity": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Shopsanity",
+		"choices": {
+			"0": "Shuffled Shops (0 Items)",
+			"1": "Shuffled Shops (1 Items)",
+			"2": "Shuffled Shops (2 Items)",
+			"3": "Shuffled Shops (3 Items)",
+			"4": "Shuffled Shops (4 Items)",
+			"off": "Off",
+			"random": "Shuffled Shops (Random)"
+		}
+	},
+	"tokensanity": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Tokensanity",
+		"choices": {
+			"off": "Off",
+			"dungeons": "Dungeons Only",
+			"overworld": "Overworld Only",
+			"all": "All Tokens"
+		}
+	},
+	"shuffle_scrubs": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Scrub Shuffle",
+		"choices": {
+			"off": "Off",
+			"low": "On (Affordable)",
+			"regular": "On (Expensive)",
+			"random": "On (Random Prices)"
+		}
+	},
+	"shuffle_cows": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Shuffle Cows",
+		"choices": [true, false]
+	},
+	"shuffle_song_items": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Shuffle Songs with Items",
+		"choices": [true, false]
+	},
+	"shuffle_kokiri_sword": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Shuffle Kokiri Sword",
+		"choices": [true, false]
+	},
+	"shuffle_ocarinas": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Shuffle Ocarinas",
+		"choices": [true, false]
+	},
+	"shuffle_weird_egg": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Shuffle Weird Egg",
+		"choices": [true, false]
+	},
+	"shuffle_gerudo_card": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Shuffle Gerudo Card",
+		"choices": [true, false]
+	},
+	"shuffle_beans": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Shuffle Magic Beans",
+		"choices": [true, false]
+	},
+	"shuffle_medigoron_carpet_salesman": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Shuffle Medigoron & Carpet Salesman",
+		"choices": [true, false]
+	},
+	"shuffle_mapcompass": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Maps & Compasses",
+		"choices": {
+			"remove": "Remove",
+			"startwith": "Start With",
+			"vanilla": "Vanilla Locations",
+			"dungeon": "Dungeon Only",
+			"keysanity": "Anywhere"
+		}
+	},
+	"shuffle_smallkeys": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Small Keys",
+		"choices": {
+			"remove": "Remove (Keysy)",
+			"vanilla": "Vanilla Locations",
+			"dungeon": "Dungeon Only",
+			"keysanity": "Anywhere (Keysanity)"
+		}
+	},
+	"shuffle_bosskeys": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Boss Keys",
+		"choices": {
+			"remove": "Remove (Keysy)",
+			"vanilla": "Vanilla Locations",
+			"dungeon": "Dungeon Only",
+			"keysanity": "Anywhere (Keysanity)"
+		}
+	},
+	"shuffle_ganon_bosskey": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": {
+			"triforce_hunt": false
+		},
+		"gui_text": "Ganon\"s Boss Key",
+		"choices": {
+			"remove": "Remove (Keysy)",
+			"vanilla": "Vanilla Location",
+			"dungeon": "Dungeon Only",
+			"keysanity": "Anywhere (Keysanity)",
+			"lacs_vanilla": "On LACS: Vanilla",
+			"lacs_medallions": "On LACS: Medallions",
+			"lacs_stones": "On LACS: Stones",
+			"lacs_dungeons": "On LACS: Dungeons"
+		}
+	},
+	"enhance_map_compass": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Maps and Compasses Give Information",
+		"choices": [true, false]
+	},
+	"all_reachable": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "All Locations Reachable",
+		"choices": [true, false]
+	},
+	"logic_no_night_tokens_without_suns_song": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Nighttime Skulltulas Expect Sun\"s Song",
+		"choices": [true, false]
+	},
+	"logic_lens": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Lens of Truth",
+		"choices": {
+			"all": "Required Everywhere",
+			"chest-wasteland": "Wasteland and Chest Minigame",
+			"chest": "Only Chest Minigame"
+		}
+	},
+	"starting_hearts": {
+		"type": "scale",
+		"active": false,
+		"allow": [],
+		"min": 3,
+		"max": 20,
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Starting Hearts",
+		"choices": "__vue_devtool_undefined__"
+	},
+	"start_with_consumables": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Start With Consumables",
+		"choices": [true, false]
+	},
+	"start_with_rupees": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Start with Max Rupees",
+		"choices": [true, false]
+	},
+	"no_escape_sequence": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Skip Tower Escape Sequence",
+		"choices": [true, false]
+	},
+	"no_guard_stealth": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Skip Child Stealth",
+		"choices": [true, false]
+	},
+	"no_epona_race": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Skip Epona Race",
+		"choices": [true, false]
+	},
+	"no_first_minigame_phases": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Skip First Minigame Phases",
+		"choices": [true, false]
+	},
+	"useful_cutscenes": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Enable Useful Cutscenes",
+		"choices": [true, false]
+	},
+	"fast_chests": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Fast Chest Cutscenes",
+		"choices": [true, false]
+	},
+	"free_scarecrow": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Free Scarecrow\"s Song",
+		"choices": [true, false]
+	},
+	"chicken_count_random": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Random Cucco Count",
+		"choices": [true, false]
+	},
+	"big_poe_count_random": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Random Big Poe Target Count",
+		"choices": [true, false]
+	},
+	"ocarina_songs": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Randomize Ocarina Song Notes",
+		"choices": [true, false]
+	},
+	"correct_chest_sizes": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Chest Size Matches Contents",
+		"choices": [true, false]
+	},
+	"clearer_hints": {
+		"type": "boolean",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Clearer Hints",
+		"choices": [true, false]
+	},
+	"ice_trap_appearance": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Ice Trap Appearance",
+		"choices": {
+			"major_only": "Major Items Only",
+			"junk_only": "Junk Items Only",
+			"anything": "Anything"
+		}
+	},
+	"hints": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Gossip Stones",
+		"choices": {
+			"none": "No Hints",
+			"mask": "Hints; Need Mask of Truth",
+			"agony": "Hints; Need Stone of Agony",
+			"always": "Hints; Need Nothing"
+		}
+	},
+	"hint_dist": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Hint Distribution",
+		"choices": {
+			"useless": "Useless",
+			"balanced": "Balanced",
+			"strong": "Strong",
+			"very_strong": "Very Strong",
+			"tournament": "Tournament"
+		}
+	},
+	"text_shuffle": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Text Shuffle",
+		"choices": {
+			"none": "No Text Shuffled",
+			"except_hints": "Shuffled except Hints and Keys",
+			"complete": "All Text Shuffled"
+		}
+	},
+	"damage_multiplier": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Damage Multiplier",
+		"choices": {
+			"half": "Half",
+			"normal": "Normal",
+			"double": "Double",
+			"quadruple": "Quadruple",
+			"ohko": "OHKO"
+		}
+	},
+	"starting_tod": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Starting Time of Day",
+		"choices": {
+			"default": "Default (10:00)",
+			"random": "Random Choice",
+			"sunrise": "Sunrise (6:30)",
+			"morning": "Morning (9:00)",
+			"noon": "Noon (12:00)",
+			"afternoon": "Afternoon (15:00)",
+			"sunset": "Sunset (18:00)",
+			"evening": "Evening (21:00)",
+			"midnight": "Midnight (00:00)",
+			"witching-hour": "Witching Hour (03:00)"
+		}
+	},
+	"item_pool_value": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Item Pool",
+		"choices": {
+			"plentiful": "Plentiful",
+			"balanced": "Balanced",
+			"scarce": "Scarce",
+			"minimal": "Minimal"
+		}
+	},
+	"junk_ice_traps": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Ice Traps",
+		"choices": {
+			"off": "No Ice Traps",
+			"normal": "Normal Ice Traps",
+			"on": "Extra Ice Traps",
+			"mayhem": "Ice Trap Mayhem",
+			"onslaught": "Ice Trap Onslaught"
+		}
+	},
+	"logic_earliest_adult_trade": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Adult Trade Sequence Earliest Item",
+		"choices": {
+			"pocket_egg": "Pocket Egg",
+			"pocket_cucco": "Pocket Cucco",
+			"cojiro": "Cojiro",
+			"odd_mushroom": "Odd Mushroom",
+			"poachers_saw": "Poacher\"s Saw",
+			"broken_sword": "Broken Sword",
+			"prescription": "Prescription",
+			"eyeball_frog": "Eyeball Frog",
+			"eyedrops": "Eyedrops",
+			"claim_check": "Claim Check"
+		}
+	},
+	"logic_latest_adult_trade": {
+		"type": "list",
+		"active": false,
+		"allow": [],
+		"min": "__vue_devtool_undefined__",
+		"max": "__vue_devtool_undefined__",
+		"depend": "__vue_devtool_undefined__",
+		"gui_text": "Adult Trade Sequence Latest Item",
+		"choices": {
+			"pocket_egg": "Pocket Egg",
+			"pocket_cucco": "Pocket Cucco",
+			"cojiro": "Cojiro",
+			"odd_mushroom": "Odd Mushroom",
+			"poachers_saw": "Poacher\"s Saw",
+			"broken_sword": "Broken Sword",
+			"prescription": "Prescription",
+			"eyeball_frog": "Eyeball Frog",
+			"eyedrops": "Eyedrops",
+			"claim_check": "Claim Check"
+		}
+	}
+}

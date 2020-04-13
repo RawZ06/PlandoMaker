@@ -57,19 +57,19 @@ export default {
 };
 </script>
 
-<style>
+<style langs="sass">
 header {
     width: 100vw;
     line-height: 30px;
     text-align: center;
-    background: rgb(218, 218, 218);
-    box-shadow: 2px 2px 2px rgb(228, 228, 228);
+    background: var(--app-background-header);
+    box-shadow: 2px 2px 2px var(--app-box-header);
     display: flex !important;
     flex-direction: column;
 }
 
 .links > a {
-    color: black !important;
+    color: var(--app-color) !important;
 }
 
 .links > a:hover {

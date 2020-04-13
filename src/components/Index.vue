@@ -548,4 +548,24 @@ input[type="file"] {
 .md-list-item-content {
     min-height: 0;
 }
+
+.list-group-item {
+	background: var(--app-background-item);
+	color: var(--app-color);
+}
+
+.list-group-item:hover {
+	background: var(--app-background-item);
+	color: var(--app-color);
+}
+
+.list-group-item.active {
+	background: var(--app-background-item-primary);
+	color: var(--app-color);
+}
+
+.list-group-item.active:hover {
+	background: var(--app-background-item-primary);
+	color: var(--app-color);
+}
 </style>
