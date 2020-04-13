@@ -4,7 +4,26 @@
         <md-switch v-model="preview">Preview settings before downloading</md-switch>
         <md-button @click="reset_active = true" class="md-raised md-accent">Reset all</md-button>
         <md-button @click="download" class="md-raised md-primary">Download</md-button>
-		<div>Settings : {{setting_string}}</div>
+		<div class="ss">
+			<md-button @click="update_setting" class="md-raised md-primary">Update</md-button>
+			<md-field>
+				<md-input v-model="setting_string" />
+				<span class="md-helper-text">Settings_string</span>
+			</md-field>
+		</div>
+		<div class="ss">
+			<md-button @click="load" class="md-raised md-primary">Load</md-button>
+			<md-field>
+				<label>Preset</label>
+				<md-select v-model="preset">
+					<md-option
+						v-for="(string, name) in presets"
+						:key="name"
+						:value="string"
+					>{{name}}</md-option>
+				</md-select>
+			</md-field>
+		</div>
         <md-tabs class="md-primary" v-on:md-changed="changeTab">
             <md-tab :id="tab" :key="tab" :md-label="tab" v-for="tab in Object.keys(settings)" />
             <md-tab id="Help" md-label="Help" />
@@ -270,7 +289,14 @@ export default {
             showDialogPreview: false,
             array: [],
 			settings_list_for_string: settings_list_for_string,
-			setting_string: ""
+			setting_string: "",
+			presets: {
+				"Easy" : "S99AAAAAVAAANC8AA29BQ899AAAA8AACJBEVAAAAA89DAAAAAA",
+				"Standard" : "S9929BAAVAAANU9AA299R89899999AACJBEV8AAAA8999BAAAA",
+				"Hard" : "S9929BAAVAAAN49AA299R89899999AACJTHZ999B98999BAAAA",
+				"Hell Mode" : "99929BAAVGAAN4999999R89899999AACJT9999999899939RAA"
+			},
+			preset: "S99AAAAAVAAANC8AA29BQ899AAAA8AACJBEVAAAAA89DAAAAAA"
         };
     },
     methods: {
@@ -418,7 +444,19 @@ export default {
                                 array.push(1);
                             else array.push(0);
                         });
-                    }
+					}
+					else if(setting.type === 'scale') {
+						const min = this.choices[setting.name].min;
+						const max = this.choices[setting.name].max;
+						for(let i=0; i<10; i++) {
+							if(min & (1<<10-i)) array.push(1)
+							else array.push(0)
+						}
+						for(let i=0; i<10; i++) {
+							if(max & (1<<10-i)) array.push(1)
+							else array.push(0)
+						}
+					}
                 });
                 this.array = array;
 		},
@@ -438,6 +476,53 @@ export default {
 				result += chars[value]
 			}
 			this.setting_string = result;
+		},
+		string_to_array() {
+			let bits = []
+			let chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
+			for(let i=0; i<this.setting_string.length; i++)
+			{
+				let c = this.setting_string.charAt(i);
+				let index = chars.indexOf(c)
+				for(let b=0; b<5; b++)
+				{
+					bits.push((index >> b) & 1)
+				}
+			}
+			this.array = bits;
+		},
+		array_to_settings() {
+			this.settings_list_for_string.forEach(setting => {
+				const setting_active = this.choices[setting.name].active;
+				const setting_allow = this.choices[setting.name].allow;
+				this.choices[setting.name].active = this.array.shift() === 1
+				if (setting.type === "list") {
+					setting.choices.forEach(choice => {
+						if(this.array.shift() === 1) {
+							this.choices[setting.name].allow.push(choice)
+						}
+					});
+				}
+				else if(setting.type === 'scale') {
+					let min = 0;
+					let max = 0;
+					for(let i=0; i<10; i++) {
+						if(this.array.shift() === 1) min |= (1<<10-i)
+					}
+					for(let i=0; i<10; i++) {
+						if(this.array.shift() === 1) max |= (1<<10-i)
+					}
+					this.choices[setting.name].min = min;
+					this.choices[setting.name].max = max;
+				}
+			});
+		},
+		update_setting() {
+			this.string_to_array();
+			this.array_to_settings();
+		},
+		load() {
+			this.setting_string = this.preset;
 		},
         reset() {
             const choices_default = {};
@@ -559,5 +644,15 @@ export default {
 
 .md-dialog {
     width: 768px;
+}
+
+.ss {
+	display: flex;
+}
+
+@media screen and (max-width: 800px) {
+    .ss {
+        flex-direction: column;
+    }
 }
 </style>
