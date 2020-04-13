@@ -16,6 +16,14 @@
 					<li>Second implementation setting_string</li>
 				</ul>
 				<h3>
+                    VERSION 3.4.2
+					 <span class="badge badge-danger">BETA</span>
+                    <span class="badge badge-danger">New</span>
+                </h3>
+                <ul>
+                    <li>Bug Fix : Error dialog don't appear</li>
+                </ul>
+				<h3>
                     VERSION 3.4.1
 					 <span class="badge badge-danger">BETA</span>
                     <span class="badge badge-danger">New</span>

@@ -11,7 +11,7 @@
                 />
             </router-link>
             <small>
-                v.3.4.1
+                v.3.4.2
                 <span class="badge badge-danger">BETA</span>
             </small>
             <div title="Menu" class="c-icon c-icon-burger">
