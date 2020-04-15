@@ -101,4 +101,8 @@
 	.md-field.md-theme-default label {
     	color:var(--app-color);
 	}
+	.location-left {
+        background: var(--app-background-color);
+        text-align: left;
+    }
 </style>
