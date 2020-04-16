@@ -504,7 +504,7 @@ input[type="file"] {
     }
 
     .location-left {
-        background: white;
+        background: var(--app-background-color);
         text-align: left;
     }
 
@@ -545,6 +545,11 @@ input[type="file"] {
 </style>
 
 <style>
+.md-list.md-theme-default .md-list-item-container {
+    background-color:var(--app-background-color);
+    color:var(--app-color);
+}
+
 .md-list-item-content {
     min-height: 0;
 }
