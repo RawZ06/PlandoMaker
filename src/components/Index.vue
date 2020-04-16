@@ -562,12 +562,11 @@ input[type="file"] {
 
 .list-group-item {
 	background: var(--app-background-item);
-	color: var(--app-color);
 }
 
 .list-group-item:hover {
 	background: var(--app-background-item);
-	color: var(--app-color);
+	color: rgba(250, 250, 250, 0.80);
 }
 
 .list-group-item.active {
