@@ -545,8 +545,10 @@ input[type="file"] {
 </style>
 
 <style>
-.md-list.md-theme-default .md-list-item-container {
-    background-color:var(--app-background-color);
+.md-list.md-theme-default {
+	background-color:var(--app-background-color);
+}
+.md-list-item-container {
     color:var(--app-color);
 }
 
