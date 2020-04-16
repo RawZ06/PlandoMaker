@@ -546,11 +546,14 @@ input[type="file"] {
 
 <style>
 .md-list.md-theme-default {
-	background-color:var(--app-background-color);
-	color:var(--app-color);
+    background-color: var(--app-background-color);
+    color: var(--app-color);
 }
 .md-list.md-theme-default .md-list-item-container {
     color:var(--app-color);
+}
+.md-subheader.md-theme-default {
+    color:var(--app-color)
 }
 
 .md-list-item-content {
