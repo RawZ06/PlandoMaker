@@ -578,4 +578,7 @@ input[type="file"] {
 	background: var(--app-background-item-primary);
 	color: var(--app-color);
 }
+.md-list.md-theme-default .md-list-item-container:not(.md-list-item-default):not(.md-list-item-expand):not([disabled]):hover {
+	color: var(--app-color);
+}
 </style>
