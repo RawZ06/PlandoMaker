@@ -11,8 +11,11 @@
                 />
             </router-link>
             <small>
-                v.3.4.1
-                <span class="badge badge-danger">BETA</span>
+                v.{{version.version}}
+                <span v-if="version.type === 'ALPHA'" class="badge badge-danger">ALPHA</span>
+                <span v-else-if="version.type === 'BETA'" class="badge badge-danger">BETA</span>
+                <span v-else-if="version.type === 'Release'" class="badge badge-success">Release</span>
+                <span v-else class="badge badge-dark">Unknown</span>
             </small>
             <div title="Menu" class="c-icon c-icon-burger">
                 <span></span>
@@ -52,8 +55,15 @@ window.onload = () => {
     );
 };
 
+import version from '../../version.json'
+
 export default {
-    name: "Header"
+    name: "Header",
+    data() {
+        return {
+            version: version
+        }
+    }
 };
 </script>
 
