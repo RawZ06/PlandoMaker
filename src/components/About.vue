@@ -100,6 +100,7 @@
         <ul>
             <li>RawZ06, maintainer and developer</li>
             <li>Touyet, developer</li>
+            <li>TriRetr0, developer, dark-theme contributor</li>
             <li>Et0san, developer and author of this page</li>
         </ul>
     </div>

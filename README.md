@@ -79,4 +79,4 @@ This reposity is under GNU's General Public License (GPL). You can use this repo
 
 ## CONTRIBUTORS
 
-RawZ06 (Project lead) ; Et0san ; Touyet
+RawZ06 (Project lead) ; Et0san ; Touyet ; TriRetr0
