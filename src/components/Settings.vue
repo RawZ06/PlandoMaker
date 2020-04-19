@@ -639,7 +639,7 @@ export default {
 }
 
 .component > div {
-    background: #fafafa;
+    background: var(--app-background-color);
 }
 
 .md-dialog {

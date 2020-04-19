@@ -504,7 +504,7 @@ input[type="file"] {
     }
 
     .location-left {
-        background: white;
+        background: var(--app-background-color);
         text-align: left;
     }
 
@@ -545,13 +545,23 @@ input[type="file"] {
 </style>
 
 <style>
+.md-list.md-theme-default {
+    background-color: var(--app-background-color);
+    color: var(--app-color);
+}
+.md-list.md-theme-default .md-list-item-container {
+    color:var(--app-color);
+}
+.md-subheader.md-theme-default {
+    color:var(--app-color)
+}
+
 .md-list-item-content {
     min-height: 0;
 }
 
 .list-group-item {
 	background: var(--app-background-item);
-	color: var(--app-color);
 }
 
 .list-group-item:hover {
@@ -561,11 +571,14 @@ input[type="file"] {
 
 .list-group-item.active {
 	background: var(--app-background-item-primary);
-	color: var(--app-color);
+	color: rgb(256, 256, 256);
 }
 
 .list-group-item.active:hover {
 	background: var(--app-background-item-primary);
+	color: rgb(200, 200, 200);
+}
+.md-list.md-theme-default .md-list-item-container:not(.md-list-item-default):not(.md-list-item-expand):not([disabled]):hover {
 	color: var(--app-color);
 }
 </style>

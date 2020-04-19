@@ -87,4 +87,22 @@
 		margin: 1em auto auto;
 		text-align: center;
 	}
+	.border {
+    	border:1px solid var(--app-background-header) !important;
+	}
+	.md-field.md-theme-default.md-focused .md-input,
+	.md-field.md-theme-default.md-focused .md-textarea,
+	.md-field.md-theme-default.md-has-value .md-input,
+	.md-field.md-theme-default.md-has-value .md-textarea {
+    	-webkit-text-fill-color:var(--app-color);
+	}
+	.md-field.md-theme-default .md-helper-text,
+	.md-field.md-theme-default .md-count,
+	.md-field.md-theme-default label {
+    	color:var(--app-color);
+	}
+	.location-left {
+        background: var(--app-background-color);
+        text-align: left;
+    }
 </style>
