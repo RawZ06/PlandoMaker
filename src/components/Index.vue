@@ -566,17 +566,17 @@ input[type="file"] {
 
 .list-group-item:hover {
 	background: var(--app-background-item);
-	color: rgba(250, 250, 250, 0.80);
+	color: var(--app-color);
 }
 
 .list-group-item.active {
 	background: var(--app-background-item-primary);
-	color: var(--app-color);
+	color: rgb(256, 256, 256);
 }
 
 .list-group-item.active:hover {
 	background: var(--app-background-item-primary);
-	color: var(--app-color);
+	color: rgb(200, 200, 200);
 }
 .md-list.md-theme-default .md-list-item-container:not(.md-list-item-default):not(.md-list-item-expand):not([disabled]):hover {
 	color: var(--app-color);
