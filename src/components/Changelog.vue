@@ -14,9 +14,17 @@
 					<li>Skullsanity (i don't know how display a list of location)</li>
 				</ul>
                 <h3>
-                    VERSION 3.4.3
+                    VERSION 3.4.4
 					 <span class="badge badge-danger">BETA</span>
                     <span class="badge badge-danger">New</span>
+                </h3>
+                <ul>
+                    <li>Bug fix, presets did't fill gerudo's cards setting</li>
+                    <li>Reset before update setting to avoid errors</li>
+                </ul>
+                <h3>
+                    VERSION 3.4.3
+					 <span class="badge badge-danger">BETA</span>
                 </h3>
                 <ul>
                     <li>Versionning with external file</li>
