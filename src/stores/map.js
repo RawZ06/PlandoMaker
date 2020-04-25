@@ -60,8 +60,9 @@ const deku_theater_skull_mask = new Location("Deku Theater Skull Mask", 101);
 const deku_theater_mask_of_truth = new Location("Deku Theater Mask of Truth", 102);
 const lw_grotto_deku_scrub_deku_nut_upgrade = new Location("LW Grotto Deku Scrub Deku Nut Upgrade", 103);
 const wolfos_grotto_chest = new Location("Wolfos Grotto Chest", 104);
+const gift_from_saria = new Location("Gift from Saria", 271);
 
-const LW_list = [skull_kid, ocarina_memory_game, target_in_woods, lw_deku_scrub_deku_stick_upgrade, lost_woods_generic_grotto_chest, deku_theater_skull_mask,
+const LW_list = [gift_from_saria, skull_kid, ocarina_memory_game, target_in_woods, lw_deku_scrub_deku_stick_upgrade, lost_woods_generic_grotto_chest, deku_theater_skull_mask,
 	 deku_theater_mask_of_truth, lw_grotto_deku_scrub_deku_nut_upgrade];
 const LW = new Area("Lost Wood", LW_list, 3);
 
@@ -86,15 +87,17 @@ const gerudo_valley_list = [gerudo_valley_crate_freestanding_poh, gerudo_valley_
 const gerudo_valley = new Area("Gerudo Valley", gerudo_valley_list, 5);
 
 const gerudo_fortress_rooftop_chest = new Location("Gerudo Fortress Rooftop Chest", 39);
+const gerudo_fortress_membership_card = new Location("Gerudo Fortress Membership Card", 266);
 const horseback_archery_1000_points = new Location("Horseback Archery 1000 Points", 40);
 const horseback_archery_1500_points = new Location("Horseback Archery 1500 Points", 41);
 
-const gerudo_fortress_list = [gerudo_fortress_rooftop_chest, horseback_archery_1000_points, horseback_archery_1500_points];
+const gerudo_fortress_list = [gerudo_fortress_membership_card, gerudo_fortress_rooftop_chest, horseback_archery_1000_points, horseback_archery_1500_points];
 const gerudo_fortress = new Area("Gerudo Fortress", gerudo_fortress_list, 6);
 
 const haunted_wasteland_structure_chest = new Location("Haunted Wasteland Structure Chest", 42);
+const haunted_wasteland_bombchu_salesman = new Location("Haunted Wasteland Bombchu Salesman", 269);
 
-const haunted_wasteland_list = [haunted_wasteland_structure_chest];
+const haunted_wasteland_list = [haunted_wasteland_bombchu_salesman, haunted_wasteland_structure_chest];
 const haunted_wasteland = new Area("Haunted Wasteland", haunted_wasteland_list, 7);
 
 const colossus_freestanding_poh = new Location("Colossus Freestanding PoH", 43);
@@ -110,8 +113,9 @@ const tot = new Area("Temple of Time", tot_list, 9)
 
 const hyrule_castle_fairy_reward = new Location("Hyrule Castle Fairy Reward", 46);
 const ganons_castle_fairy_reward = new Location("Ganons Castle Fairy Reward", 47);
+const malon_egg = new Location("Malon Egg", 267);
 
-const castle_list = [hyrule_castle_fairy_reward, ganons_castle_fairy_reward];
+const castle_list = [malon_egg, hyrule_castle_fairy_reward, ganons_castle_fairy_reward];
 const castle = new Area("Castle", castle_list, 10);
 
 const loc_10_big_poes = new Location("10 Big Poes", 48);
@@ -171,9 +175,10 @@ const goron_city_pot_freestanding_poh = new Location("Goron City Pot Freestandin
 const rolling_goron_as_child = new Location("Rolling Goron as Child", 79);
 const link_the_goron = new Location("Link the Goron", 80);
 const darunias_joy = new Location("Darunias Joy", 81);
+const medigoron = new Location("Medigoron", 269);
 
 const gc_list = [goron_city_leftmost_maze_chest, goron_city_left_maze_chest, goron_city_right_maze_chest, goron_city_pot_freestanding_poh, rolling_goron_as_child,
-    link_the_goron, darunias_joy];
+    link_the_goron, darunias_joy, medigoron];
 const gc = new Area("Goron City", gc_list, 15);
 
 const dm_crater_wall_freestanding_poh = new Location("DM Crater Wall Freestanding PoH", 82);
@@ -186,11 +191,12 @@ const dmc = new Area("Death Moutain Crater", dmc_list, 16);
 
 const frog_ocarina_game = new Location("Frog Ocarina Game", 86);
 const frogs_in_the_rain = new Location("Frogs in the Rain", 87);
+const magic_bean_salesman = new Location("Magic Bean Salesman", 268);
 const zora_river_lower_freestanding_poh = new Location("Zora River Lower Freestanding PoH", 88);
 const zora_river_upper_freestanding_poh = new Location("Zora River Upper Freestanding PoH", 89);
 const zora_river_plateau_open_grotto_chest = new Location("Zora River Plateau Open Grotto Chest", 114);
 
-const river_list = [frog_ocarina_game, frogs_in_the_rain, zora_river_lower_freestanding_poh, zora_river_upper_freestanding_poh, zora_river_plateau_open_grotto_chest];
+const river_list = [magic_bean_salesman, frog_ocarina_game, frogs_in_the_rain, zora_river_lower_freestanding_poh, zora_river_upper_freestanding_poh, zora_river_plateau_open_grotto_chest];
 const river = new Area("Zora River", river_list, 17);
 
 const diving_minigame = new Location("Diving Minigame", 90);
@@ -218,8 +224,9 @@ const field_near_lake_outside_fence_grotto_chest = new Location("Field Near Lake
 const hf_grotto_deku_scrub_piece_of_heart = new Location("HF Grotto Deku Scrub Piece of Heart", 107);
 const field_west_castle_town_grotto_chest = new Location("Field West Castle Town Grotto Chest", 108);
 const tektite_grotto_freestanding_poh = new Location("Tektite Grotto Freestanding PoH", 109);
+const ocarina_of_time = new Location("Ocarina of Time", 270);
 
-const hyrule_list = [remote_southern_grotto_chest, field_near_lake_outside_fence_grotto_chest, hf_grotto_deku_scrub_piece_of_heart, field_west_castle_town_grotto_chest,
+const hyrule_list = [ocarina_of_time, remote_southern_grotto_chest, field_near_lake_outside_fence_grotto_chest, hf_grotto_deku_scrub_piece_of_heart, field_west_castle_town_grotto_chest,
     tektite_grotto_freestanding_poh];
 const hyrule = new Area("Hyrule Field", hyrule_list, 21);
 
@@ -448,6 +455,21 @@ const ganon_list = [ganons_castle_forest_trial_chest, ganons_castle_water_trial_
     ganons_castle_light_trial_third_right_chest, ganons_castle_light_trial_invisible_enemies_chest, ganons_castle_light_trial_lullaby_chest, ganons_tower_boss_key_chest];
 const ganon = new Area("Ganon Castle", ganon_list, 33);
 
+const llr_stables_left_cow = new Location("LLR Stables Left Cow", 275);
+const llr_stables_right_cow = new Location("LLR Stables Right Cow", 276);
+const llr_tower_right_cow = new Location("LLR Tower Right Cow", 277);
+const llr_tower_left_cow = new Location("LLR Tower Left Cow", 278);
+const hf_grotto_cow = new Location("HF Grotto Cow", 279);
+const dmt_grotto_cow = new Location("DMT Grotto Cow", 280);
+const impa_house_cow = new Location("Impas House Cow", 281);
+const gerudo_valley_cow = new Location("Gerudo Valley Cow", 282);
+const link_house_cow = new Location("Links House Cow", 283);
+
+const cow_list = [llr_stables_left_cow, llr_stables_right_cow, llr_tower_right_cow, llr_tower_left_cow, hf_grotto_cow, dmt_grotto_cow,
+	impa_house_cow, gerudo_valley_cow, link_house_cow];
+
+const cow = new Area("Cows", cow_list, 34);
+
 const usually_list = [];
 const usually = new GroupArea("Hash & Hints", usually_list, 0, 0);
 
@@ -481,7 +503,10 @@ const stones = new GroupArea("Stones & Medallions", stones_list, 0, 9);
 const song_group_list = [songs];
 const songs_group = new GroupArea("Songs", song_group_list, 0, 10);
 
-const map_list = [usually, stones, songs_group, dungeons_child, dungeons_adult, forest_area, fields, mountain, zora, gerudo, hyrule_castle];
+const cow_group_list = [cow];
+const cow_group = new GroupArea("Cow", cow_group_list, 0, 11);
+
+const map_list = [usually, stones, songs_group, dungeons_child, dungeons_adult, forest_area, fields, mountain, zora, gerudo, hyrule_castle, cow_group];
 const map = new Map(map_list);
 
 export default map;

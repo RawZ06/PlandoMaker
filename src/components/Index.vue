@@ -105,19 +105,7 @@
                                                 >{{item.name}}</md-option>
                                             </md-select>
                                         </md-field>
-                                        <md-field
-                                            style="width:auto; margin: 0;"
-                                            v-else-if="current_area.area_id === 1"
-                                        >
-                                            <md-select v-model="plando[location.name]">
-                                                <md-option default value />
-                                                <md-option
-                                                    v-bind:key="item.item_id"
-                                                    v-bind:value="item.name"
-                                                    v-for="item in items.songs"
-                                                >{{item.name}}</md-option>
-                                            </md-select>
-                                        </md-field>
+
                                         <md-field style="width:auto; margin: 0;" v-else>
                                             <md-select
                                                 class="selectpicker"

@@ -17,6 +17,8 @@ songs.push(new Item("Song of Time", 62));
 songs.push(new Item("Suns Song", 64));
 songs.push(new Item("Zeldas Lullaby", 65));
 
+
+
 const sm = [];
 sm.push(new Item("Kokiri Emerald", 101));
 sm.push(new Item("Goron Ruby", 102));
@@ -144,6 +146,15 @@ tools.push(new Item("Progressive Strength Upgrade", 49));
 tools.push(new Item("Progressive Wallet", 50));
 tools.push(new Item("Slingshot", 60));
 
+const sanities = []
+sanities.push(new Item("Weird Egg", 170));
+sanities.push(new Item("Gerudo Membership Card", 171));
+sanities.push(new Item("Magic Bean Pack", 172));
+sanities.push(new Item("Ocarina", 173));
+sanities.push(new Item("Giants Knife", 174));
+
+items.push(new groupItem("Sanities", sanities, 12));
+
 items.push(new groupItem("Progression Items", tools, 8));
 
 const keys = [];
@@ -165,31 +176,35 @@ keys.push(new Item("Boss Key (Ganons Castle)", 80));
 
 items.push(new groupItem("Keys", keys, 9));
 
-//Bracket settings only for the first version
-// items.push(null)
-// items.push(new Item("Map (Deku Tree)", 81));
-// items.push(new Item("Compass (Deku Tree)", 82));
-// items.push(new Item("Map (Dodongos Cavern)", 83));
-// items.push(new Item("Compass (Dodongos Cavern)", 84));
-// items.push(new Item("Map (Jabu Jabus Belly)", 85));
-// items.push(new Item("Compass (Jabu Jabus Belly)", 86));
-// items.push(new Item("Map (Forest Temple)", 87));
-// items.push(new Item("Compass (Forest Temple)", 88));
-// items.push(new Item("Map (Bottom of the Well)", 89));
-// items.push(new Item("Compass (Bottom of the Well)", 90));
-// items.push(new Item("Map (Fire Temple)", 91));
-// items.push(new Item("Compass (Fire Temple)", 92));
-// items.push(new Item("Map (Ice Cavern)", 93));
-// items.push(new Item("Compass (Ice Cavern)", 94));
-// items.push(new Item("Map (Water Temple)", 95));
-// items.push(new Item("Compass (Water Temple)", 96));
-// items.push(new Item("Map (Shadow Temple)", 97));
-// items.push(new Item("Compass (Shadow Temple)", 98));
-// items.push(new Item("Map (Spirit Temple)", 99));
-// items.push(new Item("Compass (Spirit Temple)", 100));
+const maps_compass = []
+
+maps_compass.push(new Item("Map (Deku Tree)", 150));
+maps_compass.push(new Item("Compass (Deku Tree)", 151));
+maps_compass.push(new Item("Map (Dodongos Cavern)", 152));
+maps_compass.push(new Item("Compass (Dodongos Cavern)", 153));
+maps_compass.push(new Item("Map (Jabu Jabus Belly)", 154));
+maps_compass.push(new Item("Compass (Jabu Jabus Belly)", 155));
+maps_compass.push(new Item("Map (Forest Temple)", 156));
+maps_compass.push(new Item("Compass (Forest Temple)", 157));
+maps_compass.push(new Item("Map (Bottom of the Well)", 158));
+maps_compass.push(new Item("Compass (Bottom of the Well)", 159));
+maps_compass.push(new Item("Map (Fire Temple)", 160));
+maps_compass.push(new Item("Compass (Fire Temple)", 161));
+maps_compass.push(new Item("Map (Ice Cavern)", 162));
+maps_compass.push(new Item("Compass (Ice Cavern)", 163));
+maps_compass.push(new Item("Map (Water Temple)", 164));
+maps_compass.push(new Item("Compass (Water Temple)", 165));
+maps_compass.push(new Item("Map (Shadow Temple)", 166));
+maps_compass.push(new Item("Compass (Shadow Temple)", 167));
+maps_compass.push(new Item("Map (Spirit Temple)", 168));
+maps_compass.push(new Item("Compass (Spirit Temple)", 169));
+
+items.push(new groupItem("Maps-Compass", maps_compass, 10));
+items.push(new groupItem("Songs", songs, 11));
+
+items.push(new groupItem("Triforce", [new Item("Triforce Piece", 170)], 12));
 
 export default {
     items: items,
-    sm: sm,
-    songs: songs
+    sm: sm
 };

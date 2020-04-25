@@ -7,9 +7,70 @@
                 <md-tab id="beta-3-version" md-label="V3 BETA" />
             </md-tabs>
             <div v-if="tab === 'classic-version'">
+				<h3>Todo</h3>
+				<ul>
+					<li>Scrubsanity</li>
+					<li>Shopsanity</li>
+					<li>Skullsanity (i don't know how display a list of location)</li>
+				</ul>
+                <h3>
+                    VERSION 3.4.4
+					 <span class="badge badge-danger">BETA</span>
+                    <span class="badge badge-danger">New</span>
+                </h3>
+                <ul>
+                    <li>Bug fix, presets did't fill gerudo's cards setting</li>
+                    <li>Reset before update setting to avoid errors</li>
+                </ul>
+                <h3>
+                    VERSION 3.4.3
+					 <span class="badge badge-danger">BETA</span>
+                </h3>
+                <ul>
+                    <li>Versionning with external file</li>
+                </ul>
+				<h3>
+                    VERSION 3.4.2
+					 <span class="badge badge-danger">BETA</span>
+                </h3>
+                <ul>
+                    <li>Bug Fix : Error dialog don't appear</li>
+                </ul>
+				<h3>
+                    VERSION 3.4.1
+					 <span class="badge badge-danger">BETA</span>
+                </h3>
+                <ul>
+                    <li>Second implementation of settings_string, everything except starting inventory (equipment, items, songs)</li>
+                </ul>
+				<h3>
+                    VERSION 3.4.0
+					 <span class="badge badge-danger">BETA</span>
+                </h3>
+                <ul>
+                    <li>First implementation of settings_string, just settings to string, next step will be string to settings</li>
+                </ul>
+				<h3>
+                    VERSION 3.3.0
+					 <span class="badge badge-danger">BETA</span>
+                </h3>
+                <ul>
+                    <li>Adding sanities</li>
+					<ul>
+						<li>Songsanity</li>
+						<li>Cowsanity</li>
+						<li>Weird Egg Shuflle</li>
+						<li>Ocarina Shuflle</li>
+						<li>Gerudo Card Shuflle</li>
+						<li>Bean Saleman Shuflle</li>
+						<li>Medigoron Shuflle</li>
+						<li>Carpet Saleman Shuflle</li>
+						<li>Map/Compass Shuflle</li>
+					</ul>
+					<li>Adding Triforce Piece</li>
+                </ul>
                 <h3>
                     VERSION 3.2.5
-                    <span class="badge badge-danger">New</span>
                 </h3>
                 <ul>
                     <li>Fixing slider don't save when we change tab</li>
